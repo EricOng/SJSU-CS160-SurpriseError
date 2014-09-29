@@ -10,6 +10,10 @@
 	<head>
 		<title>GoodLuck Learning</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+
 	</head>
 
 	<style type="text/css">
@@ -151,7 +155,12 @@
 			<div style="float:left;width: 200px;">
 			<a href=""><h1>GoodLuckLearning</h1><a></div>
 			<div class="login">
-						<a href="index.html">Login   </a>|  <a href="">Sign Up </a>
+					<a href="#modal">Login   </a>|  <a href="">Sign Up </a>
+					<div id="modal" class="popupContainer" style="display:none;">						
+				    <section class="popupBody">
+					    <!-- Here Goes all the Login and signup Forms -->
+					</section>
+</div>
 			</div>	
 		</div>
 		<div class="clr" style="height:150px;"></div>
