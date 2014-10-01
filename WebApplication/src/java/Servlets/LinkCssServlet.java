@@ -45,6 +45,9 @@ public class LinkCssServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println(request.toString());
+        System.out.println("================");
+        System.out.println(response.toString());
         processRequest(request, response);
     }
 
