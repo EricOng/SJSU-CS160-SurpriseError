@@ -1,0 +1,38 @@
+.class-detail{
+	
+}
+.class-detail h1{
+	color:#666;
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+}
+.class-detail ul{
+
+}
+.class-detail ul li{
+	list-style-type: none;
+}
+.class-box{
+	width: 70%;
+	float: left;
+	border: solid 1px #f2f2f2;
+}
+.provider-box{
+	width: 25%;
+	float:right;
+	/*border: solid 1px #19B5FE;*/
+
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+
+}
+.map{
+	display: block;
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.logo img{
+	display: block;
+	
+}
