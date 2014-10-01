@@ -13,10 +13,17 @@
     </head>
     <body>
         <div>
-            <form> 
+            <form>
+                <!-- the name attribute adds to the QueryString in the URL -->
+                Style <input type="text" name="Style" id="style"/><br>
                 Title <input type="text" name="Title" id="title"/><br>
                 Type  <input type="text" name="Type" id="type"/><br>
-                <input type="submit"/>
+                Cost  <input type="text" name="Cost" id="cost"/><br>
+                <!-- Dummy Structure for Time : Availability -->
+                Time  <input type="text" name="Time" id="time"/><br>
+                Length<input type="text" name="Length" id="length"/><br>
+                <!-- This button appends the QueryString -->
+                <input type="submit"/> 
             </form>
         </div>
     </body>
