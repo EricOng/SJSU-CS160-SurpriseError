@@ -6,7 +6,7 @@
 
 package Handlers;
 
-import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 /**
  *
@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface IHandler {
 
-    abstract ArrayList<String> parse(HttpServletRequest request);
+    abstract List<String> parse(HttpServletRequest request);
 
-    abstract ArrayList<String> query(ArrayList<String> data);
+    abstract List<String> query(List<String> data);
 
 }
