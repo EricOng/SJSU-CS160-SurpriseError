@@ -33,7 +33,7 @@ public class AddOfferFormHandler implements IHandler {
     }
 
     @Override
-    public List<String> query(List<String> data) {
+    public void query(List<String> data) {
         Statement stmt = null;
         String query = "select * from mydb.classes;";
         try {
@@ -46,7 +46,6 @@ public class AddOfferFormHandler implements IHandler {
         catch (SQLException e) {
             System.out.println("SQL Exception Found");
         }
-        return new ArrayList<String>();
     }
 
 }
