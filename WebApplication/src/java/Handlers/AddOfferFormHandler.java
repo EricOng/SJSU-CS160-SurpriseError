@@ -6,9 +6,14 @@
 
 package Handlers;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -29,7 +34,19 @@ public class AddOfferFormHandler implements IHandler {
 
     @Override
     public List<String> query(List<String> data) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Statement stmt = null;
+        String query = "select * from mydb.classes;";
+        try {
+            stmt = DatabaseConnection.getSingleton().getConnection().createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while(rs.next()) {
+                System.out.println(rs.getString("class_name"));
+            }
+        }
+        catch (SQLException e) {
+            System.out.println("SQL Exception Found");
+        }
+        return new ArrayList<String>();
     }
 
 }

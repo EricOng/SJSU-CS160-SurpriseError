@@ -6,8 +6,11 @@
 
 package Servlets;
 
+import Handlers.AddOfferFormHandler;
 import Handlers.DatabaseConnection;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +38,8 @@ public class AddOfferFormServlet extends HttpServlet {
         //Tmp Initiation
         System.out.println("Connecting. . .");
         DatabaseConnection.getSingleton().connectToDB();
+        AddOfferFormHandler testHandler = new AddOfferFormHandler();
+        List<String> empty = testHandler.query(new ArrayList<String>());
         DatabaseConnection.getSingleton().closeConnection();
 
         request.getRequestDispatcher("WEB-INF/AddOfferForm.jsp").forward(request, response);

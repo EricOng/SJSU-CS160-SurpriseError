@@ -31,13 +31,18 @@ public class DatabaseConnection {
         }
         return singleton;
     }
+    
+    public Connection getConnection() {
+        return conn;
+    }
+    
     public void connectToDB() {
         try {
             final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-            final String DB_URL = "jdbc:mysql://localhost/MySQLConnections";
+            final String DB_URL = "jdbc:mysql://localhost/mydb";
             //  Database credentials
             final String USER = "root";
-            final String PASS = "root";
+            final String PASS = "12345";
 
             // Register JDBC driver
             System.out.println("Finding Driver");
