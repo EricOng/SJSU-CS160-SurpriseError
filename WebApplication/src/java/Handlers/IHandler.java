@@ -16,6 +16,6 @@ public interface IHandler {
 
     abstract List<String> parse(HttpServletRequest request);
 
-    abstract List<String> query(List<String> data);
+    abstract void query(List<String> data);
 
 }
