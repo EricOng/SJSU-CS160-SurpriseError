@@ -110,7 +110,11 @@ public class SearchServlet extends HttpServlet {
         //    request.setAttribute("classList", class_list);
         //    RequestDispatcher view = request.getRequestDispatcher("/searchview.jsp");
         //    view.forward(request, response);
-            request.getRequestDispatcher("/WEB-INF/searchview.jsp").forward(request, response);
+        //    request.getRequestDispatcher("/WEB-INF/searchview.jsp").forward(request, response);
+            RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/searchview.jsp");
+            request.setAttribute("classes", class_list);
+            view.forward(request, response);
+            
             conn.close();
             System.out.println("Disconnected!");
         } catch (Exception e) {
