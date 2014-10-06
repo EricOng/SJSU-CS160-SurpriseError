@@ -7,134 +7,134 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<title>Popup Login and Register</title>
-<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-<link type="text/css" rel="stylesheet" href="css/leanStyle.css" />
+    <title>Popup Login and Register</title>
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/leanStyle.css" />
 
-<body>
-<div class="container">
-	<a id="modal_trigger" href="#modal" class="btn">Click here to Login or register</a>
+    <body>
+        <div class="container">
+            <a id="modal_trigger" href="#modal" class="btn">Click here to Login or register</a>
 
-	<div id="modal" class="popupContainer" style="display:none;">
-		<header class="popupHeader">
-			<span class="header_title">Login</span>
-			<span class="modal_close"><i class="fa fa-times"></i></span>
-		</header>
-		
-		<section class="popupBody">
-			<!-- Social Login -->
-			<div class="social_login">
-				<div class="">
-					<a href="#" class="social_box fb">
-						<span class="icon"><i class="fa fa-facebook"></i></span>
-						<span class="icon_title">Connect with Facebook</span>
-						
-					</a>
+            <div id="modal" class="popupContainer" style="display:none;">
+                <header class="popupHeader">
+                    <span class="header_title">Login</span>
+                    <span class="modal_close"><i class="fa fa-times"></i></span>
+                </header>
 
-					<a href="#" class="social_box google">
-						<span class="icon"><i class="fa fa-google-plus"></i></span>
-						<span class="icon_title">Connect with Google</span>
-					</a>
-				</div>
+                <section class="popupBody">
+                    <!-- Social Login -->
+                    <div class="social_login">
+                        <div class="">
+                            <a href="#" class="social_box fb">
+                                <span class="icon"><i class="fa fa-facebook"></i></span>
+                                <span class="icon_title">Connect with Facebook</span>
 
-				<div class="centeredText">
-					<span>Or use your Email address</span>
-				</div>
+                            </a>
 
-				<div class="action_btns">
-					<div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
-					<div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
-				</div>
-			</div>
+                            <a href="#" class="social_box google">
+                                <span class="icon"><i class="fa fa-google-plus"></i></span>
+                                <span class="icon_title">Connect with Google</span>
+                            </a>
+                        </div>
 
-			<!-- Username & Password Login form -->
-			<div class="user_login">
-				<form>
-					<label>Email / Username</label>
-					<input type="text" />
-					<br />
+                        <div class="centeredText">
+                            <span>Or use your Email address</span>
+                        </div>
 
-					<label>Password</label>
-					<input type="password" />
-					<br />
+                        <div class="action_btns">
+                            <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
+                            <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
+                        </div>
+                    </div>
 
-					<div class="checkbox">
-						<input id="remember" type="checkbox" />
-						<label for="remember">Remember me on this computer</label>
-					</div>
+                    <!-- Username & Password Login form -->
+                    <div class="user_login">
+                        <form>
+                            <label>Email / Username</label>
+                            <input type="text" />
+                            <br />
 
-					<div class="action_btns">
-						<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-						<div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
-					</div>
-				</form>
+                            <label>Password</label>
+                            <input type="password" />
+                            <br />
 
-				<a href="#" class="forgot_password">Forgot password?</a>
-			</div>
+                            <div class="checkbox">
+                                <input id="remember" type="checkbox" />
+                                <label for="remember">Remember me on this computer</label>
+                            </div>
 
-			<!-- Register Form -->
-			<div class="user_register">
-				<form>
-					<label>Full Name</label>
-					<input type="text" />
-					<br />
+                            <div class="action_btns">
+                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                                <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+                            </div>
+                        </form>
 
-					<label>Email Address</label>
-					<input type="email" />
-					<br />
+                        <a href="#" class="forgot_password">Forgot password?</a>
+                    </div>
 
-					<label>Password</label>
-					<input type="password" />
-					<br />
+                    <!-- Register Form -->
+                    <div class="user_register">
+                        <form>
+                            <label>Full Name</label>
+                            <input type="text" />
+                            <br />
 
-					<div class="checkbox">
-						<input id="send_updates" type="checkbox" />
-						<label for="send_updates">Send me occasional email updates</label>
-					</div>
+                            <label>Email Address</label>
+                            <input type="email" />
+                            <br />
 
-					<div class="action_btns">
-						<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-						<div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
-					</div>
-				</form>
-			</div>
-		</section>
-	</div>
-</div>
+                            <label>Password</label>
+                            <input type="password" />
+                            <br />
 
-<script type="text/javascript">
-	$("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+                            <div class="checkbox">
+                                <input id="send_updates" type="checkbox" />
+                                <label for="send_updates">Send me occasional email updates</label>
+                            </div>
 
-	$(function(){
-		// Calling Login Form
-		$("#login_form").click(function(){
-			$(".social_login").hide();
-			$(".user_login").show();
-			return false;
-		});
+                            <div class="action_btns">
+                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                                <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
 
-		// Calling Register Form
-		$("#register_form").click(function(){
-			$(".social_login").hide();
-			$(".user_register").show();
-			$(".header_title").text('Register');
-			return false;
-		});
+        <script type="text/javascript">
+            $("#modal_trigger").leanModal({top: 200, overlay: 0.6, closeButton: ".modal_close"});
 
-		// Going back to Social Forms
-		$(".back_btn").click(function(){
-			$(".user_login").hide();
-			$(".user_register").hide();
-			$(".social_login").show();
-			$(".header_title").text('Login');
-			return false;
-		});
+            $(function() {
+                // Calling Login Form
+                $("#login_form").click(function() {
+                    $(".social_login").hide();
+                    $(".user_login").show();
+                    return false;
+                });
 
-	})
-</script>
+                // Calling Register Form
+                $("#register_form").click(function() {
+                    $(".social_login").hide();
+                    $(".user_register").show();
+                    $(".header_title").text('Register');
+                    return false;
+                });
 
-</body>
+                // Going back to Social Forms
+                $(".back_btn").click(function() {
+                    $(".user_login").hide();
+                    $(".user_register").hide();
+                    $(".social_login").show();
+                    $(".header_title").text('Login');
+                    return false;
+                });
+
+            })
+        </script>
+
+    </body>
 </html>
 
