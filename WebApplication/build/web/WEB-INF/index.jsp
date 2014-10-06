@@ -200,7 +200,7 @@
 			
 			<div>
 			<div  style="float:none;width:650px;margin-left:auto;margin-right:auto;margin-top:18px;">	
-						<form class="searchform">
+						<form class="searchform" method="POST" action="SearchServlet">
 							<select class="search_category" value="Category">
 								<option>Category</option>
 								<option>English</option>
@@ -212,9 +212,9 @@
 
 							</select>
 
-							<input class="searchfield" style="width: 200px;"type="text" placeholder="Keywords: Javascript, Afterschool..." onfocus="if (this.value == 'Keywords: Javascript, Afterschool...') {this.value = '';}" onblur="if (this.value == '') {this.value = '';}">
+							<input class="searchfield" name="category" style="width: 200px;"type="text" placeholder="Keywords: Javascript, Afterschool..." onfocus="if (this.value == 'Keywords: Javascript, Afterschool...') {this.value = '';}" onblur="if (this.value == '') {this.value = '';}">
 							<input class="searchfield" style="width: 100px;" type="text" placeholder="Near: zipcode" onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == 'zipcode') {this.value = '';}">
-							<input class="searchbutton" type="button" value="Go" onClick="parent.location='result.html'">
+							<input class="searchbutton" type="submit" name="search" value="Go" onClick="parent.location='result.html'">
 						</form>
 					</div>
 		</div></div>
