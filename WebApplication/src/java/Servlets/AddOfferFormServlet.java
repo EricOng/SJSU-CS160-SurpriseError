@@ -7,25 +7,11 @@
 package Servlets;
 
 import Handlers.AddOfferFormHandler;
-import Handlers.DatabaseConnection;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.sql.*;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 
 /**
  *
@@ -48,7 +34,7 @@ public class AddOfferFormServlet extends HttpServlet {
 
         if(request.getQueryString() != null){
             AddOfferFormHandler handler = new AddOfferFormHandler();
-            handler.query(handler.parse(request));
+            handler.query(handler.parse(request)); 
         }
         request.getRequestDispatcher("WEB-INF/AddOfferForm.jsp").forward(request, response);
         
