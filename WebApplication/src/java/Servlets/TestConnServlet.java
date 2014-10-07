@@ -57,7 +57,7 @@ public class TestConnServlet extends HttpServlet {
     // JDBC driver name and database URL
     System.err.println("Start");
     final String JDBC_DRIVER="com.mysql.jdbc.Driver";
-    final String DB_URL = "jdbc:mysql://localhost/MySQLConnections";
+    final String DB_URL = "jdbc:mysql://localhost:3307/MySQLConnections";
     //  Database credentials
     final String USER = "root";
         final String PASS = "root";

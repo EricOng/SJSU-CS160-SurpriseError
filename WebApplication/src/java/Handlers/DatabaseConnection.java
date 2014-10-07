@@ -39,17 +39,17 @@ public class DatabaseConnection {
     public void connectToDB() {
         try {
             final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-            final String DB_URL = "jdbc:mysql://localhost/mydb";
+            final String DB_URL = "jdbc:mysql://localhost:3307/mydb";
             //  Database credentials
             final String USER = "root";
-            final String PASS = "12345";
+            final String PASS = "root";
 
             // Register JDBC driver
             System.out.println("Finding Driver");
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver"); //Loading the DB driver
             System.out.println("Driver Found");
             // Open a connection
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            conn = DriverManager.getConnection(DB_URL, USER, PASS); //Setting the connection
             System.out.println("Connection Successful");
         } catch (Exception e) {
             System.out.println("Connection Failed. . .");

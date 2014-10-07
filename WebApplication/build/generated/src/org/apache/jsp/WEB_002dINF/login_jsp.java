@@ -66,15 +66,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <!-- Social Login -->\r\n");
       out.write("                    <div class=\"social_login\">\r\n");
       out.write("                        <div class=\"\">\r\n");
-      out.write("                            <a href=\"#\" class=\"social_box fb\">\r\n");
-      out.write("                                <span class=\"icon\"><i class=\"fa fa-facebook\"></i></span>\r\n");
-      out.write("                                <span class=\"icon_title\">Connect with Facebook</span>\r\n");
-      out.write("                            </a>\r\n");
-      out.write("\r\n");
-      out.write("                            <a href=\"#\" class=\"social_box google\">\r\n");
-      out.write("                                <span class=\"icon\"><i class=\"fa fa-google-plus\"></i></span>\r\n");
-      out.write("                                <span class=\"icon_title\">Connect with Google</span>\r\n");
-      out.write("                            </a>\r\n");
       out.write("                        </div>\r\n");
       out.write("\r\n");
       out.write("                        <div class=\"centeredText\">\r\n");
@@ -174,8 +165,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </script>\r\n");
       out.write("\r\n");
       out.write("    </body>\r\n");
-      out.write("</html>\r\n");
-      out.write("\r\n");
+      out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
