@@ -14,12 +14,18 @@ import java.util.ArrayList;
 import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
 /**
  *
@@ -40,15 +46,12 @@ public class AddOfferFormServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        //Tmp Initiation
-        System.out.println("Connecting. . .");
-        DatabaseConnection.getSingleton().connectToDB();
-        AddOfferFormHandler testHandler = new AddOfferFormHandler();
-        testHandler.query(new ArrayList<String>());
-        DatabaseConnection.getSingleton().closeConnection();
-
+        if(request.getQueryString() != null){
+            AddOfferFormHandler handler = new AddOfferFormHandler();
+            handler.query(handler.parse(request));
+        }
         request.getRequestDispatcher("WEB-INF/AddOfferForm.jsp").forward(request, response);
-
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

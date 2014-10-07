@@ -13,7 +13,7 @@
     </head>
     <body>
         <div>
-            <form>
+            <form method="process" action="AddOfferFormServlet">
                 <!-- the name attribute adds to the QueryString in the URL -->
                 Style <input type="text" name="Style" id="style"/><br>
                 Title <input type="text" name="Title" id="title"/><br>
