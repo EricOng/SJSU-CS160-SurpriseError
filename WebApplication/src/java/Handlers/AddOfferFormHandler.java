@@ -8,6 +8,7 @@ package Handlers;
 
 import Servlets.AddOfferFormServlet;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -30,16 +31,19 @@ public class AddOfferFormHandler implements IHandler {
 
     @Override
     public List<String> parse(HttpServletRequest request) {
+        List<String> parseData = new ArrayList<String>();
+        //Parse only the first value from each Field of the AddOfferForm
         try {
-            List<String> parseData = new ArrayList<String>();
-            System.out.println(request.toString());
-            String raw = request.getQueryString();
-            String container[] = raw.split("&");
-            parseData = Arrays.asList(container);
-            return parseData;
+            parseData.add(request.getParameterValues("Style")[0]);
+            parseData.add(request.getParameterValues("Title")[0]);
+            parseData.add(request.getParameterValues("Type")[0]);
+            parseData.add(request.getParameterValues("Cost")[0]);
+            parseData.add(request.getParameterValues("Time")[0]);
+            parseData.add(request.getParameterValues("Length")[0]);
         } catch (NullPointerException e){
             return new ArrayList<String>();
-        }
+        } catch (IndexOutOfBoundsException e) {};
+        return parseData;
     }
 
     @Override
@@ -51,21 +55,24 @@ public class AddOfferFormHandler implements IHandler {
         Connection conn = null;
         ResultSet rs = null;
         Statement stmt = null;
-        String query = "select * from mydb.classes;";
+        PreparedStatement prpStmt = null;
+        String query = "insert into mydb.classes (id_class, class_name, class_category, source, description, cost) " +
+                        "select count(id_class)+1, ?, ?, 5, ?, 4  from mydb.classes;";
         try {
             initCtx = new InitialContext();
             envCtx = (Context) initCtx.lookup("java:comp/env");
             System.out.println("Getting Datasource");
             ds = (DataSource) envCtx.lookup("jdbc/mydb");
-            //stmt = ds.getConnection().prepareStatement(query);
             System.out.println("DataSource Connection success");
             conn = ds.getConnection();
-            stmt = conn.createStatement();
-
-            rs = stmt.executeQuery(query);
-            while(rs.next()) {
-                System.out.println(rs.getString("class_name"));
-            }
+            //stmt = conn.createStatement();
+            prpStmt = conn.prepareStatement(query);
+            prpStmt.setString(1, data.get(1));
+            prpStmt.setString(2, data.get(2));
+            prpStmt.setString(3, data.get(3));
+           
+            int rowsAffected = prpStmt.executeUpdate();
+            System.out.println("Rows Affected: " + rowsAffected);
             conn.close();
         } catch (SQLException e) {
             System.out.println("SQL Exception Found Querying For AddOfferForm");
