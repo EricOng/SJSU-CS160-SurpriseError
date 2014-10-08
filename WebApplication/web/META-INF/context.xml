@@ -2,7 +2,7 @@
 <Context antiJARLocking="true" path="/WebApplication">
     <Resource 
         name="jdbc/mydb" auth="Container" type="javax.sql.DataSource"
-        username="root" password="12345" driverClassName="com.mysql.jdbc.Driver"
+        username="root" password="root" driverClassName="com.mysql.jdbc.Driver"
         url="jdbc:mysql://localhost:3306/mydb"
         maxActive="15"
         maxIdle="3"/>

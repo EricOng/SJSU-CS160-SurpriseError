@@ -7,6 +7,7 @@
 package Handlers;
 
 import Servlets.AddOfferFormServlet;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -42,29 +43,58 @@ public class AddOfferFormHandler implements IHandler {
     }
 
     @Override
-    public void query(List<String> data) { 
-           
+    public void query(List<String> data) {
+
+        Context initCtx = null;
+        Context envCtx = null;
+        DataSource ds = null;
+        Connection conn = null;
+        ResultSet rs = null;
         Statement stmt = null;
         String query = "select * from mydb.classes;";
-        try { 
-            Context initCtx = new InitialContext();
-            Context envCtx = (Context) initCtx.lookup("java:comp/env");
+        try {
+            initCtx = new InitialContext();
+            envCtx = (Context) initCtx.lookup("java:comp/env");
             System.out.println("Getting Datasource");
-            DataSource ds = (DataSource) envCtx.lookup("jdbc/mydb");
-            System.out.println(ds.toString());
-//            stmt = ds.getConnection().prepareStatement(query); 
+            ds = (DataSource) envCtx.lookup("jdbc/mydb");
+            //stmt = ds.getConnection().prepareStatement(query);
             System.out.println("DataSource Connection success");
-            stmt = ds.getConnection().createStatement();
-            ResultSet rs = stmt.executeQuery(query);
+            conn = ds.getConnection();
+            stmt = conn.createStatement();
+
+            rs = stmt.executeQuery(query);
             while(rs.next()) {
                 System.out.println(rs.getString("class_name"));
             }
-            ds.getConnection().close();
+            conn.close();
         } catch (SQLException e) {
-            System.out.println("SQL Exception Found");
+            System.out.println("SQL Exception Found Querying For AddOfferForm");
         } catch (NamingException e) {
             Logger.getLogger(AddOfferFormServlet.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            // Always make sure result sets and statements are closed,
+            // and the connection is returned to the pool
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {;
+                }
+                rs = null;
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {;
+                }
+                stmt = null;
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {;
+                }
+                conn = null;
+            }
         }
     }
-
 }
