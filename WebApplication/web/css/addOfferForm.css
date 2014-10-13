@@ -1,0 +1,64 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 8, 2014, 12:16:11 PM
+    Author     : Eric Ong
+*/
+@import url(http://fonts.googleapis.com/css?family=Lora);
+@import url(http://fonts.googleapis.com/css?family=Share+Tech+Mono);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic);
+
+.submit_form {
+    width: 70%;
+}
+label {
+    float: left;
+}
+label.field {
+    
+}
+.descriptionBox {
+    width: 120%;
+    height: 305px;
+    overflow: auto;
+}
+fieldset {
+    border: none;
+    float: left;
+    display: inline;
+}
+p {
+    alignment-adjust: auto;
+}
+input {
+    width: auto;
+}
+
+#mainForm {
+    padding: 0;
+    width: auto;
+}
+.submit_button {
+    font-family: 'Source Sans Pro';
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #666;
+    width: 120%;
+    height: 110%;
+    padding: 5px 10px;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+.submit_button_position {
+    margin: 20px;
+    float: left;
+    padding: 0 15px 20px 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
