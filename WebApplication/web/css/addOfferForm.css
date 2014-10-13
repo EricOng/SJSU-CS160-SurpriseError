@@ -62,3 +62,13 @@ input {
     bottom: 0;
     right: 0;
 }
+.popupContainerSubmit {
+	position:absolute;
+	width:45%;
+	height: auto;
+	left:45%;
+	margin-left: auto;
+        margin-right: auto;
+	top:80px;
+	background: #FFF;
+}

@@ -15,15 +15,12 @@ body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
 
 .popupContainer{
 	position:absolute;
-	width:45%;
+	width:330px;
 	height: auto;
 	left:45%;
-	margin-left: auto;
-        margin-right: auto;
 	top:80px;
 	background: #FFF;
 }
-
 #modal_trigger {margin:100px auto; width:100px; display:block;}
 
 .btn {padding:10px 20px; background: #F4F4F2;}

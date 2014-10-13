@@ -29,7 +29,7 @@
         <div class="container">
             <a id="modal_trigger" href="#modal" class="btn">Add Course</a>
 
-            <div id="modal" class="popupContainer" style="display:none">
+            <div id="modal" class="popupContainerSubmit" style="display:none">
                 <header class="popupHeader">
                     <span>Course</span>
                     <span class="modal_close"><i class="fa fa-times"></i></span>
