@@ -12,7 +12,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/style-1.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+<link href="css/jquery_popup_contactform.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/jquery_popup_contactform.js"></script>
 </head>
 <body>
 	<!-- fix bar goes here -->
@@ -143,7 +146,7 @@ Tackle the barebones of how to quickly develop a web site, and get it live on th
 				<div style="height:100px"></div>
 					<div class="wish-list"><i class="fa fa-heart"></i> &nbsp;Save to Wish List</div>
 				<div style="height:10px"></div>
-				<div class="request-for-info">Request for Info</div>
+				<div class="request-for-info" id="onclick">Request for Info</div>
 				<div style="height:40px"></div>
 				<div >
 					<img src="images/edu1.jpg" width="200" height="auto">
@@ -156,6 +159,26 @@ Tackle the barebones of how to quickly develop a web site, and get it live on th
 			
 			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			</div>
+                        <!-- Contact Form -->
+                    <div id="contactdiv">
+                    <form class="form" action="#" id="contact">
+                    <img src="images/button_cancel.png" class="img" id="cancel" width="32px"/>
+                    <h3>Request Info Form</h3>
+                    <label>Name: <span>*</span></label>
+                    <input type="text" id="name" placeholder="Name"/>
+                    <label>Email: <span>*</span></label>
+                    <input type="text" id="email" placeholder="Email"/>
+                    <label>Contact No: <span>*</span></label>
+                    <input type="text" id="contactno" placeholder="10 digit Mobile no."/>
+                    <label>Message:</label>
+                    <textarea id="message" placeholder="Message......."></textarea>
+                    <input type="button" id="send" value="Send"/>
+                    <input type="button" id="cancel" value="Cancel"/>
+                    <br/>
+                    </form>
+                    </div>
+                        
+                    <!-- Contact Form -->
 		</div>	
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<div class="clr"></div>
