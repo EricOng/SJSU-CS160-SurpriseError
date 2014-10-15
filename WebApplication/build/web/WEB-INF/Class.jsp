@@ -21,7 +21,7 @@
 	<!-- fix bar goes here -->
 	<div>
 		<div class="fixbar">
-			<div class="single-class-container">
+			<div class="container">
 				<div class="logo">
 					<a href="index.html"><h1>GoodLuckLearning</h1></a>
 				</div>
@@ -41,7 +41,7 @@
 						</form>
 					</div>
 					<div class="login-container">
-						<a href="">Login  </a>| <a href="">Sign Up </a>
+						 <a href="">Login </a>| <a href="">Sign Up </a>
 					</div>	
 				</div>
 				
@@ -52,10 +52,8 @@
 	<!-- fix bar goes here -->
 	<div class="clr"></div>
 	<div class="single-class-content-wrapper">
-		<p class="search_result"> > Category <a href=""><span class="keyword">Programming</span></a> near <a href=""><span class="keyword">Sunnyvale</span>  </a> > <a href="" style="color:#666;text-decoration:underline;">WEB DEVELOPMENT: HTML AND CSS</a></p>
+		<p class="search_result"> Category <a href=""><span class="keyword">Programming</span></a> near <a href=""><span class="keyword">Sunnyvale</span>  </a> > <a href="" style="color:#666;text-decoration:underline;">WEB DEVELOPMENT: HTML AND CSS</a></p>
 		<div class="clr" style="height:20px;"></div>
-                <div style="height:30px"></div>
-					<div class="wish-list"><i class="fa fa-heart"></i> &nbsp;Save to Wish List</div>
 		<div class="class-detail">
 			<div class="class-box">
 				<h1>WEB DEVELOPMENT <br>HTML AND CSS</h1>
@@ -70,9 +68,9 @@ Tackle the barebones of how to quickly develop a web site, and get it live on th
 				<h2>Course Details</h2>
 				<table>
 					<tr>
-						<td><h2>Class Style</h2></td>
+						<td><h2>Class Type</h2></td>
 						<td><h2></h2></td>
-						<td><h2></h2></td>
+						<td><h2>Class Type</h2></td>
 						<td><h2></h2></td>
 					</tr>
 					<tr>
@@ -82,7 +80,7 @@ Tackle the barebones of how to quickly develop a web site, and get it live on th
 						<td><h2></h2></td>
 					</tr>
 					<tr>
-						<td><h2>Scheduled Time</h2></td>
+						<td><h2>Availability</h2></td>
 						<td><h2></h2></td>
 						
 					</tr>
@@ -145,15 +143,14 @@ Tackle the barebones of how to quickly develop a web site, and get it live on th
 
 
 			<div class="provider-box">
+				<div style="height:100px"></div>
+					<div class="wish-list"><i class="fa fa-heart"></i> &nbsp;Save to Wish List</div>
+				<div style="height:10px"></div>
 				<div class="request-for-info" id="onclick">Request for Info</div>
-				<div style="height:20px"></div>
+				<div style="height:40px"></div>
 				<div >
 					<img src="images/edu1.jpg" width="200" height="auto">
 				</div>
-                                <div class="clr" style="height:20px;"></div>
-                                <div><h2>ThinkTankLearning</h2></div>
-                                
-                                <div><h3>+1 (408) 480-2796</h3></div>
 				<div class="clr" style="height:40px;"></div>
 				<div class="map">
 				<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div style="overflow:hidden;height:300px;width:200px;"><div id="gmap_canvas" style="height:300px;width:200px;"></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style><a class="google-map-code" href="http://www.trivoo.net" id="get-map-data">lea</a></div><script type="text/javascript"> function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(37.3366915,-121.88020180000001),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(37.3366915, -121.88020180000001)});infowindow = new google.maps.InfoWindow({content:"<b>San Jose State University</b><br/>1 Washington Sq,<br/> San Jose" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>

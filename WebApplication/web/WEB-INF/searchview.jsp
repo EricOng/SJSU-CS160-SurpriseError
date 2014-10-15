@@ -72,7 +72,7 @@
                 
 		
 				
-					<li><a class="list_block">
+					<li><a class="list_block" href="BrowseClassServlet">
 						<div>
 							<div class="course-title">
 							<h1><%=cList.get(1)%></h1>
