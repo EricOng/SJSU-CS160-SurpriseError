@@ -41,31 +41,43 @@
                             <!-- the name attribute adds to the QueryString in the URL -->
                             <fieldset form="mainForm">
                                 <p>
-                                    <label class="field">Style</label><br>
+                                    <label>Style</label><br>
                                     <input type="text" name="Style" id="style"/>
                                     <br>
-                                    <label class="field">Title</label><br>
+                                    <label>Title</label><br>
                                     <input type="text" name="Title" id="title"/>
                                     <br>
-                                    <label class="field">Category</label><br>
-                                    <input type="text" name="Category" id="cate"/>
+                                    <label>Category</label><br>
+                                    <select name="Category" id="cate">
+                                        <option value=""></option>
+                                        <option value="Math">Math</option>
+                                        <option value="Language">Language</option>
+                                    </select>
                                     <br>
-                                    <label class="field">Cost</label><br>
-                                    <input type="text" name="Cost" id="cost"/>
+                                    <label>Cost</label><br>
+                                    <input type="text" name="Cost" id="cost" value="$0.00"/>
                                     <br>
                                 </p>
+                                
                             <!-- Dummy Structure for Time : Availability -->
                                 <p>
-                                    <label class="field">Time</label><br>
+                                    <label>Time</label><br>
                                     <input type="text" name="Time" id="time"/>
                                     <br>
-                                    <label class="field">Length</label><br>
-                                    <input type="text" name="Length" id="length"/>
+                                    <label>Length</label>
+                                    <label class="field">Units</label><br>
+                                    <input class="inLength" type="text" name="Length" id="length"/>
+                                    <select class="inLength" name="LengthUnits" id="lengthUnits">
+                                        <option value=""/>
+                                        <option value="Days">Days</option>
+                                        <option value="Weeks">Weeks</option>
+                                        <option value="Months">Months</option>
+                                    </select>
                                     <br>
                                 </p>
                                 <p>
-                                    <label class="field">Link</label><br>
-                                    <input type="text" name="Url" id="url"/>
+                                    <label>Link</label><br>
+                                    <input type="text" name="Url" id="url" value="None"/>
                                     <br>
                                     <br>
                                 </p>

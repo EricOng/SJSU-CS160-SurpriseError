@@ -40,6 +40,7 @@ public class AddOfferFormHandler implements IHandler {
             parseData.add(request.getParameterValues("Style")[0]);
             parseData.add(request.getParameterValues("Url")[0]);
             parseData.add(request.getParameterValues("Length")[0]);
+            parseData.add(request.getParameterValues("LengthUnits")[0]);
             parseData.add(request.getParameterValues("Time")[0]);
         } catch (NullPointerException e){
             return new ArrayList<String>();
@@ -62,6 +63,11 @@ public class AddOfferFormHandler implements IHandler {
                 + "class_category, description, cost, class_style, "
                 + "class_url, class_duration, class_availability) "
                 + "select count(id_class)+1, ?, ?, ?, ?, ?, ?, ?, ? from mydb.classes;";
+
+        /**
+         * STILL NEED ACCESS TO LOGIN INFO TO UPDATE THE LINKING TABLE:
+         * classes_business
+         */
         try {
             initCtx = new InitialContext();
             envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -79,8 +85,8 @@ public class AddOfferFormHandler implements IHandler {
             prpStmt.setInt(4, Integer.valueOf(data.get(3)));  //cost
             prpStmt.setString(5, data.get(4));  //style
             prpStmt.setString(6, data.get(5));  //link
-            prpStmt.setString(7, data.get(6));  //length
-            prpStmt.setString(8, data.get(7));  //time/availability
+            prpStmt.setString(7, data.get(6) + " " + data.get(7));  //length
+            prpStmt.setString(8, data.get(8));  //time/availability
 
             int rowsAffected = prpStmt.executeUpdate();
             System.out.println("Rows Affected: " + rowsAffected);

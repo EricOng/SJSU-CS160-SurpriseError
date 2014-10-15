@@ -20,13 +20,19 @@ label {
     float: left;
 }
 label.field {
-    
+ padding-left: 88px;   
+}
+input {
+    text-align: right;
+}
+.inLength {
+    width: 87px;
 }
 .descriptionBox {
     width: 120%;
-    height: 305px;
+    height: 315px;
     overflow: auto;
-}
+} 
 fieldset {
     border: none;
     float: left;
@@ -36,12 +42,23 @@ p {
     alignment-adjust: auto;
 }
 input {
+    font-family: 'Source Sans Pro';
     width: auto;
+    width: 175px;
 }
 
 #mainForm {
     padding: 0;
     width: auto;
+}
+select{
+    font-family: 'Source Sans Pro';
+    color: #666;
+    width: 175px;
+}
+option {
+    font-family: 'Source Sans Pro';
+    color: #666;
 }
 .submit_button {
     font-family: 'Source Sans Pro';

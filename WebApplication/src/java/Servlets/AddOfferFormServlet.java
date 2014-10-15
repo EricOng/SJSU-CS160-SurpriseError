@@ -34,10 +34,10 @@ public class AddOfferFormServlet extends HttpServlet {
 
         if(request.getQueryString() != null){
             AddOfferFormHandler handler = new AddOfferFormHandler();
-            handler.query(handler.parse(request)); 
+            handler.query(handler.parse(request));
         }
         request.getRequestDispatcher("WEB-INF/AddOfferForm.jsp").forward(request, response);
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
