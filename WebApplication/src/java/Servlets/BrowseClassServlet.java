@@ -93,8 +93,9 @@ public class BrowseClassServlet extends HttpServlet {
             System.out.println("DataSource Connection success");
             conn = ds.getConnection();
             System.out.println("Connected!");
+            System.out.println("Parameter****************** "+request.getParameter("param1"));
            /* String category = request.getParameter("category");//tochange
- 
+            
             ArrayList al = null;
             ArrayList class_list = new ArrayList();
             String query = "select * from classes";

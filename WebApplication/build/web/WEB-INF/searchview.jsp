@@ -72,7 +72,7 @@
                 
 		
 				
-					<li><a class="list_block" href="BrowseClassServlet">
+					<li><a class="list_block" href="BrowseClassServlet?method=doPost&param1=<%=cList.get(0)%>">
 						<div>
 							<div class="course-title">
 							<h1><%=cList.get(1)%></h1>
