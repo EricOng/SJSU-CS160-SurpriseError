@@ -99,10 +99,10 @@ border-radius: 5px;
 	border-bottom-color: #fff;
 }
 .wish-list{
-		display: block;
-	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
+    text-align: center;
+	display: block;
+	width: 200px;
+
 	padding: 7px 3px 7px 3px;
 	color: #444;
 border-color: #dce0e0;
@@ -169,4 +169,15 @@ color: #000;
 	padding-top: 2px;
 	padding-bottom: 15px;
 	font-family: 'Raleway', sans-serif;
+}
+
+.provider-box h2{
+    
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+.provider-box h3{
+    
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
 }
