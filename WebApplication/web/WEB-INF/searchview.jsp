@@ -8,7 +8,7 @@
 <title>GoodLuck Learning</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
 </head>
     <body>
         <div>
@@ -25,19 +25,19 @@
 								<option>1</option>
 								<option>2</option>
 								<option>3</option>
-							</select>
-
+							</select> 
+ 
 							<input class="searchfield" style="width: 200px;"type="text" placeholder="Keywords: Javascript, Afterschool..." onfocus="if (this.value == 'Keywords: Javascript, Afterschool...') {this.value = '';}" onblur="if (this.value == '') {this.value = '';}">
 							<input class="searchfield" style="width: 100px;" type="text" placeholder="Near: zipcode" onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == 'zipcode') {this.value = '';}">
 							<input class="searchbutton" type="button" value="Go">
 						</form>
 					</div>
 					<div class="login-container">
-						<a href="">Login  </a>| <a href="">Sign Up </a>
+                                            <a href="">Login </a>| <a href="">Sign Up </a>
 					</div>	
 				</div>
 				
-						
+				 		
 		</div>
 		</div>
 	</div>
