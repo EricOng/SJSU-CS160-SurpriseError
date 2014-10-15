@@ -146,10 +146,21 @@ p{
     letter-spacing: 0.095em;
     color:#666;
 }
+
+.map-wrapper{
+    float:left;
+    width: 30%;
+    height:98%;
+    background:#666;
+    position:fixed;
+
+}
 .content-wrapper{
-  width: 960px;
+    padding-left:5%;
+  width: 65%;
   margin-left: auto;
   margin-right: auto;
+  float:right;
 
 }
 .search_result{

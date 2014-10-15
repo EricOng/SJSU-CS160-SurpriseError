@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.util.ArrayList;
 import java.sql.*;
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.RequestDispatcher;
+import javax.sql.DataSource;
 
 /**
  *
@@ -63,17 +66,26 @@ public class SearchServlet extends HttpServlet {
         
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+         Context initCtx = null;
+        Context envCtx = null;
+        DataSource ds = null;
         Connection conn = null;
-        String url = "jdbc:mysql://localhost:3306/";
+        String url = "jdbc:mysql://localhost:3307/";
         String dbName = "mydb";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "root";
-        String password = "12345";
+        String password = "root";
  
         Statement st;
         try {
-            Class.forName(driver).newInstance();
-            conn = DriverManager.getConnection(url + dbName, userName, password);
+      //      Class.forName(driver).newInstance();
+       //     conn = DriverManager.getConnection(url + dbName, userName, password);
+             initCtx = new InitialContext();
+            envCtx = (Context) initCtx.lookup("java:comp/env");
+            System.out.println("Getting Datasource");
+            ds = (DataSource) envCtx.lookup("jdbc/mydb");
+            System.out.println("DataSource Connection success");
+            conn = ds.getConnection();
             System.out.println("Connected!");
             String category = request.getParameter("category");//tochange
  
@@ -108,10 +120,7 @@ public class SearchServlet extends HttpServlet {
             System.out.println("=====================================");
             System.out.println("# of rows: "+count);
             System.out.println("=====================================");
-        //    request.setAttribute("classList", class_list);
-        //    RequestDispatcher view = request.getRequestDispatcher("/searchview.jsp");
-        //    view.forward(request, response);
-        //    request.getRequestDispatcher("/WEB-INF/searchview.jsp").forward(request, response);
+
             RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/searchview.jsp");
             request.setAttribute("classes", class_list);
             view.forward(request, response);

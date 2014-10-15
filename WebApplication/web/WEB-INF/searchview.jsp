@@ -43,8 +43,9 @@
 	</div>
 	<div class="clr"></div>
         <!-- Here is the search result  -->
-         
-        
+       
+        <div class="map-wrapper"> 
+        </div>
         <div class="content-wrapper">
            
 		 <%
@@ -101,6 +102,6 @@
 			</ul>
 		</div>	
 	</div>
-        
+ 
     </body>
 </html>
