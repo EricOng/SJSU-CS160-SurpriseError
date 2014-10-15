@@ -39,6 +39,14 @@
         <servlet-name>Search</servlet-name>
         <servlet-class>Servlets.SearchServlet</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>BrowseClass</servlet-name>
+        <servlet-class>Servlets.BrowseClassServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BrowseClass</servlet-name>
+        <url-pattern>/Class</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Search</servlet-name>
         <url-pattern>/searchview</url-pattern>
