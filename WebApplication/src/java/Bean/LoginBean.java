@@ -6,17 +6,18 @@
 
 package Bean;
 
-//import javax.ejb.Stateful;
+import javax.ejb.Stateful;
 
 /**
  *
  * @author Eric Ong
  */
-//@Stateful
+@Stateful
 public class LoginBean {
 
     private boolean valid;
     private String name;
+    private int id;
 
     public LoginBean() {
         valid = false;
@@ -40,4 +41,13 @@ public class LoginBean {
     public void setName(String name) {
         this.name = name;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

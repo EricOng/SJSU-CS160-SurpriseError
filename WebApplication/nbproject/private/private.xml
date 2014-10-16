@@ -3,12 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Eileen/Documents/GitHub/SJSU-CS160-SurpriseError/WebApplication/web/css/style.css</file>
-            <file>file:/C:/Users/Eileen/Documents/GitHub/SJSU-CS160-SurpriseError/WebApplication/web/css/style-1.css</file>
-            <file>file:/C:/Users/Eileen/Documents/GitHub/SJSU-CS160-SurpriseError/WebApplication/web/css/jquery_popup_contactform.css</file>
-            <file>file:/C:/Users/Eileen/Documents/GitHub/SJSU-CS160-SurpriseError/WebApplication/web/WEB-INF/searchview.jsp</file>
-            <file>file:/C:/Users/Eileen/Documents/GitHub/SJSU-CS160-SurpriseError/WebApplication/src/java/Servlets/BrowseClassServlet.java</file>
-            <file>file:/C:/Users/Eileen/Documents/GitHub/SJSU-CS160-SurpriseError/WebApplication/web/WEB-INF/Class.jsp</file>
+            <file>file:/C:/Users/IBM_ADMIN/Documents/CS160/Group%20Project/Git/current/SJSU-CS160-SurpriseError/WebApplication/web/META-INF/persistence.xml</file>
+            <file>file:/C:/Users/IBM_ADMIN/Documents/CS160/Group%20Project/Git/current/SJSU-CS160-SurpriseError/WebApplication/src/java/Servlets/BrowseClassServlet.java</file>
+            <file>file:/C:/Users/IBM_ADMIN/Documents/CS160/Group%20Project/Git/current/SJSU-CS160-SurpriseError/WebApplication/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/IBM_ADMIN/Documents/CS160/Group%20Project/Git/current/SJSU-CS160-SurpriseError/WebApplication/src/java/Bean/LoginBean.java</file>
+            <file>file:/C:/Users/IBM_ADMIN/Documents/CS160/Group%20Project/Git/current/SJSU-CS160-SurpriseError/WebApplication/web/WEB-INF/index.jsp</file>
+            <file>file:/C:/Users/IBM_ADMIN/Documents/CS160/Group%20Project/Git/current/SJSU-CS160-SurpriseError/WebApplication/src/java/Handlers/LoginHandler.java</file>
+            <file>file:/C:/Users/IBM_ADMIN/Documents/CS160/Group%20Project/Git/current/SJSU-CS160-SurpriseError/WebApplication/src/java/Handlers/AddOfferFormHandler.java</file>
+            <file>file:/C:/Users/IBM_ADMIN/Documents/CS160/Group%20Project/Git/current/SJSU-CS160-SurpriseError/WebApplication/src/java/Servlets/LoginServlet.java</file>
+            <file>file:/C:/Users/IBM_ADMIN/Documents/CS160/Group%20Project/Git/current/SJSU-CS160-SurpriseError/WebApplication/src/java/Servlets/AddOfferFormServlet.java</file>
         </group>
     </open-files>
 </project-private>

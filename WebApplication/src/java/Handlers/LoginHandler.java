@@ -67,9 +67,10 @@ public class LoginHandler implements IHandler {
 
             rs = prpStmt.executeQuery();
             while (rs.next()) {
-                if (rs.getString(2).equalsIgnoreCase(data.get(0))) {
-                    if (rs.getString(3).equalsIgnoreCase(data.get(1))) {
-                        info.setValid(true);
+                if (rs.getString(2).equalsIgnoreCase(data.get(0))) { //check username
+                    if (rs.getString(3).equalsIgnoreCase(data.get(1))) { //check password
+                        info.setValid(true); //remember valid
+                        info.setId(rs.getInt(1)); //remember id
                         System.out.println("Authentication Successful!");
                         break;
                     }
