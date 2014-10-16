@@ -6,6 +6,7 @@
 
 package Handlers;
 
+import Bean.LoginBean;
 import Servlets.AddOfferFormServlet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,24 +26,16 @@ import javax.sql.DataSource;
  *
  * @author Eric Ong
  */
-public class AddOfferFormHandler implements IHandler {
+public class LoginHandler implements IHandler {
 
     @Override
     public List<String> parse(HttpServletRequest request) {
         List<String> parseData = new ArrayList<String>();
         //Parse only the first value from each Field of the AddOfferForm
         try {
-            parseData.add(request.getParameterValues("Title")[0]);
-            parseData.add(request.getParameterValues("Category")[0]);
-            parseData.add(request.getParameterValues("Description")[0]);
-            parseData.add(request.getParameterValues("Cost")[0]);
-            parseData.add(request.getParameterValues("Style")[0]);
-            parseData.add(request.getParameterValues("Url")[0]);
-            parseData.add(request.getParameterValues("Length")[0]);
-            parseData.add(request.getParameterValues("LengthUnits")[0]);
-            parseData.add(request.getParameterValues("Time")[0]);
-        } catch (NullPointerException e){
-            return new ArrayList<String>();
+            parseData.add(request.getParameterValues("User")[0]);
+            parseData.add(request.getParameterValues("Pass")[0]);
+        } catch (NullPointerException e) {
         } catch (IndexOutOfBoundsException e) {
         };
         return parseData;
@@ -50,22 +43,16 @@ public class AddOfferFormHandler implements IHandler {
 
     @Override
     public void query(List<String> data) {
-
         Context initCtx = null;
         Context envCtx = null;
         DataSource ds = null;
         Connection conn = null;
         ResultSet rs = null;
         PreparedStatement prpStmt = null;
-        String query = "insert into mydb.classes (id_class, class_name, "
-                + "class_category, description, cost, class_style, "
-                + "class_url, class_duration, class_availability) "
-                + "select count(id_class)+1, ?, ?, ?, ?, ?, ?, ?, ? from mydb.classes;";
+        String query = "Select id_user_business, user_name, password from mydb.user_business"
+                + " where user_name = ? and password = ?;";
 
-        /**
-         * STILL NEED ACCESS TO LOGIN INFO TO UPDATE THE LINKING TABLE:
-         * classes_business
-         */
+        LoginBean info = new LoginBean();
         try {
             initCtx = new InitialContext();
             envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -73,28 +60,29 @@ public class AddOfferFormHandler implements IHandler {
             ds = (DataSource) envCtx.lookup("jdbc/mydb");
             System.out.println("DataSource Connection success");
             conn = ds.getConnection();
-            //stmt = conn.createStatement();
-
             prpStmt = conn.prepareStatement(query);
 
-            prpStmt.setString(1, data.get(0));  //title
-            prpStmt.setString(2, data.get(1));  //category
-            prpStmt.setString(3, data.get(2));  //description
-            prpStmt.setInt(4, Integer.valueOf(data.get(3)));  //cost
-            prpStmt.setString(5, data.get(4));  //style
-            prpStmt.setString(6, data.get(5));  //link
-            prpStmt.setString(7, data.get(6) + " " + data.get(7));  //length
-            prpStmt.setString(8, data.get(8));  //time/availability
+            prpStmt.setString(1, data.get(0)); //user_name
+            prpStmt.setString(2, data.get(1)); //password
 
-            int rowsAffected = prpStmt.executeUpdate();
-            System.out.println("Rows Affected: " + rowsAffected);
+            rs = prpStmt.executeQuery();
+            while (rs.next()) {
+                if (rs.getString(2).equalsIgnoreCase(data.get(0))) { //check username
+                    if (rs.getString(3).equalsIgnoreCase(data.get(1))) { //check password
+                        info.setValid(true); //remember valid
+                        info.setId(rs.getInt(1)); //remember id
+                        System.out.println("Authentication Successful!");
+                        break;
+                    }
+                }
+            }
             conn.close();
         } catch (SQLException e) {
-            System.out.println("SQL Exception Found Querying For AddOfferForm");
-        } catch (NumberFormatException e) {
-            System.out.println("Issue converting Cost into an Integer.");
+            System.out.println("SQL Exception Found Querying For Login Authentication");
         } catch (NamingException e) {
             Logger.getLogger(AddOfferFormServlet.class.getName()).log(Level.SEVERE, null, e);
+        } catch (NullPointerException e) {
+            System.out.println("No login information");
         } finally {
             // Always make sure result sets and statements are closed,
             // and the connection is returned to the pool
@@ -118,6 +106,9 @@ public class AddOfferFormHandler implements IHandler {
                 } catch (SQLException e) {;
                 }
                 conn = null;
+            }
+            if (!info.isValid()) {
+                System.out.println("Authentication Failed. . .");
             }
         }
     }

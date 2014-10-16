@@ -44,21 +44,23 @@
                     <div class="user_login">
                         <form>
                             <label>Email / Username</label>
-                            <input type="text" />
+                            <input type="text" name="User"/>
                             <br />
 
                             <label>Password</label>
-                            <input type="password" />
+                            <input type="password" name="Pass"/>
                             <br />
 
                             <div class="checkbox">
                                 <input id="remember" type="checkbox" />
                                 <label for="remember">Remember me on this computer</label>
                             </div>
-
+ 
                             <div class="action_btns">
                                 <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                                <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+                                <div class="one_half last">
+                                    <button id="button_red" type="submit" class="button_red">Login</button>
+                                </div> 
                             </div>
                         </form>
 
