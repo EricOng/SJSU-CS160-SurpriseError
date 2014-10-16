@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Servlets;
 
 import Handlers.AddOfferFormHandler;
@@ -32,7 +31,7 @@ public class AddOfferFormServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        if(request.getQueryString() != null){
+        if (request.getQueryString() != null) {
             AddOfferFormHandler handler = new AddOfferFormHandler();
             handler.query(handler.parse(request));
         }
