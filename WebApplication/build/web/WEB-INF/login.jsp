@@ -13,18 +13,20 @@
     <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
     <link type="text/css" rel="stylesheet" href="css/leanStyle.css" />
-
+    
     <body>
-        <div class="container">
-            <a id="modal_trigger" href="#modal" class="btn">Login or register</a>
-
+        <div class="login"> 
+            <a id="modal_trigger" href="#modal">
+                Login  |  Sign Up  
+            </a>
+        </div>
             <div id="modal" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
                     <span class="header_title">Login</span>
                     <span class="modal_close"><i class="fa fa-times"></i></span>
-                </header>
+                </header> 
 
-                <section class="popupBody">
+                <section class="popupBody"> 
                     <!-- Social Login -->
                     <div class="social_login">
                         <div class="">
@@ -42,7 +44,7 @@
 
                     <!-- Username & Password Login form -->
                     <div class="user_login">
-                        <form>
+                        <form action="login">
                             <label>Email / Username</label>
                             <input type="text" name="User"/>
                             <br />
@@ -94,7 +96,6 @@
                         </form>
                     </div>
                 </section>
-            </div>
         </div>
 
         <script type="text/javascript">

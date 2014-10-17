@@ -4,6 +4,7 @@
     Author     : Eric Ong
 --%>
 
+<%@page import="Bean.LoginBean"%>
 <%@page import="java.beans.Beans"%>
 <%@page import="javax.ejb.EnterpriseBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -113,23 +114,6 @@
     color:#fff;
     text-shadow: 0px 2px 2px rgba(121,121, 121, 0.4); 
 		}
-		.login{
-			float:right;
-			margin-top: 25px;
-			font-size: 16px;
-		    font-family: 'Open Sens', sans-serif;
-		    color:#fff;
-		}
-		.login a{
-			text-transform: uppercase;
-			text-decoration: none;
-			color:#fff;
-		}
-		.login a:hover{
-			text-transform: uppercase;
-			text-decoration: none;
-			font-weight: bold;
-		}
 		a{
 			text-decoration: none;
 		}
@@ -158,30 +142,19 @@
 			<a href=""><h1>GoodLuckLearning</h1><a></div>
 
                     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-                    
-                    <jsp:useBean id="loginbean" class="Bean.LoginBean">
-
+                    <jsp:useBean id="loginbean" class="Bean.LoginBean" >
+                        <%
+                            LoginBean info = (LoginBean)session.getAttribute("info");
+                            if(info == null) {
+                                info = new LoginBean();
+                                session.setAttribute("info", info);
+                            }
+                        %>
                         <c:if test = "${loginbean.valid == false}"> 
-
-                            <div class="login">
-                                            <a href="#modal">Login   </a>|  <a href="">Sign Up </a>
-                                            <div id="modal" class="popupContainer" style="display:none;">						
-                                            <section class="popupBody"> 
-                                                <!-- Here Goes all the Login and signup Forms -->
-                                            </section>
-                                            </div>
-                            </div>
-
+                            <jsp:include page="login.jsp"></jsp:include>
                         </c:if>
                         <c:if test = "${loginbean.valid == true}">
-                            <div class="login">
-                                            <a href="#modal">${loginbean.name}   </a>|  <a href="">Logout</a>
-                                            <div id="modal" class="popupContainer" style="display:none;">						
-                                            <section class="popupBody">
-                                                <!-- Here Goes all the Login and signup Forms -->
-                                            </section>
-                                            </div>
-                            </div>
+                            <a href="#modal">${loginbean.name}   </a>|  <a href="">Logout</a>
                         </c:if>                               
                     </jsp:useBean>
                 </div>

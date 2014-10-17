@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NameNotFoundException;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
@@ -27,6 +28,7 @@ import javax.sql.DataSource;
  * @author Eric Ong
  */
 public class LoginHandler implements IHandler {
+    LoginBean loginBean = lookupLoginBeanBean();
 
     @Override
     public List<String> parse(HttpServletRequest request) {
@@ -49,10 +51,10 @@ public class LoginHandler implements IHandler {
         Connection conn = null;
         ResultSet rs = null;
         PreparedStatement prpStmt = null;
+        LoginBean info = null;
         String query = "Select id_user_business, user_name, password from mydb.user_business"
                 + " where user_name = ? and password = ?;";
-
-        LoginBean info = new LoginBean();
+        
         try {
             initCtx = new InitialContext();
             envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -60,6 +62,9 @@ public class LoginHandler implements IHandler {
             ds = (DataSource) envCtx.lookup("jdbc/mydb");
             System.out.println("DataSource Connection success");
             conn = ds.getConnection();
+            
+            info = lookupLoginBeanBean();
+            
             prpStmt = conn.prepareStatement(query);
 
             prpStmt.setString(1, data.get(0)); //user_name
@@ -110,6 +115,17 @@ public class LoginHandler implements IHandler {
             if (!info.isValid()) {
                 System.out.println("Authentication Failed. . .");
             }
+        }
+    }
+
+    private LoginBean lookupLoginBeanBean() {
+        try {
+            Context c = new InitialContext();
+            return (LoginBean) c.lookup("java:comp/env/WebApplication/Bean.LoginBean");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            System.err.println("Not sure how to bind the bean, initializing new LoginBean"); 
+            return new LoginBean();
         }
     }
 }

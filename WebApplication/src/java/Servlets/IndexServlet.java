@@ -43,6 +43,7 @@ public class IndexServlet extends HttpServlet {
             out.println("</html>");
         }
          */
+        System.out.println("Going to Index");
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }
 

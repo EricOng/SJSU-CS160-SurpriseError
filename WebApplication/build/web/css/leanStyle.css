@@ -21,7 +21,7 @@ body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
 	top:80px;
 	background: #FFF;
 }
-#modal_trigger {margin:100px auto; width:100px; display:block;}
+#modal_trigger {width:150px; display:block;}
 
 .btn {padding:10px 20px; background: #F4F4F2;}
 .btn_red {background: #ED6347; color: #FFF;}
@@ -94,7 +94,19 @@ a.btn_red {
 
 .user_register .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
 
-
-.testbutton {
-    display: none;
+.login {
+    float:right;
+    margin-top: 25px;
+    font-size: 16px;
+    font-family: 'Open Sens', sans-serif;
+    color:#fff;
+    width: auto;
+}
+.login a {
+    text-decoration: none;
+    color:#fff;
+}
+.login a:hover {
+    text-decoration: none;
+    font-weight: bold;
 }
