@@ -4,6 +4,8 @@
     Author     : Eric Ong
 --%>
 
+<%@page import="java.beans.Beans"%>
+<%@page import="javax.ejb.EnterpriseBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -154,15 +156,36 @@
 		<div class="nav">
 			<div style="float:left;width: 200px;">
 			<a href=""><h1>GoodLuckLearning</h1><a></div>
-			<div class="login">
-					<a href="#modal">Login   </a>|  <a href="">Sign Up </a>
-					<div id="modal" class="popupContainer" style="display:none;">						
-				    <section class="popupBody">
-					    <!-- Here Goes all the Login and signup Forms -->
-					</section>
-</div>
-			</div>	
-		</div>
+
+                    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+                    
+                    <jsp:useBean id="loginbean" class="Bean.LoginBean">
+
+                        <c:if test = "${loginbean.valid == false}"> 
+
+                            <div class="login">
+                                            <a href="#modal">Login   </a>|  <a href="">Sign Up </a>
+                                            <div id="modal" class="popupContainer" style="display:none;">						
+                                            <section class="popupBody"> 
+                                                <!-- Here Goes all the Login and signup Forms -->
+                                            </section>
+                                            </div>
+                            </div>
+
+                        </c:if>
+                        <c:if test = "${loginbean.valid == true}">
+                            <div class="login">
+                                            <a href="#modal">${loginbean.name}   </a>|  <a href="">Logout</a>
+                                            <div id="modal" class="popupContainer" style="display:none;">						
+                                            <section class="popupBody">
+                                                <!-- Here Goes all the Login and signup Forms -->
+                                            </section>
+                                            </div>
+                            </div>
+                        </c:if>                               
+                    </jsp:useBean>
+                </div>
+                        
 		<div class="clr" style="height:150px;"></div>
 		<div>
 				<h1>Better way to find Educational Programs</h1>

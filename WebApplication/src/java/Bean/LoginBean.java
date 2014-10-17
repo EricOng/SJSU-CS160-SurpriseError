@@ -13,7 +13,7 @@ import javax.ejb.Stateful;
  * @author Eric Ong
  */
 @Stateful
-public class LoginBean {
+public class LoginBean implements java.io.Serializable {
 
     private boolean valid;
     private String name;
@@ -21,7 +21,7 @@ public class LoginBean {
 
     public LoginBean() {
         valid = false;
-        name = "";
+        name = "Login";
     }
 
     // Add business logic below. (Right-click in editor and choose
