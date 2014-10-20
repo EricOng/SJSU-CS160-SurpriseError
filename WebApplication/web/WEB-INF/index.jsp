@@ -139,8 +139,9 @@
 	<body>
 		<div class="nav">
 			<div style="float:left;width: 200px;">
-			<a href=""><h1>GoodLuckLearning</h1><a></div>
-
+			<a href=""><h1>GoodLuckLearning</h1><a>
+                        </div>
+                    <div style="float:right;">
                     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
                     <jsp:useBean id="loginbean" class="Bean.LoginBean" >
                         <%
@@ -157,6 +158,7 @@
                             <a href="#modal">${loginbean.name}   </a>|  <a href="">Logout</a>
                         </c:if>                               
                     </jsp:useBean>
+                    </div>
                 </div>
                         
 		<div class="clr" style="height:150px;"></div>

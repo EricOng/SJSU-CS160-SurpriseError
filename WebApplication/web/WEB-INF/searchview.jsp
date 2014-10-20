@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
 </head>
     <body>
-        <div>
+        <!--<div>
 		<div class="fixbar">
 			<div class="container">
 				<div class="logo">
@@ -40,7 +40,8 @@
 				 		
 		</div>
 		</div>
-	</div>
+	</div>-->
+        <jsp:include page="searchNavi.jsp"></jsp:include>
 	<div class="clr"></div>
         <!-- Here is the search result  -->
        
