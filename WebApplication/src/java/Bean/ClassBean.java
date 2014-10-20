@@ -1,3 +1,6 @@
+/*
+    This is a bean for a detailed class infomation
+*/
 package Bean;
 
 /**
@@ -13,4 +16,14 @@ public class ClassBean {
     private String description;
     private String cost;
     private String reviews;//should it be rating?
+    
+    public ClassBean(){
+        
+    }
+    
+    
+    //getter
+    public String getClassId(){
+        return classId;
+    }
 }
