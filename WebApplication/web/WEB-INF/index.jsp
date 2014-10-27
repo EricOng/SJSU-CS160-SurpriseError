@@ -141,7 +141,7 @@
 			<div style="float:left;width: 200px;">
 			<a href=""><h1>GoodLuckLearning</h1><a>
                         </div>
-                    <div style="float:right;">
+                    <div style="float:right;margin-top: 25px;">
                     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
                     <jsp:useBean id="loginbean" class="Bean.LoginBean" >
                         <%
