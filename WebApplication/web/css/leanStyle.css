@@ -21,7 +21,7 @@ body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
 	top:80px;
 	background: #FFF;
 }
-#modal_trigger {width:150px; display:block;}
+#modal_trigger {width:150px; display:inline;}
 
 .btn {padding:10px 20px; background: #F4F4F2;}
 .btn_red {background: #ED6347; color: #FFF;}
@@ -83,14 +83,25 @@ a.btn_red {
 .user_login input[type="checkbox"]+label {float:left;}
 
 .user_login .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
-.forgot_password {display:block; margin: 20px 0 10px; clear: both; overflow: hidden; text-decoration: none; color:#ED6347;}
+.forgot_password 
+    {display:block; margin: 20px 0 10px; 
+     clear: both; overflow: hidden; 
+     text-decoration: none; color:#ED6347;}
 
 /* User Register Form */
-.user_register {display: none;}
-.user_register label {display: block; margin-bottom:5px;}
-.user_register input[type="text"], .user_register input[type="email"], .user_register input[type="password"] {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
-.user_register input[type="checkbox"] {float:left; margin-right:5px;}
-.user_register input[type="checkbox"]+label {float:left;}
+.user_register 
+    {display: none;}
+.user_register label 
+    {display: block; margin-bottom:5px;}
+.user_register input[type="text"],
+.user_register input[type="email"], 
+.user_register input[type="password"] 
+    {display: block; width:90%; padding: 10px;
+     border:1px solid #DDD; color:#666;}
+.user_register input[type="checkbox"] 
+    {float:left; margin-right:5px;}
+.user_register input[type="checkbox"]+label 
+    {float:left;}
 
 .user_register .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
 
@@ -100,6 +111,7 @@ a.btn_red {
     font-family: 'Open Sens', sans-serif;
     color:#fff;
     width: auto;
+    z-index: 1;
 }
 .login a {
     text-decoration: none;

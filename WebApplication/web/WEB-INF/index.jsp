@@ -142,22 +142,22 @@
 			<a href=""><h1>GoodLuckLearning</h1><a>
                         </div>
                     <div style="float:right;margin-top: 25px;">
-                    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-                    <jsp:useBean id="loginbean" class="Bean.LoginBean" >
-                        <%
-                            LoginBean info = (LoginBean)session.getAttribute("info");
-                            if(info == null) {
-                                info = new LoginBean();
-                                session.setAttribute("info", info);
-                            }
-                        %>
-                        <c:if test = "${loginbean.valid == false}"> 
-                            <jsp:include page="login.jsp"></jsp:include>
-                        </c:if>
-                        <c:if test = "${loginbean.valid == true}">
-                            <a href="#modal">${loginbean.name}   </a>|  <a href="">Logout</a>
-                        </c:if>                               
-                    </jsp:useBean>
+                        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+                        <jsp:useBean id="loginbean" class="Bean.LoginBean" >
+                            <%
+                                LoginBean info = (LoginBean)session.getAttribute("info");
+                                if(info == null) {
+                                    info = new LoginBean();
+                                    session.setAttribute("info", info);
+                                }
+                            %>
+                            <c:if test = "${loginbean.valid == false}"> 
+                                <jsp:include page="login.jsp"></jsp:include>
+                            </c:if>
+                            <c:if test = "${loginbean.valid == true}">
+                                <a href="#modal">${loginbean.name}   </a>|  <a href="">Logout</a>
+                            </c:if>                               
+                        </jsp:useBean>
                     </div>
                 </div>
                         

@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
     <link type="text/css" rel="stylesheet" href="css/leanStyle.css" />
     
-    <body>
+    <body style="">
         <div class="login"> 
-            <a id="modal_trigger" href="#modal">
-                Login  |  Sign Up  
-            </a>
+            <a id="modal_trigger1" href="#modal">Login   </a>
+            <a>|</a>
+            <a id="modal_trigger2" href="#modal">  Sign Up</a> 
         </div>
             <div id="modal" class="popupContainer" style="display:none;">
                 <header class="popupHeader">
@@ -31,7 +31,7 @@
                     <div class="social_login">
                         <div class="">
                         </div>
-
+                        <!-- Temporary Removal
                         <div class="centeredText">
                             <span>Or use your Email address</span>
                         </div>
@@ -40,6 +40,7 @@
                             <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
                             <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
                         </div>
+                        -->
                     </div>
 
                     <!-- Username & Password Login form -->
@@ -99,9 +100,30 @@
         </div>
 
         <script type="text/javascript">
-            $("#modal_trigger").leanModal({top: 200, overlay: 0.6, closeButton: ".modal_close"});
-
+            $("#modal_trigger1").leanModal({top: 200, overlay: 0.6, closeButton: ".modal_close"});
+            $("#modal_trigger2").leanModal({top: 200, overlay: 0.6, closeButton: ".modal_close"});
+           
+            
             $(function() {
+                
+                //Calling Login Form skipping pop menu
+                $("#modal_trigger1").click(function() {
+                    $(".social_login").hide();
+                    $(".user_register").hide();
+                    $(".user_login").show();
+                    $(".header_title").text('Login');
+                    return false;
+                })
+                
+                //Calling Register Form skipping pop menu
+                $("#modal_trigger2").click(function() {
+                    $(".social_login").hide();
+                    $(".user_login").hide();
+                    $(".user_register").show();
+                    $(".header_title").text('Register');
+                    return false;
+                })
+                
                 // Calling Login Form
                 $("#login_form").click(function() {
                     $(".social_login").hide();
