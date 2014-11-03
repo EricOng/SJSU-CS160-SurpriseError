@@ -8,12 +8,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-    <title>Login or Register</title>
-    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-    <link type="text/css" rel="stylesheet" href="css/leanStyle.css" />
-    
+    <head>
+        <title>Login or Register</title>
+        <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+        <link type="text/css" rel="stylesheet" href="css/leanStyle.css" />
+    </head>
     <body style="">
         <div class="login"> 
             <a id="modal_trigger1" href="#modal">Login   </a>

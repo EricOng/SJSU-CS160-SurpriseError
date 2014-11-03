@@ -5,11 +5,11 @@
  
 <html>
     <head>
-<title>GoodLuck Learning</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
-</head>
+        <title>GoodLuck Learning</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    </head>
     <body>
         <!--<div>
 		<div class="fixbar">
@@ -70,29 +70,29 @@
                         count++;
                         ArrayList cList = (ArrayList) itr.next();
             %>
-                
-		
-				
-					<li><a class="list_block" href="BrowseClassServlet?method=doPost&param1=<%=cList.get(0)%>">
-						<div>
-							<div class="course-title">
-							<h1><%=cList.get(1)%></h1>
-							</div>
-							<br>
+            
+            <li>
+                <a class="list_block" href="BrowseClassServlet?method=doPost&param1=<%=cList.get(0)%>">
+                    <div>
+                        <div class="course-title">
+                        <h1><%=cList.get(1)%></h1>
+                        </div>
+                        <br>
 
-							<ul class="inline-list">
-								<li><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;
-									<!--<span class="rating star"></span>
-									 <span class="rating star"></span>
-									 <span class="rating star"></span><br>-->
-									 <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-								</li>
-								<li><i class="fa fa-usd"></i> &nbsp;&nbsp;&nbsp;<%=cList.get(5)%></li>
-								<li><i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;10 Class Meetings</li>
-								<li><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp; All Year Round</li>
-							</ul>
-						</div></a>
-					</li>
+                        <ul class="inline-list">
+                                <li><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;
+                                        <!--<span class="rating star"></span>
+                                         <span class="rating star"></span>
+                                         <span class="rating star"></span><br>-->
+                                         <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                </li>
+                                <li><i class="fa fa-usd"></i> &nbsp;&nbsp;&nbsp;<%=cList.get(5)%></li>
+                                <li><i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;10 Class Meetings</li>
+                                <li><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp; All Year Round</li>
+                        </ul>
+                    </div>
+                </a>
+            </li>
                                         <%
                     }
                 }

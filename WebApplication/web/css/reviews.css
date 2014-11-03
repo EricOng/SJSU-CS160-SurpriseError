@@ -1,0 +1,31 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 3, 2014, 12:52:48 PM
+    Author     : Eric Ong
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic);
+
+/*Content*/
+body {
+    font-family: 'Source Sans Pro';
+    font-size: 14px; 
+    color: #666;
+}
+
+p{
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.095em;
+    color:#666;
+}
+.inline-list > li{
+    list-style-type: none;
+    font-size: 14px;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.001em;
+}

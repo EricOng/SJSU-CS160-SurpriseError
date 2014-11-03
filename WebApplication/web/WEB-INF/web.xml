@@ -55,6 +55,10 @@
         <servlet-name>BusinessViewServlet</servlet-name>
         <servlet-class>Servlets.BusinessViewServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddReviewFormServlet</servlet-name>
+        <servlet-class>Servlets.AddReviewFormServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BrowseClass</servlet-name>
         <url-pattern>/Class</url-pattern>
@@ -90,6 +94,10 @@
     <servlet-mapping>
         <servlet-name>BusinessViewServlet</servlet-name>
         <url-pattern>/BusinessViewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddReviewFormServlet</servlet-name>
+        <url-pattern>/submitreview</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
