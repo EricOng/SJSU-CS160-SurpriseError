@@ -16,16 +16,78 @@
         <link type="text/css" rel="stylesheet" href="css/reviews.css" />
     </head>
     <body>
-        <p>ADD REVIEW</p>
-        <form>
-            <input id='RatingInput' type='text' name='rating' value='0' style='display: none;'/>
-            <ul class="inline-list">
-                <i id='1' class="fa fa-star-o" ></i>
-                <i id='2' class="fa fa-star-o" ></i>
-                <i id='3' class="fa fa-star-o" ></i>
-                <i id='4' class="fa fa-star-o" ></i>
-                <i id='5' class="fa fa-star-o" ></i>
-            </ul>
+        <h1>ADD REVIEW</h1>
+        <form id='mainform'>
+            <fieldset id='c_stars' form='mainform'>
+                <h2 class=''>Rating</h2>
+                <input id='RatingInput' type='text' name='rating' value='1' style='display: none;'/>
+                <ul class=''>
+                    <i id='1' class="fa fa-star" ></i>
+                    <i id='2' class="fa fa-star-o" ></i>
+                    <i id='3' class="fa fa-star-o" ></i>
+                    <i id='4' class="fa fa-star-o" ></i>
+                    <i id='5' class="fa fa-star-o" ></i>
+                </ul>
+            </fieldset>
+            <br>
+            
+            <fieldset id='c_effort' form='mainform'>
+                <div class='half_1st'>
+                    <h2>Effort</h2>
+                    <select id='effort' name='effort'>
+                        <option value='3'></option>
+                        <option value='1'>Effortless    </option>
+                        <option value='2'>Some Effort   </option>
+                        <option value='3'>Moderate      </option>
+                        <option value='4'>Tough         </option>
+                        <option value='5'>Ridiculous    </option>
+                    </select> 
+                </div>
+                <div class='half_2nd'>
+                    <!-- Help info -->
+                    <div class='half_1st'>
+                        <text>Effortless</text><br>
+                        <text>Some Effort</text><br>
+                        <text>Moderate</text><br>
+                        <text>Tough</text><br>
+                        <text>Ridiculous</text><br>
+                    </div>
+                    <div class='half_2nd'>
+                        <text>[< 1 hr per day]</text><br>
+                        <text>[< 2 hr per day]</text><br>
+                        <text>[2-3 hr per day]</text><br>
+                        <text>[3-4 hr per day]</text><br>
+                        <text>[> 4 hr per day]</text><br>   
+                    </div>
+                </div>
+                <!-- 
+                    ***********************
+                    Help Bubble Can Go Here
+                           Do Want?
+                    ***********************
+                -->
+            </fieldset>
+            <br>
+            <fieldset id='c_comment' form='mainform'>
+                <h2>Comments</h2>
+                <textarea id='commentBox' class='fill' name="Description" id="descr" cols="27"></textarea>
+            </fieldset>
+            <br>
+            <fieldset id='c_tags' form='mainform'>
+                <h2>Tag this class</h2>
+                <p>Pick as many that apply</p>
+                <input type='checkbox' name='attrFun'>
+                <label>Fun</label>
+                <input type='checkbox' name='attr'>
+                <label>PH</label>
+                <input type='checkbox' name='attr'>
+                <label>PH</label>
+                <input type='checkbox' name='attr'>
+                <label>PH</label>
+                <input type='checkbox' name='attr'>
+                <label>PH</label>
+            </fieldset>
+            <br>
             <!-- This button appends the QueryString -->   
             <div class="submit_button_position">
                 <button class="submit_button" type="submit">Add</button> 

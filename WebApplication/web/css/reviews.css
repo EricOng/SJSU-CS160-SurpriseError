@@ -29,3 +29,56 @@ p{
     text-transform: uppercase;
     letter-spacing: 0.001em;
 }
+
+
+#mainform {
+    width: 500px;
+    height: 500px;
+}
+
+/* Containers in the mainform - BEGIN*/
+#c_stars{
+    
+}
+#c_comment{
+    
+}
+#commentBox{
+    padding: 0 0 0 0;
+    height: 150px;
+    overflow: auto;
+    resize: none;
+}
+#c_effort{
+    
+}
+#effort{
+    width: 100%;
+}
+
+#c_tags{
+    
+}
+/* Containers in the mainform - END*/
+
+/* Positioning classes */
+
+.posCenter{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border: thin solid black;
+}
+
+.half_1st{
+    width: 45%;
+    float: left;
+}
+.half_2nd{
+    width: 45%;
+    float: right;
+}
+.fill{
+    width: 100%;
+    height: 100%;
+}
