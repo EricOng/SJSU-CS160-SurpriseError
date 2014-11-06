@@ -21,6 +21,7 @@ import javax.naming.InitialContext;
 import javax.naming.NameNotFoundException;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 /**
@@ -28,10 +29,12 @@ import javax.sql.DataSource;
  * @author Eric Ong
  */
 public class LoginHandler implements IHandler {
-    LoginBean loginBean = lookupLoginBeanBean();
-
+    LoginBean info = new LoginBean();
+    HttpServletRequest httpRequest;
+    
     @Override
     public List<String> parse(HttpServletRequest request) {
+        httpRequest = request;
         List<String> parseData = new ArrayList<String>();
         //Parse only the first value from each Field of the AddOfferForm
         try {
@@ -44,14 +47,14 @@ public class LoginHandler implements IHandler {
     }
 
     @Override
-    public void query(List<String> data) {
+//    public void query(List<String> data, HttpServletRequest request) {
+      public void query(List<String> data) {
         Context initCtx = null;
         Context envCtx = null;
         DataSource ds = null;
         Connection conn = null;
         ResultSet rs = null;
         PreparedStatement prpStmt = null;
-        LoginBean info = null;
         String query = "Select id_user_business, user_name, password from mydb.user_business"
                 + " where user_name = ? and password = ?;";
         
@@ -63,7 +66,7 @@ public class LoginHandler implements IHandler {
             System.out.println("DataSource Connection success");
             conn = ds.getConnection();
             
-            info = lookupLoginBeanBean();
+            info = lookupLoginBeanBean(httpRequest);
             
             prpStmt = conn.prepareStatement(query);
 
@@ -76,6 +79,9 @@ public class LoginHandler implements IHandler {
                     if (rs.getString(3).equalsIgnoreCase(data.get(1))) { //check password
                         info.setValid(true); //remember valid
                         info.setId(rs.getInt(1)); //remember id
+                        info.setName("dummy_name");
+                        HttpSession hs = httpRequest.getSession();
+                        hs.setAttribute("info", info);
                         System.out.println("Authentication Successful!");
                         break;
                     }
@@ -117,15 +123,15 @@ public class LoginHandler implements IHandler {
             }
         }
     }
-
-    private LoginBean lookupLoginBeanBean() {
-        try {
-            Context c = new InitialContext();
-            return (LoginBean) c.lookup("java:comp/env/WebApplication/Bean.LoginBean");
-        } catch (NamingException ne) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-            System.err.println("Not sure how to bind the bean, initializing new LoginBean"); 
-            return new LoginBean();
+    
+    private LoginBean lookupLoginBeanBean(HttpServletRequest request) {
+        HttpSession httpSession = request.getSession(true);
+        LoginBean loginbean = (LoginBean) httpSession.getAttribute("info");
+        if(loginbean == null){
+            loginbean = new LoginBean();
+            httpSession.setAttribute("info", loginbean);
         }
+        return loginbean;
     }
+
 }

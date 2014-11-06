@@ -37,9 +37,11 @@ public class LoginServlet extends HttpServlet {
             System.out.println("Attempt Authentication");
             LoginHandler handler = new LoginHandler();
             handler.query(handler.parse(request));
+            //TO-DO:  Send to dashboard when finished.
+            //Current:  Send to url: "/SearchServlet" that is already mapped to the SearchServlet class for handling.
+            request.getRequestDispatcher("/SearchServlet").forward(request, response);
         }
-        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response); //Login page
-
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

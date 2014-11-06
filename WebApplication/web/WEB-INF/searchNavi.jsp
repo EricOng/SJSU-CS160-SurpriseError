@@ -4,13 +4,15 @@
     Author     : Eileen
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Bean.LoginBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session='true'%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+        <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
     </head>
     <body style="">
         <div class="fixbar">
@@ -34,9 +36,8 @@
                     </div> 
                     
                     <div style="">
-                        <%@page import="Bean.LoginBean"%>
                         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-                        <jsp:useBean id="loginbean" class="Bean.LoginBean" >
+                        
                             <%
                                 LoginBean info = (LoginBean)session.getAttribute("info");
                                 if(info == null) {
@@ -44,17 +45,27 @@
                                     session.setAttribute("info", info);
                                 }
                             %>
-                            <c:if test = "${loginbean.valid == false}"> 
+                            <c:if test = "${info.valid == false}"> 
                                 <jsp:include page="login.jsp"></jsp:include>
                             </c:if>
-                            <c:if test = "${loginbean.valid == true}">
-                                <a href="#modal">${loginbean.name}   </a>|  <a href="">Logout</a>
-                            </c:if>                               
-                        </jsp:useBean>
+                            <c:if test = "${info.valid == true}">
+                                <a href="#modal">${info.name}   </a>|  <a id='logout' href=index>Logout</a>
+                            </c:if>    
+                                
                     </div>
                         
                 </div>
             </div>		 		
         </div>
+                            
+        <script type='text/javascript'>
+            $("#logout").click(function(){
+                <%
+                    info.setId(-1);
+                    info.setName("Login");
+                    info.setValid(false);
+                %>
+            })
+        </script>
     </body>
 </html>

@@ -143,7 +143,6 @@
                         </div>
                     <div style="float:right;margin-top: 25px;">
                         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-                        <jsp:useBean id="loginbean" class="Bean.LoginBean" >
                             <%
                                 LoginBean info = (LoginBean)session.getAttribute("info");
                                 if(info == null) {
@@ -151,21 +150,20 @@
                                     session.setAttribute("info", info);
                                 }
                             %>
-                            <c:if test = "${loginbean.valid == false}"> 
+                            <c:if test = "${info.valid == false}"> 
                                 <jsp:include page="login.jsp"></jsp:include>
                             </c:if>
-                            <c:if test = "${loginbean.valid == true}">
-                                <a href="#modal">${loginbean.name}   </a>|  <a href="">Logout</a>
-                            </c:if>                               
-                        </jsp:useBean>
+                            <c:if test = "${info.valid == true}">
+                                <a href="#modal">${info.name}   </a>|  <a id='logout' href="">Logout</a>
+                            </c:if>        
                     </div>
                 </div>
                         
 		<div class="clr" style="height:150px;"></div>
 		<div>
-				<h1>Better way to find Educational Programs</h1>
-				<h3>from Personal Tutors, Local Educational Centers to online educations</h3>
-			</div>
+                    <h1>Better way to find Educational Programs</h1>
+                    <h3>from Personal Tutors, Local Educational Centers to online educations</h3>
+                </div>
 		<div class="mainbar">
 			<!--<div class="mainbar_cointainer">
 				<span>
@@ -198,23 +196,33 @@
 			
 			<div>
 			<div  style="float:none;width:650px;margin-left:auto;margin-right:auto;margin-top:18px;">	
-						<form class="searchform" method="POST" action="SearchServlet">
-							<select class="search_category" value="Category">
-								<option>Category</option>
-								<option>English</option>
-								<option>Mathematics</option>
-								<option>Science</option>
-								<option>Computer</option>
-								<option>Language</option>
-								<option>Music</option>
+                            <form class="searchform" method="POST" action="SearchServlet">
+                                <select class="search_category" value="Category">
+                                        <option>Category</option>
+                                        <option>English</option>
+                                        <option>Mathematics</option>
+                                        <option>Science</option>
+                                        <option>Computer</option>
+                                        <option>Language</option>
+                                        <option>Music</option>
 
-							</select>
+                                </select>
 
-							<input class="searchfield" name="category" style="width: 200px;"type="text" placeholder="Keywords: Javascript, Afterschool..." onfocus="if (this.value == 'Keywords: Javascript, Afterschool...') {this.value = '';}" onblur="if (this.value == '') {this.value = '';}">
-							<input class="searchfield" style="width: 100px;" type="text" placeholder="Near: zipcode" onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == 'zipcode') {this.value = '';}">
-							<input class="searchbutton" type="submit" name="search" value="Go" onClick="parent.location='result.html'">
-						</form>
-					</div>
+                                <input class="searchfield" name="category" style="width: 200px;"type="text" placeholder="Keywords: Javascript, Afterschool..." onfocus="if (this.value == 'Keywords: Javascript, Afterschool...') {this.value = '';}" onblur="if (this.value == '') {this.value = '';}">
+                                <input class="searchfield" style="width: 100px;" type="text" placeholder="Near: zipcode" onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == 'zipcode') {this.value = '';}">
+                                <input class="searchbutton" type="submit" name="search" value="Go" onClick="parent.location='result.html'">
+                            </form>
+                        </div>
 		</div></div>
+                
+                <script type='text/javascript'>
+                    $("#logout").click(function(){
+                        <%
+                            info.setId(-1);
+                            info.setName("Login");
+                            info.setValid(false);
+                        %>
+                    })
+                </script>
 	</body>
 </html>
