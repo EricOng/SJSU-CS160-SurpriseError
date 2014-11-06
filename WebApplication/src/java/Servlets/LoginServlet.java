@@ -39,7 +39,11 @@ public class LoginServlet extends HttpServlet {
             handler.query(handler.parse(request));
             //TO-DO:  Send to dashboard when finished.
             //Current:  Send to url: "/SearchServlet" that is already mapped to the SearchServlet class for handling.
-            request.getRequestDispatcher("/SearchServlet").forward(request, response);
+            if(handler.getBean().isValid())
+                request.getRequestDispatcher("/SearchServlet").forward(request, response);
+            // if authentication failed, return to index page
+            else
+                request.getRequestDispatcher("/index").forward(request, response);
         }
         
     }

@@ -134,4 +134,7 @@ public class LoginHandler implements IHandler {
         return loginbean;
     }
 
+    public LoginBean getBean(){
+        return info;
+    }
 }
