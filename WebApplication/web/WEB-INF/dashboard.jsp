@@ -1,0 +1,261 @@
+<%-- 
+    Document   : dashboard
+    Created on : Oct 27, 2014, 8:23:45 PM
+    Author     : Eileen
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>GoodLuck Learning</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/style-1.css" rel="stylesheet" type="text/css" />
+<link href="css/dashboard.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+<script type="text/javascript">
+	var tabLinks = new Array();
+    var contentDivs = new Array();
+
+ function init() {
+
+      // Grab the tab links and content divs from the page
+      var tabListItems = document.getElementById('tab').childNodes;
+      alert("#of tabs "+tabListItems.length);
+      for ( var i = 0; i < tabListItems.length; i++ ) {
+      	  alert(i +"= "+i+"  .. "+tabListItems[i].nodeName);
+        if ( tabListItems[i].nodeName == "LI" ) {
+          alert("? "+tabListItems[i].nodeName);
+          var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+            alert("tabLink ="+ tabLink);
+          var id = getHash( tabLink.getAttribute('href') );
+            alert("id ="+ id);
+          tabLinks[id] = tabLink;
+          contentDivs[id] = document.getElementById( id );
+          
+        }
+      }
+
+      // Assign onclick events to the tab links, and
+      // highlight the first tab
+      var i = 0;
+
+      for ( var id in tabLinks ) {
+        tabLinks[id].onclick = showTab;
+        tabLinks[id].onfocus = function() { this.blur() };
+        if ( i == 0 ) tabLinks[id].className = 'active';
+        i++
+      }
+
+      // Hide all content divs except the first
+      var i = 0;
+
+      for ( var id in contentDivs ) {
+        if ( i != 0 ) contentDivs[id].className = 'tab-box hide';
+        i++;
+      }
+    }
+function showTab() {
+      var selectedId = getHash( this.getAttribute('href') );
+
+      // Highlight the selected tab, and dim all others.
+      // Also show the selected content div, and hide all others.
+      for ( var id in contentDivs ) {
+        if ( id == selectedId ) {
+          tabLinks[id].className = 'active';
+          contentDivs[id].className = 'tab-box';
+        } else {
+          tabLinks[id].className = '';
+          contentDivs[id].className = 'tab-box hide';
+        }
+      }
+
+      // Stop the browser following the link
+      return false;
+    }
+function getFirstChildWithTagName( element, tagName ) {
+	alert("here?:  "+tagName);
+      for ( var i = 0; i < element.childNodes.length; i++ ) {
+        if ( element.childNodes[i].nodeName == tagName ){
+        	alert("tagname: "+element.childNodes[i].nodeName);
+        	return element.childNodes[i];
+         }
+      }
+    }
+      function getHash( url ) {
+      var hashPos = url.lastIndexOf ( '#' );
+      return url.substring( hashPos + 1 );
+    }
+	</script>
+</head>
+<body onload="init()">
+	<!-- fix bar goes here -->
+	<div>
+		<div class="fixbar">
+			<div class="container">
+				<div class="logo">
+					<a href="index.html"><h1>GoodLuckLearning</h1></a>
+				</div>
+				<div id="search" class="container-1">
+					<div  class="search-container">	
+						<form class="searchform">
+							<select class="search_category" value="Category">
+								<option>Category</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+
+							<input class="searchfield" style="width: 200px;"type="text" placeholder="Keywords: Javascript, Afterschool..." onfocus="if (this.value == 'Keywords: Javascript, Afterschool...') {this.value = '';}" onblur="if (this.value == '') {this.value = '';}">
+							<input class="searchfield" style="width: 100px;" type="text" placeholder="Near: zipcode" onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == 'zipcode') {this.value = '';}">
+							<input class="searchbutton" type="button" value="Go">
+						</form>
+					</div>
+					<div class="login-container">
+						<a href="">Login  </a>| <a href="">Sign Up </a>
+					</div>	
+				</div>
+				
+						
+		</div>
+		</div>
+	</div>
+	<!-- fix bar goes here -->
+	<div class="clr" style="height:80px;"></div>
+	<div class="dashboard-wrapper">
+		
+		<ul class="dashboard-list" id="tab">
+			<li><a href="#tabs-1">Profile</a></li>
+			<li><a href="#tabs-2">Your Listings</a></li>
+			<li><a href="#tabs-3">InBox</a></li>
+			
+		</ul>
+		
+		<div class="clr" style="height:0px;"></div>
+
+		<!--class listing box -->
+		<div class="tab-box hide" id="tabs-2"> 
+			<div class="single-box">
+			<div >
+					<ul class="result_in_grid">
+						
+							<li><a class="list_block">
+								<div>
+									<div class="course-type-distance">
+										<p>Distance-Learning</p>
+									</div>
+									<div class="course-title">
+									<h1>Algebra G3-G4</h1>
+									</div>
+									<div class="provider-logo">
+										<img src="images/edu1.jpg">
+									</div>
+
+									<ul class="inline-list">
+										
+										<li><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;
+											<!--<span class="rating star"></span>
+											 <span class="rating star"></span>
+											 <span class="rating star"></span><br>-->
+											 <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>
+										</li>
+										<li><i class="fa fa-usd"></i> &nbsp;&nbsp;&nbsp;740</li>
+										<li><i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;10 Class Meetings</li>
+										<li><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp; All Year Round</li>
+									</ul>
+								</div></a>
+							</li>
+							</ul>
+				</div>
+			
+			</div>
+
+		</div>
+
+
+		<!-- class listing box -->
+		<!-- profile box -->
+		<div class="tab-box" id="tabs-1"> 
+			<div class="left">
+				<div class="profile-pic"><img src=""></div>
+				<div><h3>Some Name</h3></div>
+				<div><h2>Kenndy School</h2></div>
+				<div class="request-for-info" id="onclick">Edit Your Profile</div>
+			</div>
+			<div class="right">
+				<form action="" method="post" class="bootstrap-frm">
+				    <h1>Profile
+				        <span>Please fill all the texts in the fields.</span>
+				    </h1>
+				    <label>
+				        <span>Your Name :</span>
+				        <input id="name" type="text" name="name" placeholder="Your Full Name" />
+				    </label>
+				    
+				    <label>
+				        <span>Your Email :</span>
+				        <input id="email" type="email" name="email" placeholder="Valid Email Address" />
+				    </label>
+				    
+				    <label>
+				        <span>Message :</span>
+				        <textarea id="message" name="message" placeholder="Your Message to Us"></textarea>
+				    </label> 
+				     <label>
+				        <span>Subject :</span><select name="selection">
+				        <option value="Job Inquiry">Job Inquiry</option>
+				        <option value="General Question">General Question</option>
+				        </select>
+				    </label>    
+				    <label>
+				        <span>Subject :</span><select name="selection">
+				        <option value="Job Inquiry">Job Inquiry</option>
+				        <option value="General Question">General Question</option>
+				        </select>
+				    </label>    
+				    <label>
+				        <span>Subject :</span><select name="selection">
+				        <option value="Job Inquiry">Job Inquiry</option>
+				        <option value="General Question">General Question</option>
+				        </select>
+				    </label>    
+				     <label>
+				        <span>&nbsp;</span> 
+				        <input type="button" class="button" value="Send" /> 
+				    </label>    
+				</form>
+			</div>
+
+
+
+		</div>
+		<!-- profile box -->
+
+
+		
+
+
+		<!--inbox box -->
+		<div class="tab-box" id="tabs-3"> 
+			<div class="single-box">
+				
+			
+			</div>
+
+
+
+		</div>
+
+
+		<!-- inbox box -->
+
+	</div>
+	</div>
+	<div class="clr" style="height:20px;"></div>
+
+
+
+			
+</body>
+</html>
