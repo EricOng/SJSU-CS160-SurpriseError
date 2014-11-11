@@ -3,22 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Servlets;
 
-import Handlers.LoginHandler;
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Eric Ong, David Ho
+ * @author Eric Ong
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
-public class LoginServlet extends HttpServlet {
+public class DashboardServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,20 +30,8 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("At Login Servlet");
-        if (request.getQueryString() != null) {
-            System.out.println("Attempt Authentication");
-            LoginHandler handler = new LoginHandler();
-            handler.query(handler.parse(request));
-            //TO-DO:  Send to dashboard when finished.
-            //Current:  Send to url: "/SearchServlet" that is already mapped to the SearchServlet class for handling.
-            if(handler.getBean().isValid())
-                request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);
-            // if authentication failed, return to index page
-            else
-                request.getRequestDispatcher("/index").forward(request, response);
-        }
 
+        request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

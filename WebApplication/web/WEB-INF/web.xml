@@ -59,6 +59,10 @@
         <servlet-name>AddReviewFormServlet</servlet-name>
         <servlet-class>Servlets.AddReviewFormServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-class>Servlets.DashboardServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BrowseClass</servlet-name>
         <url-pattern>/Class</url-pattern>
@@ -98,6 +102,10 @@
     <servlet-mapping>
         <servlet-name>AddReviewFormServlet</servlet-name>
         <url-pattern>/submitreview</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardServlet</servlet-name>
+        <url-pattern>/DashboardServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

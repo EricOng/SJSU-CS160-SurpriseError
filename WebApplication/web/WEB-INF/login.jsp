@@ -73,7 +73,7 @@
 
                     <!-- Register Form -->
                     <div class="user_register">
-                        <form>
+                        <form enctype="hex">
                             <label>Full Name</label>
                             <input type="text" />
                             <br />
