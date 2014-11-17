@@ -22,15 +22,14 @@
 
       // Grab the tab links and content divs from the page
       var tabListItems = document.getElementById('tab').childNodes;
-      alert("#of tabs "+tabListItems.length);
+      
       for ( var i = 0; i < tabListItems.length; i++ ) {
-      	  alert(i +"= "+i+"  .. "+tabListItems[i].nodeName);
         if ( tabListItems[i].nodeName == "LI" ) {
-          alert("? "+tabListItems[i].nodeName);
+       
           var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
-            alert("tabLink ="+ tabLink);
+           
           var id = getHash( tabLink.getAttribute('href') );
-            alert("id ="+ id);
+          
           tabLinks[id] = tabLink;
           contentDivs[id] = document.getElementById( id );
           
@@ -75,10 +74,9 @@ function showTab() {
       return false;
     }
 function getFirstChildWithTagName( element, tagName ) {
-	alert("here?:  "+tagName);
       for ( var i = 0; i < element.childNodes.length; i++ ) {
         if ( element.childNodes[i].nodeName == tagName ){
-        	alert("tagname: "+element.childNodes[i].nodeName);
+        	
         	return element.childNodes[i];
          }
       }

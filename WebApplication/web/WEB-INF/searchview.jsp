@@ -1,5 +1,5 @@
-<%@ page import="java.util.*" %>
- 
+<%@ page import="java.util.* " %>
+<%@ page import="Bean.ClassBean" %> 
 <%@page contentType="text/html" pageEncoding="UTF-8" session='true'%>
 <!DOCTYPE HTML>
  
@@ -61,20 +61,21 @@
             <div >
                 <ul class="result_in_grid">
         <%     
-            System.out.println(al);
+            System.out.println("************* "+ arraySize);
             Iterator itr = al.iterator();
             while (itr.hasNext()) {
                 if ((count % 2) == 0) {
                     color = "#eeffee";
                 }
                 count++;
-                ArrayList cList = (ArrayList) itr.next();
+                //ArrayList cList = (ArrayList) itr.next();
+                ClassBean myclass = (ClassBean) itr.next();
          %>
             <li>
-                <a class="list_block" href="BrowseClassServlet?method=doPost&param1=<%=cList.get(0)%>">
+                <a class="list_block" href="BrowseClassServlet?method=doPost&param1=<%=myclass.getClassId()%>">
                     <div>
                         <div class="course-title">
-                        <h1><%=cList.get(1)%></h1>
+                        <h1><%=myclass.getClassName()%></h1>
                         </div>
                         <br>
 
@@ -85,7 +86,7 @@
                                  <span class="rating star"></span><br>-->
                                  <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                             </li>
-                            <li><i class="fa fa-usd"></i> &nbsp;&nbsp;&nbsp;<%=cList.get(5)%></li>
+                            <li><i class="fa fa-usd"></i> &nbsp;&nbsp;&nbsp;<%=myclass.getCost()%></li>
                             <li><i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;10 Class Meetings</li>
                             <li><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp; All Year Round</li>
                         </ul>

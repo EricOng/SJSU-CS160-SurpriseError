@@ -14,6 +14,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.servlet.RequestDispatcher;
 import javax.sql.DataSource;
+import Bean.ClassBean;
 
 /**
  *
@@ -66,15 +67,11 @@ public class SearchServlet extends HttpServlet {
         
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-         Context initCtx = null;
+        Context initCtx = null;
         Context envCtx = null;
         DataSource ds = null;
         Connection conn = null;
-        String url = "jdbc:mysql://localhost:3307/";
-        String dbName = "mydb";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "root";
+       
  
         Statement st;
         try {
@@ -88,7 +85,7 @@ public class SearchServlet extends HttpServlet {
             conn = ds.getConnection();
             System.out.println("Connected!");
             String category = request.getParameter("category");//tochange
- 
+            
             ArrayList al = null;
             ArrayList class_list = new ArrayList();
             String query = "select * from classes";
@@ -97,6 +94,7 @@ public class SearchServlet extends HttpServlet {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
             int count=0;
+            
             while (rs.next()) {
                 //System.out.println("here?= "+ count);
                 System.out.print(rs.getString(1)+", ");
@@ -105,7 +103,7 @@ public class SearchServlet extends HttpServlet {
                 System.out.print(rs.getString(4)+", ");
                 System.out.print(rs.getString(5)+", ");
                 System.out.println(rs.getString(6));
-            al = new ArrayList();
+                al = new ArrayList();
                 al.add(rs.getString(1));
                 al.add(rs.getString(2));
                 al.add(rs.getString(3));
@@ -113,14 +111,24 @@ public class SearchServlet extends HttpServlet {
                 al.add(rs.getString(5));
                 al.add(rs.getString(6));
  
+                ClassBean newClass = new ClassBean();
+                newClass.setClassId(Integer.parseInt(rs.getString(1)));
+                newClass.setClassName(rs.getString(2));
+                newClass.setClassCategory(rs.getString(3));
+                newClass.setDescription(rs.getString(4));
+                newClass.setCost(Double.parseDouble(rs.getString(5)));
+                newClass.setType(rs.getString(6));
+                
+                
                 System.out.println("al :: " + al);
-                class_list.add(al);
+               // class_list.add(al);
+                class_list.add(newClass);
                 count++;
             }
             System.out.println("=====================================");
             System.out.println("# of rows: "+count);
             System.out.println("=====================================");
-
+              System.out.println("class_list: "+class_list.size());
             RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/searchview.jsp");
             request.setAttribute("classes", class_list);
             view.forward(request, response);
