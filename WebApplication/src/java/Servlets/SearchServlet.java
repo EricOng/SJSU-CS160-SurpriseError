@@ -88,7 +88,7 @@ public class SearchServlet extends HttpServlet {
             
             ArrayList al = null;
             ArrayList class_list = new ArrayList();
-            String query = "select * from classes";
+            String query = "select * from mydb.classes";
  
             System.out.println("query " + query);
             st = conn.createStatement();

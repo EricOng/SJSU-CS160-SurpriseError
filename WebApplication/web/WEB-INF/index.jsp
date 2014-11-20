@@ -154,7 +154,7 @@
                                 <jsp:include page="login.jsp"></jsp:include>
                             </c:if>
                             <c:if test = "${info.valid == true}">
-                                <a href="#modal">${info.name}   </a>|  <a id='logout' href="">Logout</a>
+                                <a href="#modal">${info.name}   </a>|  <a id='logout' href="Logout">Logout</a>
                             </c:if>        
                     </div>
                 </div>
@@ -165,36 +165,7 @@
                     <h3>from Personal Tutors, Local Educational Centers to online educations</h3>
                 </div>
 		<div class="mainbar">
-			<!--<div class="mainbar_cointainer">
-				<span>
-
-					<div class="class">
-						<input type="text" class="class_textbox" placeholder="Class Name"/></text>
-					</div>
-					<div class="categories">
-						<select class="categories_select">
-							<option value="english">English</option>
-							<option value="mathematics">Mathmatics</option>
-							<option value="computer_science">Computer Science</option>
-							<option value="physics">Physics</option>
-							<option value="chemistry">Chemistry</option>
-							<option value="biology">Biology</option>
-						</select>
-					</div>
-
-					<div class="zipcode">
-						<input type="text" class="zipcode_textbox" placeholder="Zip Code"/></text>
-					</div>
-
-
-
-					<div class="search">
-						<input type="button" class="search_button" value="Search">
-					</div>
-				</span>
-			</div>-->
-			
-			<div>
+                    <div>
 			<div  style="float:none;width:650px;margin-left:auto;margin-right:auto;margin-top:18px;">	
                             <form class="searchform" method="POST" action="SearchServlet">
                                 <select class="search_category" value="Category">
@@ -205,7 +176,6 @@
                                         <option>Computer</option>
                                         <option>Language</option>
                                         <option>Music</option>
-
                                 </select>
 
                                 <input class="searchfield" name="category" style="width: 200px;"type="text" placeholder="Keywords: Javascript, Afterschool..." onfocus="if (this.value == 'Keywords: Javascript, Afterschool...') {this.value = '';}" onblur="if (this.value == '') {this.value = '';}">
@@ -213,16 +183,8 @@
                                 <input class="searchbutton" type="submit" name="search" value="Go" onClick="parent.location='result.html'">
                             </form>
                         </div>
-		</div></div>
+                    </div>
+                </div>
                 
-                <script type='text/javascript'>
-                    $("#logout").click(function(){
-                        <%
-                            info.setId(-1);
-                            info.setName("Login");
-                            info.setValid(false);
-                        %>
-                    })
-                </script>
 	</body>
 </html>

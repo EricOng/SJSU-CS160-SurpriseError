@@ -6,6 +6,7 @@
 
 package Handlers;
 
+import Bean.BusinessUserInfoBean;
 import Bean.LoginBean;
 import Servlets.AddOfferFormServlet;
 import java.sql.Connection;
@@ -55,31 +56,62 @@ public class LoginHandler implements IHandler {
         Connection conn = null;
         ResultSet rs = null;
         PreparedStatement prpStmt = null;
-        String query = "Select id_user_business, user_name, password from mydb.user_business"
+        String query1 = "Select id_user_business, user_name, password, business_name, "
+                + "email_addr, business_type, business_addr from mydb.user_business"
                 + " where user_name = ? and password = ?;";
-        
+         String query2 = "Select id_user_casual, user_name, password from mydb.user_casual"
+                + " where user_name = ? and password = ?;";
         try {
             initCtx = new InitialContext();
             envCtx = (Context) initCtx.lookup("java:comp/env");
             System.out.println("Getting Datasource");
             ds = (DataSource) envCtx.lookup("jdbc/mydb");
-            System.out.println("DataSource Connection success");
+            System.out.println("Env located successfully");
             conn = ds.getConnection();
+            System.out.println("DataSource Connection success");
             
             info = lookupLoginBeanBean(httpRequest);
             
-            prpStmt = conn.prepareStatement(query);
-
+            //Check in businesses 
+            prpStmt = conn.prepareStatement(query1);
             prpStmt.setString(1, data.get(0)); //user_name
             prpStmt.setString(2, data.get(1)); //password
-
             rs = prpStmt.executeQuery();
             while (rs.next()) {
                 if (rs.getString(2).equalsIgnoreCase(data.get(0))) { //check username
                     if (rs.getString(3).equalsIgnoreCase(data.get(1))) { //check password
                         info.setValid(true); //remember valid
                         info.setId(rs.getInt(1)); //remember id
-                        info.setName("dummy_name");
+                        info.setName(rs.getString(2));
+                        HttpSession hs = httpRequest.getSession();
+                        hs.setAttribute("info", info);
+                        
+                        //retrieve business information
+                        BusinessUserInfoBean busi = new BusinessUserInfoBean();
+                        busi.setBusinessName(rs.getString(4));
+                        busi.setEmail(rs.getString(5));
+                        busi.setBusType(rs.getString(6));
+                        busi.setBusAddr(rs.getString(7));
+                        hs.setAttribute("user", busi);
+                        
+                        System.out.println("Authentication Successful!");
+                        break;
+                    }
+                }
+            }
+            
+            //Check in casual users
+            prpStmt = conn.prepareStatement(query2);
+            prpStmt.setString(1, data.get(0)); //user_name
+            prpStmt.setString(2, data.get(1)); //password
+            rs = prpStmt.executeQuery();
+            
+            while (rs.next()) {
+                if (rs.getString(2).equalsIgnoreCase(data.get(0))) { //check username
+                    if (rs.getString(3).equalsIgnoreCase(data.get(1))) { //check password
+                        info.setValid(true); //remember valid
+                        info.setId(rs.getInt(1)); //remember id
+                        info.setName(rs.getString(2));
                         HttpSession hs = httpRequest.getSession();
                         hs.setAttribute("info", info);
                         System.out.println("Authentication Successful!");

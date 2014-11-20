@@ -49,7 +49,7 @@
                                 <jsp:include page="login.jsp"></jsp:include>
                             </c:if>
                             <c:if test = "${info.valid == true}">
-                                <a href="#modal">${info.name}   </a>|  <a id='logout' href=index>Logout</a>
+                                <a href="#modal">${info.name}   </a>|  <a id='logout' href="Logout">Logout</a>
                             </c:if>    
                                 
                     </div>
@@ -57,15 +57,5 @@
                 </div>
             </div>		 		
         </div>
-                            
-        <script type='text/javascript'>
-            $("#logout").click(function(){
-                <%
-                    info.setId(-1);
-                    info.setName("Login");
-                    info.setValid(false);
-                %>
-            })
-        </script>
     </body>
 </html>

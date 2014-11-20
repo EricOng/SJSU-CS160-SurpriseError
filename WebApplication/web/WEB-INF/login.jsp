@@ -48,11 +48,11 @@
                     <div class="user_login">
                         <form action="login">
                             <label>Email / Username</label>
-                            <input type="text" name="User"/>
+                            <input type="text" name="User" value="dummy_bus01"/>
                             <br />
 
                             <label>Password</label>
-                            <input type="password" name="Pass"/>
+                            <input type="password" name="Pass" value="dummy_b_pass"/>
                             <br />
 
                             <div class="checkbox">
