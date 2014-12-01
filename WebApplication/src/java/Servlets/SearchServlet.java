@@ -71,7 +71,11 @@ public class SearchServlet extends HttpServlet {
         Context envCtx = null;
         DataSource ds = null;
         Connection conn = null;
-       
+        PreparedStatement prpStmt = null;
+        ResultSet rs = null;
+        String query1 = "Select * from mydb.classes"
+                + " where category = ? and keyword = ? and zip = ?;";
+         String query = "select * from mydb.classes";
  
         Statement st;
         try {
@@ -84,15 +88,22 @@ public class SearchServlet extends HttpServlet {
             System.out.println("DataSource Connection success");
             conn = ds.getConnection();
             System.out.println("Connected!");
-            String category = request.getParameter("category");//tochange
+            
+            String category = request.getParameter("category");
+            String keyword = request.getParameter("keyword");
+            String zipcode = request.getParameter("zipcode");
             
             ArrayList al = null;
             ArrayList class_list = new ArrayList();
-            String query = "select * from mydb.classes";
- 
-            System.out.println("query " + query);
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery(query);
+            prpStmt = conn.prepareStatement(query);
+      //      prpStmt.setString(1, request.getParameter("category")); //category
+      //      prpStmt.setString(2, request.getParameter("keyword")); //password
+      //      prpStmt.setString3, request.getParameter("zipcode")); //password
+            rs = prpStmt.executeQuery();
+
+            System.out.println("query " + query);
+          
             int count=0;
             
             while (rs.next()) {

@@ -10,6 +10,7 @@
 <head>
 <title>GoodLuck Learning</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/style-1.css" rel="stylesheet" type="text/css" />
 <link href="css/dashboard.css" rel="stylesheet" type="text/css" />
@@ -91,7 +92,7 @@ function getFirstChildWithTagName( element, tagName ) {
 	<!-- fix bar goes here -->
         <jsp:include page="searchNavi.jsp"></jsp:include>
 	<!-- fix bar goes here -->
-	<div class="clr" style="height:80px;"></div>
+	<div class="clr" style="height:20px;"></div>
 	<div class="dashboard-wrapper">
 		
 		<ul class="dashboard-list" id="tab">
@@ -144,7 +145,7 @@ function getFirstChildWithTagName( element, tagName ) {
 
 
 		<!-- class listing box -->
-		<!-- profile box -->
+		<!-- edit profile box -->
 		<div class="tab-box" id="tabs-1"> 
 			<div class="left">
 				<div class="profile-pic"><img src=""></div>
@@ -155,24 +156,28 @@ function getFirstChildWithTagName( element, tagName ) {
 			<div class="right">
 				<form action="" method="post" class="bootstrap-frm">
 				    <h1>Profile
-				        <span>Please fill all the texts in the fields.</span>
+				        <span></span>
 				    </h1>
 				    <label>
-				        <span>Your Name :</span>
+				        <span>Name :</span>
 				        <input id="name" type="text" name="name" placeholder="Your Full Name" />
 				    </label>
 				    
 				    <label>
-				        <span>Your Email :</span>
+				        <span>Email :</span>
 				        <input id="email" type="email" name="email" placeholder="Valid Email Address" />
 				    </label>
-				    
+                                     <label>
+				        <span>Contact</span>
+				        <input id="email" type="email" name="email" placeholder="Valid Email Address" />
+				    </label>
 				    <label>
-				        <span>Message :</span>
-				        <textarea id="message" name="message" placeholder="Your Message to Us"></textarea>
-				    </label> 
+				        <span>Type</span>
+				        <input id="type" type="text" name="type" placeholder="" />
+				    </label>
+                                    
 				     <label>
-				        <span>Subject :</span><select name="selection">
+				        <span>Location</span><select name="selection">
 				        <option value="Job Inquiry">Job Inquiry</option>
 				        <option value="General Question">General Question</option>
 				        </select>
@@ -202,16 +207,41 @@ function getFirstChildWithTagName( element, tagName ) {
 		<!-- profile box -->
 
 
+               
 		
 
 
 		<!--inbox box -->
 		<div class="tab-box" id="tabs-3"> 
-			<div class="single-box">
-				
-			
-			</div>
+	<div>
+                <ul class="result_in_grid">
+       
+            <li>
+                <a class="list_block">
+                    <div>
+                        <div class="course-title">
+                        <h1>Algebra</h1>
+                        </div>
+                        <br>
 
+                        <ul class="inline-list">
+                            <li><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;
+                                <!--<span class="rating star"></span>
+                                 <span class="rating star"></span>
+                                 <span class="rating star"></span><br>-->
+                                 <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                            </li>
+                            <li><i class="fa fa-usd"></i> &nbsp;&nbsp;&nbsp;$740</li>
+                            <li><i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;10 Class Meetings</li>
+                            <li><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp; All Year Round</li>
+                        </ul>
+                    </div>
+                </a>
+            </li>
+       		
+                </ul>
+            </div>	
+	
 
 
 		</div>

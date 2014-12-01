@@ -10,7 +10,8 @@
     height: 70px;
     background: rgba(46,46,46,1);
     box-shadow: 0 0 5px rgba(52,152,219,0.9);
-    z-index: 1;
+   
+
 }
 .container { 
   height: 70px;
@@ -148,9 +149,11 @@ p{
 
 .map-wrapper{
     float:left;
+    margin-left: 30px;
+    margin-top: -10px;
     width: 30%;
-    height:98%;
-    background:#666;
+    height:100%;
+   /* background:#666;*/
     position:fixed;
 
 }

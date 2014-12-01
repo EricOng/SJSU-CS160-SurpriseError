@@ -9,13 +9,32 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+        <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbkX1elv7Gb7fmlG2C5u9ir012Sv3kkZA">
+    </script>
+    <script>
+function initialize()
+{
+var mapProp = {
+  center:new google.maps.LatLng(51.508742,-0.120850),
+  zoom:5,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
     </head>
     <body>
         <jsp:include page="searchNavi.jsp"></jsp:include>
-	<div class="clr"></div>
+        <div class="clr" style="height:20px;"></div>
         <!-- Here is the search result  -->
        
         <div class="map-wrapper"> 
+            <div id="googleMap" style="width:100%;height:100%;"></div>
+            
+         </div>
         </div>
         <div class="content-wrapper">
            
@@ -27,7 +46,7 @@
                 int arraySize = al.size();
         %>
             <p class="search_result">1-9 of <%=arraySize%> results for category <a href=""><span class="keyword">Programming</span></a> near <a href=""><span class="keyword">Sunnyvale</span></a></p>
-            <div class="clr"></div>
+            <div class="clr" style="height:10px;"></div>
             <div >
                 <ul class="result_in_grid">
         <%     
