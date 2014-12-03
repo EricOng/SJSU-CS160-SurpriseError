@@ -2,6 +2,12 @@
 @import url(http://fonts.googleapis.com/css?family=Share+Tech+Mono);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 @import url(http://fonts.googleapis.com/css?family=Raleway);
+.stick {
+    position:fixed;
+    top:0px;
+}
+
+
 .fixbar {
     width: 100%;
     left: 0px;
@@ -10,7 +16,8 @@
     height: 70px;
     background: rgba(46,46,46,1);
     box-shadow: 0 0 5px rgba(52,152,219,0.9);
-   
+    position: fixed;
+    z-index: 9999999;
 
 }
 .container { 
@@ -149,8 +156,8 @@ p{
 
 .map-wrapper{
     float:left;
+    margin-top: -15px;
     margin-left: 30px;
-    margin-top: -10px;
     width: 30%;
     height:100%;
    /* background:#666;*/
