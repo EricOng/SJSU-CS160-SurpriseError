@@ -92,7 +92,7 @@ function getFirstChildWithTagName( element, tagName ) {
 	<!-- fix bar goes here -->
         <jsp:include page="searchNavi.jsp"></jsp:include>
 	<!-- fix bar goes here -->
-	<div class="clr" style="height:20px;"></div>
+	<div class="clr" style="height:60px;"></div>
 	<div class="dashboard-wrapper">
 		
 		<ul class="dashboard-list" id="tab">

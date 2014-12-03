@@ -12,7 +12,9 @@
         <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbkX1elv7Gb7fmlG2C5u9ir012Sv3kkZA">
     </script>
+    
     <script>
+        
 function initialize()
 {
 var mapProp = {
@@ -20,6 +22,7 @@ var mapProp = {
   zoom:5,
   mapTypeId:google.maps.MapTypeId.ROADMAP
   };
+  console.log("Current POS:  ");
 var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
 
@@ -28,7 +31,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </head>
     <body>
         <jsp:include page="searchNavi.jsp"></jsp:include>
-        <div class="clr" style="height:20px;"></div>
+        <div class="clr" style="height:80px;"></div>
         <!-- Here is the search result  -->
        
         <div class="map-wrapper"> 
