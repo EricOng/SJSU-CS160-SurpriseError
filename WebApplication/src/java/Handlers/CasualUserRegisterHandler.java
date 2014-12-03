@@ -79,8 +79,11 @@ public class CasualUserRegisterHandler implements IHandler {
             prpStmt.setString(4, data.get(3)); //email_addr
             prpStmt.setString(5, data.get(4)); //password
             prpStmt.setString(6, data.get(5)); //birthday
-            prpStmt.setString(7, data.get(6)); //gender
-
+            if (data.get(6).equalsIgnoreCase("m")) {
+                prpStmt.setString(7, "2"); //gender
+            } else {
+                prpStmt.setString(7, "1"); //gender
+            }
             int wtv = prpStmt.executeUpdate();
             System.out.println("Affected rows: " + wtv);
             /*
