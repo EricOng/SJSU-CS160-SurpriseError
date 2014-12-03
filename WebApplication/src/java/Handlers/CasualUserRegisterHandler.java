@@ -34,8 +34,12 @@ public class CasualUserRegisterHandler implements IHandler {
 
         try {
             parseData.add(request.getParameterValues("name")[0]);
-            parseData.add(request.getParameterValues("pass")[0]);
+            parseData.add(request.getParameterValues("first_name")[0]);
+            parseData.add(request.getParameterValues("last_name")[0]);
             parseData.add(request.getParameterValues("email")[0]);
+            parseData.add(request.getParameterValues("pass")[0]);
+            parseData.add(request.getParameterValues("birthday")[0]);
+            parseData.add(request.getParameterValues("gender")[0]);
         } catch (NullPointerException e) {
         } catch (IndexOutOfBoundsException e) {
         };
@@ -70,8 +74,12 @@ public class CasualUserRegisterHandler implements IHandler {
             //Check in businesses
             prpStmt = conn.prepareStatement(query1);
             prpStmt.setString(1, data.get(0)); //user_name
-            prpStmt.setString(2, data.get(1)); //password
-            prpStmt.setString(3, data.get(2)); //email_addr
+            prpStmt.setString(2, data.get(1)); //first_name
+            prpStmt.setString(3, data.get(2)); //last_name
+            prpStmt.setString(4, data.get(3)); //email_addr
+            prpStmt.setString(5, data.get(4)); //password
+            prpStmt.setString(6, data.get(5)); //birthday
+            prpStmt.setString(7, data.get(6)); //gender
 
             int wtv = prpStmt.executeUpdate();
             System.out.println("Affected rows: " + wtv);
