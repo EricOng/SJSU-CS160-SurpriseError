@@ -48,7 +48,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 ArrayList al = (ArrayList) request.getAttribute("classes");
                 int arraySize = al.size();
         %>
-            <p class="search_result">1-9 of <%=arraySize%> results for category <a href=""><span class="keyword">Programming</span></a> near <a href=""><span class="keyword">Sunnyvale</span></a></p>
+        <p class="search_result"><span class="keyword"><%=arraySize%></span> results </p>
             <div class="clr" style="height:10px;"></div>
             <div >
                 <ul class="result_in_grid">

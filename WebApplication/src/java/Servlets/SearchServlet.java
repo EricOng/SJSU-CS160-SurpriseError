@@ -73,15 +73,22 @@ public class SearchServlet extends HttpServlet {
         Connection conn = null;
         PreparedStatement prpStmt = null;
         ResultSet rs = null;
-        String query1 = "Select * from mydb.classes"
-                + " where category = ? and keyword = ? and zip = ?;";
-         String query = "select * from mydb.classes";
+        
+        /*** Database Query ***/
+        String category = "";
+        String keyword = "";
+        String zipcode = "";
+        boolean whereClause =false;
+
+        String query1 = "Select * from mydb.classes";
+             //   + " where class_category = ? and ( class_name like ? or description like ?);";
+
  
+        /*** Database Query ***/
+        
         Statement st;
         try {
-      //      Class.forName(driver).newInstance();
-       //     conn = DriverManager.getConnection(url + dbName, userName, password);
-             initCtx = new InitialContext();
+            initCtx = new InitialContext();
             envCtx = (Context) initCtx.lookup("java:comp/env");
             System.out.println("Getting Datasource");
             ds = (DataSource) envCtx.lookup("jdbc/mydb");
@@ -89,23 +96,40 @@ public class SearchServlet extends HttpServlet {
             conn = ds.getConnection();
             System.out.println("Connected!");
             
-            String category = request.getParameter("category");
-            String keyword = request.getParameter("keyword");
-            String zipcode = request.getParameter("zipcode");
+            if(!request.getParameter("category").equals("Category")){
+                 category = request.getParameter("category");
+                 query1+= " where class_category = \'"+category+"\'";
+                 whereClause = true;
+            }
+           
+            
+            if(!request.getParameter("keyword").equals("")){
+                 keyword = "%"+request.getParameter("keyword")+"%";
+                 if(!whereClause){  
+                     query1+=" where class_name like \'"+keyword+"\' or description like \'"+keyword+"\'" ;
+                 } else{
+                     query1+=" and ( class_name like \'"+keyword+"\' or description like \'"+keyword+"\')" ;
+                 }
+            }
+            
+            
+            if(!request.getParameter("zipcode").equals("")){
+                 zipcode = request.getParameter("zipcode");
+            }else{
+                 zipcode = "";
+            } 
+            System.out.println("Zipcode = "+zipcode);
+            
             
             ArrayList al = null;
             ArrayList class_list = new ArrayList();
             st = conn.createStatement();
-            prpStmt = conn.prepareStatement(query);
-      //      prpStmt.setString(1, request.getParameter("category")); //category
-      //      prpStmt.setString(2, request.getParameter("keyword")); //password
-      //      prpStmt.setString3, request.getParameter("zipcode")); //password
+            prpStmt = conn.prepareStatement(query1);
             rs = prpStmt.executeQuery();
 
-            System.out.println("query " + query);
+            System.out.println("query:\n " + prpStmt.toString());
           
             int count=0;
-            
             while (rs.next()) {
                 //System.out.println("here?= "+ count);
                 System.out.print(rs.getString(1)+", ");
@@ -148,17 +172,7 @@ public class SearchServlet extends HttpServlet {
             System.out.println("Disconnected!");
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        }  
     }
 
     /**

@@ -18,20 +18,23 @@
         <div class="fixbar">
             <div class="container">
                 <div class="logo">
-                    <a href="index.html"><h1>GoodLuckLearning</h1></a>
+                    <a href="index"><h1>GoodLuckLearning</h1></a>
                 </div>
                 <div id="search" class="container-1">
                     <div  class="search-container">	
-                        <form class="searchform">
-                            <select class="search_category" value="Category">
+                        <form class="searchform" method="POST" action="SearchServlet">
+                            <select class="search_category" value="Category" name="category">
                                 <option>Category</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
+                                <option>English</option>
+                                <option>Mathematics</option>
+                                <option>Science</option>
+                                <option>Computer</option>
+                                <option>Language</option>
+                                <option>Music</option>
                             </select> 
-                            <input class="searchfield" style="width: 200px;"type="text" placeholder="Keywords: Javascript, Afterschool..." onfocus="if (this.value == 'Keywords: Javascript, Afterschool...') {this.value = '';}" onblur="if (this.value == '') {this.value = '';}">
-                            <input class="searchfield" style="width: 100px;" type="text" placeholder="Near: zipcode" onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == 'zipcode') {this.value = '';}">
-                            <input class="searchbutton" type="button" value="Go">
+                            <input class="searchfield" style="width: 200px;" name="keyword" type="text" placeholder="Keywords: Javascript, Afterschool..." onfocus="if (this.value == 'Keywords: Javascript, Afterschool...') {this.value = '';}" onblur="if (this.value == '') {this.value = '';}">
+                            <input class="searchfield" style="width: 100px;" name="zipcode" type="text" placeholder="Near: zipcode" onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == 'zipcode') {this.value = '';}">
+                          <input class="searchbutton" type="submit" name="search" value="Go" onClick="parent.location='result.html'">
                         </form>
                     </div> 
                     
