@@ -74,8 +74,16 @@
                     <!-- Register Form -->
                     <div class="user_register">
                         <form action="CRegister">
-                            <label>Full Name</label>
+                            <label>User Name</label>
                             <input type="text" name="name"/>
+                            <br />
+                            
+                            <label>First Name</label>
+                            <input type="text" name="first_name"/>
+                            <br />
+                            
+                            <label>Last Name</label>
+                            <input type="text" name="last_name"/>
                             <br />
 
                             <label>Email Address</label>
@@ -84,6 +92,14 @@
 
                             <label>Password</label>
                             <input type="password" name="pass"/>
+                            <br />
+                            
+                            <label>Birthday (yyyy-mm-dd)</label>
+                            <input type="text" name="birthday"/>
+                            <br />
+                            
+                            <label>Gender (M/F)</label>
+                            <input type="text" name="gender"/>
                             <br />
 
                             <div class="checkbox">
