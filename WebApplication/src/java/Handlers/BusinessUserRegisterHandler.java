@@ -34,12 +34,15 @@ public class BusinessUserRegisterHandler implements IHandler {
         List<String> parseData = new ArrayList<String>();
 
         try {
-            parseData.add(request.getParameterValues("User")[0]);
-            parseData.add(request.getParameterValues("Pass")[0]);
-            parseData.add(request.getParameterValues("email")[0]);
-            parseData.add(request.getParameterValues("Bussiness_Name")[0]);
-            parseData.add(request.getParameterValues("Bussiness_Type")[0]);
-            parseData.add(request.getParameterValues("Bussiness_Address")[0]);
+            parseData.add(request.getParameterValues("user")[0]);
+            parseData.add(request.getParameterValues("pass")[0]);
+            parseData.add(request.getParameterValues("business_name")[0]);
+            parseData.add(request.getParameterValues("email_addr")[0]);
+            parseData.add(request.getParameterValues("bussiness_type")[0]);
+            parseData.add(request.getParameterValues("bussiness_address")[0]);
+            parseData.add(request.getParameterValues("zipcode")[0]);
+            parseData.add(request.getParameterValues("bussiness_rating")[0]);
+            parseData.add(request.getParameterValues("start_date")[0]);
         } catch (NullPointerException e) {
         } catch (IndexOutOfBoundsException e) {
         };
@@ -54,9 +57,9 @@ public class BusinessUserRegisterHandler implements IHandler {
         Connection conn = null;
         ResultSet rs = null;
         PreparedStatement prpStmt = null;
-        String query1 = "Insert into mydb.user_business" 
-                + "(user_name, password, business_name, email_addr, business_type, start_date) VALUES"
-                + "(?, ?, ?, ?)";
+        String query1 = "Insert into mydb.user_business "
+                + "(id_user_business, user_name, password, business_name, email_addr, business_type, business_addr, zipcode, business_rating, start_date) \n"
+                + "select count(id_user_casual) + 1, ?, ?, ?, ?, ?, ?, ?, ?, ? from mydb.user_business;";
 
         try {
             initCtx = new InitialContext();
@@ -76,8 +79,12 @@ public class BusinessUserRegisterHandler implements IHandler {
             prpStmt.setString(3, data.get(2)); //business_name
             prpStmt.setString(4, data.get(3)); //email_addr
             prpStmt.setString(5, data.get(4)); //business_type
-            prpStmt.setString(6, data.get(5)); //start_date
-            rs = prpStmt.executeQuery();
+            prpStmt.setString(6, data.get(5)); //business_addr
+            prpStmt.setString(7, data.get(6)); //zipcode
+            prpStmt.setString(8, data.get(7)); //business_rating
+            prpStmt.setString(9, data.get(8)); //start_date
+            int wtv = prpStmt.executeUpdate();
+            System.out.println("Affected rows: " + wtv);
             /*
             while (rs.next()) {
                 if (rs.getString(2).equalsIgnoreCase(data.get(0))) { //check username

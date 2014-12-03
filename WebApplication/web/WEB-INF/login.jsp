@@ -98,7 +98,7 @@
                             <input type="text" name="birthday"/>
                             <br />
                             
-                            <label>Gender</label>
+                            <label>Gender (M/F)</label>
                             <input type="text" name="gender"/>
                             <br />
 
