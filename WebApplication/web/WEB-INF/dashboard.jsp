@@ -97,8 +97,9 @@ function getFirstChildWithTagName( element, tagName ) {
 		
 		<ul class="dashboard-list" id="tab">
 			<li><a href="#tabs-1">Profile</a></li>
-			<li><a href="#tabs-2">Your Listings</a></li>
-			<li><a href="#tabs-3">InBox</a></li>
+		<!--	<li><a href="#tabs-2">Your Listings</a></li>-->
+			<li><a href="#tabs-3">Your Listings</a></li>
+                        <li><a href="#tabs-4">Add Course</a></li>
 			
 		</ul>
 		
@@ -196,7 +197,7 @@ function getFirstChildWithTagName( element, tagName ) {
 				    </label>    
 				     <label>
 				        <span>&nbsp;</span> 
-				        <input type="button" class="button" value="Send" /> 
+				        <input type="button" class="button" value="Update" /> 
 				    </label>    
 				</form>
 			</div>
@@ -249,6 +250,20 @@ function getFirstChildWithTagName( element, tagName ) {
 
 		<!-- inbox box -->
 
+                
+                
+                
+                <!--Add Course -->
+		<div class="tab-box" id="tabs-4"> 
+                    <div>
+
+                    </div>	
+		</div>
+		<!-- Add Course -->
+                
+                
+                
+                
 	</div>
 	</div>
 	<div class="clr" style="height:20px;"></div>
