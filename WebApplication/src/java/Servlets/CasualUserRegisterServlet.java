@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author David
  */
-@WebServlet(name = "CasualUserRegisterServlets", urlPatterns = {"/CasualUserRegisterServlets"})
-public class CasualUserRegisterServlets extends HttpServlet {
+@WebServlet(name = "CasualUserRegisterServlet", urlPatterns = {"/CasualUserRegisterServlet"})
+public class CasualUserRegisterServlet extends HttpServlet {
 
      /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,7 +39,7 @@ public class CasualUserRegisterServlets extends HttpServlet {
             handler.query(handler.parse(request));
             //TO-DO:  Send to dashboard when finished.
             //Current:  Send to url: "/SearchServlet" that is already mapped to the SearchServlet class for handling.
-            
+
             /*
             if(handler.getBean().isValid())
                 request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);

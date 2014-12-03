@@ -5,7 +5,6 @@
  */
 package Handlers;
 
-import Servlets.AddOfferFormServlet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,8 +33,8 @@ public class CasualUserRegisterHandler implements IHandler {
         List<String> parseData = new ArrayList<String>();
 
         try {
-            parseData.add(request.getParameterValues("User")[0]);
-            parseData.add(request.getParameterValues("Pass")[0]);
+            parseData.add(request.getParameterValues("name")[0]);
+            parseData.add(request.getParameterValues("pass")[0]);
             parseData.add(request.getParameterValues("email")[0]);
         } catch (NullPointerException e) {
         } catch (IndexOutOfBoundsException e) {
@@ -51,9 +50,11 @@ public class CasualUserRegisterHandler implements IHandler {
         Connection conn = null;
         ResultSet rs = null;
         PreparedStatement prpStmt = null;
-        String query1 = "Insert into mydb.user_business" 
-                + "(user_name, password, email_addr) VALUES"
-                + "(?, ?, ?)";
+        String query1 = "Insert into mydb.user_casual "
+                + "(id_user_casual, user_name, first_name, last_name, "
+                + "email_addr, password, birthday, gender) \n"
+                + "select count(id_user_casual) + 1, ?, ?, ?, "
+                + "?, ?, ?, ? from mydb.user_casual;";
 
         try {
             initCtx = new InitialContext();
@@ -66,13 +67,14 @@ public class CasualUserRegisterHandler implements IHandler {
 
             //info = lookupLoginBeanBean(httpRequest);
 
-            //Check in businesses 
+            //Check in businesses
             prpStmt = conn.prepareStatement(query1);
             prpStmt.setString(1, data.get(0)); //user_name
             prpStmt.setString(2, data.get(1)); //password
             prpStmt.setString(3, data.get(2)); //email_addr
 
-            rs = prpStmt.executeQuery();
+            int wtv = prpStmt.executeUpdate();
+            System.out.println("Affected rows: " + wtv);
             /*
             while (rs.next()) {
                 if (rs.getString(2).equalsIgnoreCase(data.get(0))) { //check username
@@ -82,7 +84,7 @@ public class CasualUserRegisterHandler implements IHandler {
                         info.setName(rs.getString(2));
                         HttpSession hs = httpRequest.getSession();
                         hs.setAttribute("info", info);
-                        
+
                         //retrieve business information
                         BusinessUserInfoBean busi = new BusinessUserInfoBean();
                         busi.setBusinessName(rs.getString(4));
@@ -90,22 +92,22 @@ public class CasualUserRegisterHandler implements IHandler {
                         busi.setBusType(rs.getString(6));
                         busi.setBusAddr(rs.getString(7));
                         hs.setAttribute("user", busi);
-                        
+
                         System.out.println("Authentication Successful!");
                         break;
                     }
                 }
             }
             */
-            
+
             /*
             //Check in casual users
             prpStmt = conn.prepareStatement(query2);
             prpStmt.setString(1, data.get(0)); //user_name
             prpStmt.setString(2, data.get(1)); //password
             rs = prpStmt.executeQuery();
-            
-            
+
+
             while (rs.next()) {
                 if (rs.getString(2).equalsIgnoreCase(data.get(0))) { //check username
                     if (rs.getString(3).equalsIgnoreCase(data.get(1))) { //check password
@@ -123,10 +125,10 @@ public class CasualUserRegisterHandler implements IHandler {
             conn.close();
         } catch (SQLException e) {
             System.out.println("SQL Exception Found Querying For Registering");
-        } catch (NamingException e) {
-            Logger.getLogger(AddOfferFormServlet.class.getName()).log(Level.SEVERE, null, e);
         } catch (NullPointerException e) {
             System.out.println("Register Fail");
+        } catch (NamingException ex) {
+            Logger.getLogger(CasualUserRegisterHandler.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             // Always make sure result sets and statements are closed,
             // and the connection is returned to the pool
@@ -158,7 +160,7 @@ public class CasualUserRegisterHandler implements IHandler {
             */
         }
     }
-    
+
     /*
     private LoginBean lookupLoginBeanBean(HttpServletRequest request) {
         HttpSession httpSession = request.getSession(true);

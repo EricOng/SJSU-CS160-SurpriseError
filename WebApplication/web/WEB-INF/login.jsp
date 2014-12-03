@@ -73,17 +73,17 @@
 
                     <!-- Register Form -->
                     <div class="user_register">
-                        <form enctype="hex">
+                        <form action="CRegister">
                             <label>Full Name</label>
-                            <input type="text" />
+                            <input type="text" name="name"/>
                             <br />
 
                             <label>Email Address</label>
-                            <input type="email" />
+                            <input type="email" name="email"/>
                             <br />
 
                             <label>Password</label>
-                            <input type="password" />
+                            <input type="password" name="pass"/>
                             <br />
 
                             <div class="checkbox">
@@ -93,7 +93,10 @@
 
                             <div class="action_btns">
                                 <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                                <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+                                <!-- <div class="one_half last"><a href="CRegister" class="btn btn_red">Register</a></div> -->
+                                <div class="one_half last">
+                                    <button id="button_red" type="submit" class="button_red">Register</button>
+                                </div> 
                             </div>
                         </form>
                     </div>
