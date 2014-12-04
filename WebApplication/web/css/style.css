@@ -275,3 +275,10 @@ background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAKCAQAAADI+Ww
     height: 10px;
   }
 /**/
+
+div #loginSection {
+    color: #fff;
+}
+div #loginSection a {
+    color: #fff;
+}
