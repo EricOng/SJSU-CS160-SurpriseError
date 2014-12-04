@@ -32,11 +32,17 @@
 			  overflow: hidden;
 			left: 0;
                 }
-                #index_loggedIn 
+                div #index_loggedIn 
                 {
-                     color:#fff;
+                    color:#fff;
                     font-family: 'Open Sans', sans-serif;
                 }
+                div #index_loggedIn a
+                {
+                    color:#fff;
+                    font-family: 'Open Sans', sans-serif;
+                }
+                
 		.mainbar
 		{
 			height:70px;
@@ -159,9 +165,10 @@
                                 <jsp:include page="login.jsp"></jsp:include>
                             </c:if>
                             <c:if test = "${info.valid == true}">
-                                    <a id="index_loggedIn" href="DashboardServlet">${info.name}   </a>|  
-                                    <a id="index_loggedIn" href="Logout">Logout</a>
-          
+                                <div id="index_loggedIn">
+                                    <a id="" href="DashboardServlet">${info.name}   </a>|  
+                                    <a id="" href="Logout">Logout</a>
+                                </div>
                             </c:if>        
                     </div>
                 </div>
