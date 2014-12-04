@@ -35,7 +35,7 @@ public class AddOfferFormServlet extends HttpServlet {
             AddOfferFormHandler handler = new AddOfferFormHandler();
             handler.query(handler.parse(request));
         }
-        request.getRequestDispatcher("WEB-INF/AddOfferForm.jsp").forward(request, response);
+        request.getRequestDispatcher("DashboardServlet").forward(request, response);
 
     }
 

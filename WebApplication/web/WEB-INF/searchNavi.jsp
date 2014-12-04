@@ -52,7 +52,7 @@
                                 <jsp:include page="login.jsp"></jsp:include>
                             </c:if>
                             <c:if test = "${info.valid == true}">
-                                <a href="#modal">${info.name}   </a>|  <a id='logout' href="Logout">Logout</a>
+                                <a href="DashboardServlet">${info.name}   </a>|  <a id='logout' href="Logout">Logout</a>
                             </c:if>    
                                 
                     </div>

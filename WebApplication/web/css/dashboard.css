@@ -71,12 +71,12 @@ box-shadow: 0 0 5px #888;*/
 	
 }
 .tab-box .single-box{
-	width: 100%;
+    width: 100%;
 
-	height: auto;
-	-moz-box-shadow: 0 0 5px #888;
--webkit-box-shadow: 0 0 5px#888;
-box-shadow: 0 0 5px #888;
+    height: auto;
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
 }
 .tab-box .left{
 	width: 20%;

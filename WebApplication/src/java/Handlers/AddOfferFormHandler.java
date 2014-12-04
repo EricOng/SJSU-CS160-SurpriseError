@@ -35,7 +35,9 @@ public class AddOfferFormHandler implements IHandler {
             parseData.add(request.getParameterValues("Title")[0]);
             parseData.add(request.getParameterValues("Category")[0]);
             parseData.add(request.getParameterValues("Description")[0]);
-            parseData.add(request.getParameterValues("Cost")[0]);
+            String cost = request.getParameterValues("Cost")[0];
+            cost = cost.replaceAll("\\$", "");
+            parseData.add(cost);
             parseData.add(request.getParameterValues("Style")[0]);
             parseData.add(request.getParameterValues("Url")[0]);
             parseData.add(request.getParameterValues("Length")[0]);
@@ -80,7 +82,8 @@ public class AddOfferFormHandler implements IHandler {
             prpStmt.setString(1, data.get(0));  //title
             prpStmt.setString(2, data.get(1));  //category
             prpStmt.setString(3, data.get(2));  //description
-            prpStmt.setInt(4, Integer.valueOf(data.get(3)));  //cost
+            System.out.println("data: " + data.get(3));
+            prpStmt.setFloat(4, Float.valueOf(data.get(3)));  //cost
             prpStmt.setString(5, data.get(4));  //style
             prpStmt.setString(6, data.get(5));  //link
             prpStmt.setString(7, data.get(6) + " " + data.get(7));  //length

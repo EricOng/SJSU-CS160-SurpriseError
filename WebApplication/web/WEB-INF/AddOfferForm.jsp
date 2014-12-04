@@ -8,24 +8,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Add Offer</title>
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Add Course</title>
+        <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+        <link type="text/css" rel="stylesheet" href="css/leanStyle.css" />
+        <link type="text/css" rel="stylesheet" href="css/addOfferForm.css" />
     </head>
-    <body>
-        
-    </body>
-</html>
-<html lang="en">
-    <title>Add Course</title>
-    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-    <link type="text/css" rel="stylesheet" href="css/leanStyle.css" />
-    <link type="text/css" rel="stylesheet" href="css/addOfferForm.css" />
-    
     
     
     <body>
+        <!--
         <div class="container">
             <a id="modal_trigger" href="#modal" class="btn">Add Course</a>
 
@@ -36,8 +30,9 @@
                 </header>
 
                 <section class="popupBody">
+        -->
                     <!-- Add Offer Form -->
-                        <form id="mainForm" method="process" action="AddOfferFormServlet">
+                    <form class="submit_form" id="mainForm" method="process" action="AddOfferFormServlet">
                             <!-- the name attribute adds to the QueryString in the URL -->
                             <fieldset form="mainForm">
                                 <p>
@@ -82,6 +77,7 @@
                                     <br>
                                 </p>
                             </fieldset>
+                            
                             <fieldset form="mainForm">
                                 <p>
                                     <label>Description</label><br>
@@ -94,10 +90,9 @@
                                 <button class="submit_button" type="submit">Add</button> 
                             </div>
                         </form>
-                </section>
-            </div>
-        </div>
+                <!-- </section> -->
 
+        <!--
         <script type="text/javascript">
             $("#modal_trigger").leanModal({top: 200, overlay: 0.6, closeButton: ".modal_close"});
 
@@ -127,5 +122,6 @@
                 });
             })
         </script>
+        -->
     </body>
 </html>

@@ -107,169 +107,142 @@ function getFirstChildWithTagName( element, tagName ) {
 
 		<!--class listing box -->
 		<div class="tab-box hide" id="tabs-2"> 
-			<div class="single-box">
+                    <div class="single-box">
 			<div >
-					<ul class="result_in_grid">
-						
-							<li><a class="list_block">
-								<div>
-									<div class="course-type-distance">
-										<p>Distance-Learning</p>
-									</div>
-									<div class="course-title">
-									<h1>Algebra G3-G4</h1>
-									</div>
-									<div class="provider-logo">
-										<img src="images/edu1.jpg">
-									</div>
+                            <ul class="result_in_grid">
+                                <li><a class="list_block">
+                                    <div>
+                                        <div class="course-type-distance">
+                                                <p>Distance-Learning</p>
+                                        </div>
+                                        <div class="course-title">
+                                            <h1>Algebra G3-G4</h1>
+                                        </div>
+                                        <div class="provider-logo">
+                                            <img src="images/edu1.jpg">
+                                        </div>
 
-									<ul class="inline-list">
-										
-										<li><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;
-											<!--<span class="rating star"></span>
-											 <span class="rating star"></span>
-											 <span class="rating star"></span><br>-->
-											 <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>
-										</li>
-										<li><i class="fa fa-usd"></i> &nbsp;&nbsp;&nbsp;740</li>
-										<li><i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;10 Class Meetings</li>
-										<li><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp; All Year Round</li>
-									</ul>
-								</div></a>
-							</li>
-							</ul>
-				</div>
-			
-			</div>
-
+                                        <ul class="inline-list">
+                                            <li><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;
+                                                    <!--<span class="rating star"></span>
+                                                     <span class="rating star"></span>
+                                                     <span class="rating star"></span><br>-->
+                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>
+                                            </li>
+                                            <li><i class="fa fa-usd"></i> &nbsp;&nbsp;&nbsp;740</li>
+                                            <li><i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;10 Class Meetings</li>
+                                            <li><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp; All Year Round</li>
+                                        </ul>
+                                    </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 		</div>
-
-
 		<!-- class listing box -->
+                
+                
 		<!-- edit profile box -->
-		<div class="tab-box" id="tabs-1"> 
-			<div class="left">
-				<div class="profile-pic"><img src=""></div>
-				<div><h3>Some Name</h3></div>
-				<div><h2>Kenndy School</h2></div>
-				<div class="request-for-info" id="onclick">Edit Your Profile</div>
-			</div>
-			<div class="right">
-				<form action="" method="post" class="bootstrap-frm">
-				    <h1>Profile
-				        <span></span>
-				    </h1>
-				    <label>
-				        <span>Name :</span>
-				        <input id="name" type="text" name="name" placeholder="Your Full Name" />
-				    </label>
-				    
-				    <label>
-				        <span>Email :</span>
-				        <input id="email" type="email" name="email" placeholder="Valid Email Address" />
-				    </label>
-                                     <label>
-				        <span>Contact</span>
-				        <input id="email" type="email" name="email" placeholder="Valid Email Address" />
-				    </label>
-				    <label>
-				        <span>Type</span>
-				        <input id="type" type="text" name="type" placeholder="" />
-				    </label>
-                                    
-				     <label>
-				        <span>Location</span><select name="selection">
-				        <option value="Job Inquiry">Job Inquiry</option>
-				        <option value="General Question">General Question</option>
-				        </select>
-				    </label>    
-				    <label>
-				        <span>Subject :</span><select name="selection">
-				        <option value="Job Inquiry">Job Inquiry</option>
-				        <option value="General Question">General Question</option>
-				        </select>
-				    </label>    
-				    <label>
-				        <span>Subject :</span><select name="selection">
-				        <option value="Job Inquiry">Job Inquiry</option>
-				        <option value="General Question">General Question</option>
-				        </select>
-				    </label>    
-				     <label>
-				        <span>&nbsp;</span> 
-				        <input type="button" class="button" value="Update" /> 
-				    </label>    
-				</form>
-			</div>
+		<div class="tab-box" id="tabs-1" > 
+                    <div class="left">
+                        <div class="profile-pic"><img src=""></div>
+                        <div><h3>Some Name</h3></div>
+                        <div><h2>Kenndy School</h2></div>
+                        <div class="request-for-info" id="onclick">Edit Your Profile</div>
+                    </div>
+                    <div class="right">
+                        <form action="" method="post" class="bootstrap-frm">
+                            <h1>Profile
+                                <span></span>
+                            </h1>
+                            <label>
+                                <span>Name :</span>
+                                <input id="name" type="text" name="name" placeholder="Your Full Name" />
+                            </label>
 
+                            <label>
+                                <span>Email :</span>
+                                <input id="email" type="email" name="email" placeholder="Valid Email Address" />
+                            </label>
+                             <label>
+                                <span>Contact</span>
+                                <input id="email" type="email" name="email" placeholder="Valid Email Address" />
+                            </label>
+                            <label>
+                                <span>Type</span>
+                                <input id="type" type="text" name="type" placeholder="" />
+                            </label>
 
-
+                             <label>
+                                <span>Location</span><select name="selection">
+                                <option value="Job Inquiry">Job Inquiry</option>
+                                <option value="General Question">General Question</option>
+                                </select>
+                            </label>    
+                            <label>
+                                <span>Subject :</span><select name="selection">
+                                <option value="Job Inquiry">Job Inquiry</option>
+                                <option value="General Question">General Question</option>
+                                </select>
+                            </label>    
+                            <label>
+                                <span>Subject :</span><select name="selection">
+                                <option value="Job Inquiry">Job Inquiry</option>
+                                <option value="General Question">General Question</option>
+                                </select>
+                            </label>    
+                             <label>
+                                <span>&nbsp;</span> 
+                                <input type="button" class="button" value="Update" /> 
+                            </label>    
+                        </form>
+                    </div>
 		</div>
 		<!-- profile box -->
-
-
-               
-		
-
-
+                
+                
 		<!--inbox box -->
 		<div class="tab-box" id="tabs-3"> 
-	<div>
-                <ul class="result_in_grid">
-       
-            <li>
-                <a class="list_block">
                     <div>
-                        <div class="course-title">
-                        <h1>Algebra</h1>
-                        </div>
-                        <br>
+                        <ul class="result_in_grid">
+                            <li>
+                                <a class="list_block">
+                                <div>
+                                    <div class="course-title">
+                                    <h1>Algebra</h1>
+                                    </div>
+                                    <br>
 
-                        <ul class="inline-list">
-                            <li><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;
-                                <!--<span class="rating star"></span>
-                                 <span class="rating star"></span>
-                                 <span class="rating star"></span><br>-->
-                                 <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    <ul class="inline-list">
+                                        <li><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;
+                                            <!--<span class="rating star"></span>
+                                             <span class="rating star"></span>
+                                             <span class="rating star"></span><br>-->
+                                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        </li>
+                                        <li><i class="fa fa-usd"></i> &nbsp;&nbsp;&nbsp;$740</li>
+                                        <li><i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;10 Class Meetings</li>
+                                        <li><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp; All Year Round</li>
+                                    </ul>
+                                </div>
+                                </a>
                             </li>
-                            <li><i class="fa fa-usd"></i> &nbsp;&nbsp;&nbsp;$740</li>
-                            <li><i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;10 Class Meetings</li>
-                            <li><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp; All Year Round</li>
                         </ul>
-                    </div>
-                </a>
-            </li>
-       		
-                </ul>
-            </div>	
-	
-
-
-		</div>
-
-
+                    </div>	
+                </div>
 		<!-- inbox box -->
 
                 
-                
-                
                 <!--Add Course -->
-		<div class="tab-box" id="tabs-4"> 
-                    <div>
-
-                    </div>	
-		</div>
+		<div class="tab-box " id="tabs-4"> 
+                    <div style="border: solid thin black;">
+                       <jsp:include page="AddOfferForm.jsp"></jsp:include> 
+                    </div>
+                </div>
 		<!-- Add Course -->
-                
-                
-                
-                
 	</div>
 	</div>
 	<div class="clr" style="height:20px;"></div>
-
-
-
-			
 </body>
 </html>
