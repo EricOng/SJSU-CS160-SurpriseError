@@ -32,9 +32,9 @@ public class CasualUserRegisterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("At BusinessUserRegister Servlet");
+        System.out.println("At Casual User Register Servlet");
         if (request.getQueryString() != null) {
-            System.out.println("Attempt Business User Registration");
+            System.out.println("Attempt Casual User Registration");
             CasualUserRegisterHandler handler = new CasualUserRegisterHandler();
             handler.query(handler.parse(request));
             //TO-DO:  Send to dashboard when finished.

@@ -137,7 +137,7 @@ public class CasualUserRegisterHandler implements IHandler {
         } catch (SQLException e) {
             System.out.println("SQL Exception Found Querying For Registering");
         } catch (NullPointerException e) {
-            System.out.println("Register Fail");
+            System.out.println("Casual User Register Fail");
         } catch (NamingException ex) {
             Logger.getLogger(CasualUserRegisterHandler.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

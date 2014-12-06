@@ -73,6 +73,10 @@
         <servlet-name>CasualUserRegisterServlet</servlet-name>
         <servlet-class>Servlets.CasualUserRegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BusinessUserRegisterServlet</servlet-name>
+        <servlet-class>Servlets.BusinessUserRegisterServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BrowseClass</servlet-name>
         <url-pattern>/Class</url-pattern>
@@ -124,6 +128,10 @@
     <servlet-mapping>
         <servlet-name>CasualUserRegisterServlet</servlet-name>
         <url-pattern>/CRegister</url-pattern>
+    </servlet-mapping>
+       <servlet-mapping>
+        <servlet-name>BusinessUserRegisterServlet</servlet-name>
+        <url-pattern>/BRegister</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

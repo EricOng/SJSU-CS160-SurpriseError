@@ -76,13 +76,18 @@ a.btn_red {
 .action_btns a {display: block;}
 
 /* User Login Form */
-.user_login {display: none;}
-.user_login label {display: block; margin-bottom:5px;}
-.user_login input[type="text"], .user_login input[type="email"], .user_login input[type="password"] {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
-.user_login input[type="checkbox"] {float:left; margin-right:5px;}
+.user_login 
+    {display: none;}
+.user_login label 
+    {display: block; margin-bottom:5px;}
+.user_login input[type="text"], .user_login input[type="email"], .user_login input[type="password"] 
+    {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
+.user_login input[type="checkbox"] 
+    {float:left; margin-right:5px;}
 .user_login input[type="checkbox"]+label {float:left;}
 
-.user_login .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
+.user_login .checkbox 
+    {margin-bottom: 10px; clear: both; overflow: hidden;}
 .forgot_password 
     {display:block; margin: 20px 0 10px; 
      clear: both; overflow: hidden; 
@@ -93,9 +98,7 @@ a.btn_red {
     {display: none;}
 .user_register label 
     {display: block; margin-bottom:5px;}
-.user_register input[type="text"],
-.user_register input[type="email"], 
-.user_register input[type="password"] 
+.user_register input[type="text"], .user_register input[type="email"], .user_register input[type="password"] 
     {display: block; width:90%; padding: 10px;
      border:1px solid #DDD; color:#666;}
 .user_register input[type="checkbox"] 
@@ -103,7 +106,8 @@ a.btn_red {
 .user_register input[type="checkbox"]+label 
     {float:left;}
 
-.user_register .checkbox {margin-bottom: 10px; clear: both; overflow: hidden;}
+.user_register .checkbox 
+    {margin-bottom: 10px; clear: both; overflow: hidden;}
 
 .login {
     float:right;
@@ -113,10 +117,12 @@ a.btn_red {
     width: auto;
     z-index: 1;
 }
+
 .login a {
     text-decoration: none;
     color:#fff;
 }
+
 .login a:hover {
     text-decoration: none;
     font-weight: bold;

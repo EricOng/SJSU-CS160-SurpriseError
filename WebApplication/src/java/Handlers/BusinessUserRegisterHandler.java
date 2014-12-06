@@ -34,15 +34,15 @@ public class BusinessUserRegisterHandler implements IHandler {
         List<String> parseData = new ArrayList<String>();
 
         try {
-            parseData.add(request.getParameterValues("user")[0]);
-            parseData.add(request.getParameterValues("pass")[0]);
-            parseData.add(request.getParameterValues("business_name")[0]);
-            parseData.add(request.getParameterValues("email_addr")[0]);
-            parseData.add(request.getParameterValues("bussiness_type")[0]);
-            parseData.add(request.getParameterValues("bussiness_address")[0]);
-            parseData.add(request.getParameterValues("zipcode")[0]);
-            parseData.add(request.getParameterValues("bussiness_rating")[0]);
-            parseData.add(request.getParameterValues("start_date")[0]);
+            parseData.add(request.getParameterValues("b_name")[0]);
+            parseData.add(request.getParameterValues("b_pass")[0]);
+            parseData.add(request.getParameterValues("b_business_name")[0]);
+            parseData.add(request.getParameterValues("b_email_addr")[0]);
+            parseData.add(request.getParameterValues("b_bussiness_type")[0]);
+            parseData.add(request.getParameterValues("b_bussiness_address")[0]);
+            parseData.add(request.getParameterValues("b_zipcode")[0]);
+            parseData.add(request.getParameterValues("b_bussiness_rating")[0]);
+            parseData.add(request.getParameterValues("b_start_date")[0]);
         } catch (NullPointerException e) {
         } catch (IndexOutOfBoundsException e) {
         };
@@ -138,7 +138,7 @@ public class BusinessUserRegisterHandler implements IHandler {
         } catch (NamingException e) {
             Logger.getLogger(AddOfferFormServlet.class.getName()).log(Level.SEVERE, null, e);
         } catch (NullPointerException e) {
-            System.out.println("Register Fail");
+            System.out.println("Business User Register Fail");
         } finally {
             // Always make sure result sets and statements are closed,
             // and the connection is returned to the pool

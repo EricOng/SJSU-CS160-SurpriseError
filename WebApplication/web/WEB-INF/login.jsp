@@ -73,48 +73,104 @@
 
                     <!-- Register Form -->
                     <div class="user_register">
-                        <form action="CRegister">
-                            <label>User Name</label>
-                            <input type="text" name="name"/>
-                            <br />
-                            
-                            <label>First Name</label>
-                            <input type="text" name="first_name"/>
-                            <br />
-                            
-                            <label>Last Name</label>
-                            <input type="text" name="last_name"/>
-                            <br />
+                    	<div>
+	                        <form action="CRegister">
+	                            <label>User Name</label>
+	                            <input type="text" name="name"/>
+	                            <br />
+	                            
+	                            <label>First Name</label>
+	                            <input type="text" name="first_name"/>
+	                            <br />
+	                            
+	                            <label>Last Name</label>
+	                            <input type="text" name="last_name"/>
+	                            <br />
 
-                            <label>Email Address</label>
-                            <input type="email" name="email"/>
-                            <br />
+	                            <label>Email Address</label>
+	                            <input type="email" name="email"/>
+	                            <br />
 
-                            <label>Password</label>
-                            <input type="password" name="pass"/>
-                            <br />
-                            
-                            <label>Birthday (yyyy-mm-dd)</label>
-                            <input type="text" name="birthday"/>
-                            <br />
-                            
-                            <label>Gender (M/F)</label>
-                            <input type="text" name="gender"/>
-                            <br />
+	                            <label>Password</label>
+	                            <input type="password" name="pass"/>
+	                            <br />
+	                            
+	                            <label>Birthday (yyyy-mm-dd)</label>
+	                            <input type="text" name="birthday"/>
+	                            <br />
+	                            
+	                            <label>Gender (M/F)</label>
+	                            <input type="text" name="gender"/>
+	                            <br />
 
-                            <div class="checkbox">
-                                <input id="send_updates" type="checkbox" />
-                                <label for="send_updates">Send me occasional email updates</label>
-                            </div>
+	                            <div class="checkbox">
+	                                <input id="send_updates" type="checkbox" />
+	                                <label for="send_updates">Send me occasional email updates</label>
+	                            </div>
 
-                            <div class="action_btns">
-                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                                <!-- <div class="one_half last"><a href="CRegister" class="btn btn_red">Register</a></div> -->
-                                <div class="one_half last">
-                                    <button id="button_red" type="submit" class="button_red">Register</button>
-                                </div> 
-                            </div>
-                        </form>
+	                            <div class="action_btns">
+	                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+	                                <!-- <div class="one_half last"><a href="CRegister" class="btn btn_red">Register</a></div> -->
+	                                <div class="one_half last">
+	                                    <button id="button_red" type="submit" class="button_red">Register</button>
+	                                </div> 
+	                            </div>
+	                        </form>
+                        </div>
+
+
+                        <div>
+	                        <form action="BRegister">
+	                        	<label>User Name</label>
+	                            <input type="text" name="b_name"/>
+	                            <br />
+
+	                            <label>Password</label>
+	                            <input type="password" name="b_pass"/>
+	                            <br />
+
+	                            <label>Business Name</label>
+	                            <input type="text" name="b_business_name"/>
+	                            <br />
+
+	                            <label>Email Address</label>
+	                            <input type="email" name="b_email_addr"/>
+	                            <br />
+
+	                            <label>Business Type</label>
+	                            <input type="text" name="b_bussiness_type"/>
+	                            <br />
+
+	                            <label>Business Address</label>
+	                            <input type="text" name="b_bussiness_address"/>
+	                            <br />
+
+	                            <label>Zipcode</label>
+	                            <input type="text" name="b_zipcode"/>
+	                            <br />
+
+	                            <label>Business Rating</label>
+	                            <input type="text" name="b_bussiness_rating"/>
+	                            <br />
+	                            
+	                            <label>Business Start Date (yyyy-mm-dd)</label>
+	                            <input type="text" name="b_start_date"/>
+	                            <br />
+
+	                            <div class="checkbox">
+	                                <input id="send_updates" type="checkbox" />
+	                                <label for="send_updates">Send me occasional email updates</label>
+	                            </div>
+
+	                            <div class="action_btns">
+	                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+	                                <!-- <div class="one_half last"><a href="CRegister" class="btn btn_red">Register</a></div> -->
+	                                <div class="one_half last">
+	                                    <button id="button_red" type="submit" class="button_red">Register</button>
+	                                </div> 
+	                            </div>
+	                        </form>
+                        </div>
                     </div>
                 </section>
         </div>
