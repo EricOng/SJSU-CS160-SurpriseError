@@ -119,6 +119,7 @@ public class LoginHandler implements IHandler {
                         info.setId(rs.getInt(1)); //remember id
                         info.setName(rs.getString(2));
                         
+                        cuser.setUserID(rs.getString(1)); 
                         cuser.setFName(rs.getString(4)); 
                         cuser.setLName(rs.getString(5));
                         cuser.setEmail(rs.getString(6));

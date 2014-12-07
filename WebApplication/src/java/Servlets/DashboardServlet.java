@@ -35,7 +35,6 @@ public class DashboardServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         System.out.println("At Dash");
-        
         HttpSession hs = request.getSession();
         CasualUserInfoBean cuser = (CasualUserInfoBean) hs.getAttribute("cuser");
         BusinessUserInfoBean buser = (BusinessUserInfoBean) hs.getAttribute("buser");

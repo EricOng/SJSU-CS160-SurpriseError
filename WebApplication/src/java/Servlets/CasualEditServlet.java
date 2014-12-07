@@ -5,26 +5,18 @@
  */
 package Servlets;
 
-import Bean.CasualUserInfoBean;
-import Bean.LoginBean;
+import Handlers.CasualEditHandler;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Handlers.CasualEditHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.naming.NamingException;
-
 
 /**
  *
  * @author Roberto Villasenor
  */
-@WebServlet(name = "CasualEditServlet", urlPatterns = {"/CasualEditServlet"})
 public class CasualEditServlet extends HttpServlet {
 
     /**
@@ -37,19 +29,14 @@ public class CasualEditServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, NamingException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
+        System.out.println("At edit");
         CasualEditHandler handler = new CasualEditHandler();
-        CasualUserInfoBean casualBean = new CasualUserInfoBean();
-        
-        HttpSession httpSession = request.getSession(true);
-        LoginBean info = (LoginBean) httpSession.getAttribute("info");
-        if(info != null){
-            casualBean = handler.parse(request);
-            handler.query(casualBean);
-        }
-        
+        handler.query(handler.parse(request));
+        request.getRequestDispatcher("/DashboardServlet").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -64,7 +51,7 @@ public class CasualEditServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("../../../web/WEB-INF/dashboard.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -78,17 +65,10 @@ public class CasualEditServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {     
-            processRequest(request, response);
-        } catch (NamingException ex) {
-            Logger.getLogger(CasualEditServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-          request.getRequestDispatcher("../../../web/WEB-INF/dashboard.jsp").forward(request, response);
-          
+        //Disable so no duplicate querying
+        // processRequest(request, response);
     }
 
-    
-    
     /**
      * Returns a short description of the servlet.
      *

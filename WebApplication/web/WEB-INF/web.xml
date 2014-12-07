@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <ejb-local-ref>
         <ejb-ref-name>loginBean</ejb-ref-name>
         <ejb-ref-type>Session</ejb-ref-type>
@@ -77,6 +75,10 @@
         <servlet-name>BusinessUserRegisterServlet</servlet-name>
         <servlet-class>Servlets.BusinessUserRegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CasualEditServlet</servlet-name>
+        <servlet-class>Servlets.CasualEditServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BrowseClass</servlet-name>
         <url-pattern>/Class</url-pattern>
@@ -129,9 +131,13 @@
         <servlet-name>CasualUserRegisterServlet</servlet-name>
         <url-pattern>/CRegister</url-pattern>
     </servlet-mapping>
-       <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>BusinessUserRegisterServlet</servlet-name>
         <url-pattern>/BRegister</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CasualEditServlet</servlet-name>
+        <url-pattern>/CasualEditServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

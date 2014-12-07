@@ -65,26 +65,26 @@
                 </label>    
                  <label>
                     <span>&nbsp;</span> 
-                    <input type="button" class="button" value="Update" /> 
+                    <input type="button" class="button" value="Update Profile" /> 
                 </label>  
         </form>
     </c:if>
      <c:if test = "${cuser.set == true}"> 
-        <form action="" method="post" class="bootstrap-frm">
+        <form action="CasualEditServlet" method="process" class="bootstrap-frm">
                 <h1>Profile
                     <span></span>
                 </h1>
                 <label>
                     <span>Name :</span>
-                        <input id="name" type="text" name="name" placeholder="${cuser.FName} ${cuser.LName}" />
+                        <input id="name" type="text" name="name" value="${cuser.FName} ${cuser.LName}" />
                 </label>
                 <label>
                     <span>Email :</span>
-                    <input id="email" type="email" name="email" placeholder="${cuser.getEmail()}" />
+                    <input id="email" type="email" name="email" value="${cuser.getEmail()}" />
                 </label>
                  <label>
-                    <span>Contact</span>
-                    <input id="email" type="email" name="email" placeholder="Valid Email Address" />
+                    <span>Contact Number</span>
+                    <input id="telephone" type="email" name="email" placeholder="Valid Phone Number" />
                 </label>
                 <label>
                     <span>Type</span>
@@ -111,7 +111,7 @@
                 </label>    
                  <label>
                     <span>&nbsp;</span> 
-                    <input type="button" class="button" value="Update" /> 
+                    <button type="submit" class="button">Update Profile</button>
                 </label>  
         </form>
     </c:if>
