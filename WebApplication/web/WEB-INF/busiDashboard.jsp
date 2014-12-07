@@ -153,7 +153,7 @@ function getFirstChildWithTagName( element, tagName ) {
                         <div class="request-for-info" id="onclick">Edit Your Profile</div>
                     </div>
                     <div class="right">
-                        <jsp:include page="casualprofile.jsp"></jsp:include>
+                        <jsp:include page="busiprofile.jsp"></jsp:include>
                     </div>
 		</div>
 		<!-- profile box -->

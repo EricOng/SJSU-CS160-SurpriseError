@@ -6,6 +6,7 @@
 
 package Servlets;
 
+import Bean.BusinessUserInfoBean;
 import Bean.CasualUserInfoBean;
 import Bean.LoginBean;
 import java.io.IOException;
@@ -37,11 +38,12 @@ public class DashboardServlet extends HttpServlet {
         
         HttpSession hs = request.getSession();
         CasualUserInfoBean cuser = (CasualUserInfoBean) hs.getAttribute("cuser");
+        BusinessUserInfoBean buser = (BusinessUserInfoBean) hs.getAttribute("buser");
         LoginBean lb = (LoginBean) hs.getAttribute("info");
         if(lb.isValid() && cuser.isSet())
             request.getRequestDispatcher("/WEB-INF/casualDashboard.jsp").forward(request, response);
-        //else if(lb.isValid() && buser.isSet())
-        //    request.getRequestDispatcher("/WEB-INF/busiDashboard.jsp").forward(request, response);
+        else if(lb.isValid() && buser.isSet())
+            request.getRequestDispatcher("/WEB-INF/busiDashboard.jsp").forward(request, response);
             
             
     }
