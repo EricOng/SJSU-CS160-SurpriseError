@@ -7,6 +7,7 @@
 package Servlets;
 
 import Bean.CasualUserInfoBean;
+import Bean.LoginBean;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +35,15 @@ public class DashboardServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         System.out.println("At Dash");
         
-        request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);
+        HttpSession hs = request.getSession();
+        CasualUserInfoBean cuser = (CasualUserInfoBean) hs.getAttribute("cuser");
+        LoginBean lb = (LoginBean) hs.getAttribute("info");
+        if(lb.isValid() && cuser.isSet())
+            request.getRequestDispatcher("/WEB-INF/casualDashboard.jsp").forward(request, response);
+        //else if(lb.isValid() && buser.isSet())
+        //    request.getRequestDispatcher("/WEB-INF/busiDashboard.jsp").forward(request, response);
+            
+            
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
