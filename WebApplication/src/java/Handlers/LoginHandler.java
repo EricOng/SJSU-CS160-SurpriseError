@@ -32,6 +32,7 @@ import javax.sql.DataSource;
  */
 public class LoginHandler implements IHandler {
     LoginBean info = new LoginBean();
+    CasualUserInfoBean cuser = new CasualUserInfoBean();
     HttpServletRequest httpRequest;
     
     @Override
@@ -73,6 +74,7 @@ public class LoginHandler implements IHandler {
             System.out.println("DataSource Connection success");
             
             info = lookupLoginBeanBean(httpRequest);
+            cuser = lookupCasualBean(httpRequest);
             
             //Check in businesses 
             prpStmt = conn.prepareStatement(query1);
@@ -116,17 +118,16 @@ public class LoginHandler implements IHandler {
                         info.setId(rs.getInt(1)); //remember id
                         info.setName(rs.getString(2));
                         
-                        CasualUserInfoBean cu = new CasualUserInfoBean();
-                        cu.setFName(rs.getString(4)); 
-                        cu.setLName(rs.getString(5));
-                        cu.setEmail(rs.getString(6));
-                        cu.setBirthday(rs.getString(7));
-                        cu.setGender(rs.getString(8));
-                        cu.setSet(true);
+                        cuser.setFName(rs.getString(4)); 
+                        cuser.setLName(rs.getString(5));
+                        cuser.setEmail(rs.getString(6));
+                        cuser.setBirthday(rs.getString(7));
+                        cuser.setGender(rs.getString(8));
+                        cuser.setSet(true);
                         
                         HttpSession hs = httpRequest.getSession();
                         hs.setAttribute("info", info);
-                        hs.setAttribute("CUser", cu);
+                        hs.setAttribute("cuser", cuser);
                         System.out.println("Casual Authentication Successful!");
                         break;
                     }
@@ -181,5 +182,16 @@ public class LoginHandler implements IHandler {
 
     public LoginBean getBean(){
         return info;
+    }
+
+    private CasualUserInfoBean lookupCasualBean(HttpServletRequest request) {
+        HttpSession httpSession = request.getSession(true);
+        CasualUserInfoBean cuser = (CasualUserInfoBean) httpSession.getAttribute("cuser");
+        if(cuser == null){
+            System.out.println("cuser null at loginHandler");
+            cuser = new CasualUserInfoBean();
+            httpSession.setAttribute("cuser", cuser);
+        }
+        return cuser;
     }
 }

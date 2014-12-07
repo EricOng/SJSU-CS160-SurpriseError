@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
             handler.query(handler.parse(request));
             // Send to dashboard
             if(handler.getBean().isValid())
-                request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);
+                request.getRequestDispatcher("/DashboardServlet").forward(request, response);
             // if authentication failed, return to index page
             else
                 request.getRequestDispatcher("/index").forward(request, response);

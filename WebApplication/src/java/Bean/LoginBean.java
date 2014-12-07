@@ -6,13 +6,13 @@
 
 package Bean;
 
-import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author Eric Ong
  */
-@Stateful
+@Stateless
 public class LoginBean implements java.io.Serializable {
 
     private boolean valid;
@@ -27,6 +27,7 @@ public class LoginBean implements java.io.Serializable {
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     public boolean isValid() {
+        System.out.println("Check login valid");
         return valid;
     }
 

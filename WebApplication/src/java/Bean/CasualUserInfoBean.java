@@ -5,11 +5,14 @@
  */
 package Bean;
 
+import javax.ejb.Stateless;
+
 /**
  *
  * @author Roberto Villasenor
  */
-public class CasualUserInfoBean {
+@Stateless
+public class CasualUserInfoBean implements java.io.Serializable {
 
     private boolean set;
     private String UserID;
@@ -26,11 +29,13 @@ public class CasualUserInfoBean {
     }
 
     public boolean isSet() {
+        System.out.println("Check isSet " + set);
         return set;
     }
 
     public void setSet(boolean set) {
         this.set = set;
+        System.out.println("----- " + this.set);
     }
     
     public String getUserID() {
@@ -55,7 +60,7 @@ public class CasualUserInfoBean {
 
     public void setFName(String FName) {
         this.FName = FName;
-        System.out.println("fn " + FName);
+        System.out.println("----- " + FName);
     }
 
     public String getLName() {
@@ -64,7 +69,7 @@ public class CasualUserInfoBean {
 
     public void setLName(String LName) {
         this.LName = LName;
-        System.out.println(LName);
+        System.out.println("----- " +LName);
     }
 
     public String getEmail() {
@@ -73,7 +78,7 @@ public class CasualUserInfoBean {
 
     public void setEmail(String Email) {
         this.Email = Email;
-        System.out.println(Email);
+        System.out.println("----- " + Email);
     }
 
     public String getPassword() {
@@ -90,7 +95,7 @@ public class CasualUserInfoBean {
 
     public void setBirthday(String Birthday) {
         this.Birthday = Birthday;
-        System.out.println(Birthday);
+        System.out.println("----- " + Birthday);
     }
 
     public String getGender() {
@@ -99,6 +104,6 @@ public class CasualUserInfoBean {
 
     public void setGender(String Gender) {
         this.Gender = Gender;
-        System.out.println(Gender);
+        System.out.println("----- " + Gender);
     }
 }

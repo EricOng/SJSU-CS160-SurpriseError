@@ -4,15 +4,14 @@
     Author     : Eileen
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="Bean.CasualUserInfoBean"%>
-<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session='true'%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>GoodLuck Learning</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/style-1.css" rel="stylesheet" type="text/css" />
 <link href="css/dashboard.css" rel="stylesheet" type="text/css" />
@@ -154,60 +153,7 @@ function getFirstChildWithTagName( element, tagName ) {
                         <div class="request-for-info" id="onclick">Edit Your Profile</div>
                     </div>
                     <div class="right">
-                        
-                        <form action="" method="post" class="bootstrap-frm">
-                            <%
-                                CasualUserInfoBean CUbean = (CasualUserInfoBean) session.getAttribute("CUser");
-                                if( CUbean == null ){
-                                    System.out.println("cbean null");
-                                    CUbean = new CasualUserInfoBean();
-                                    session.setAttribute("CUser", CUbean);
-                                }
-                            %>
-                            <h1>Profile
-                                <span></span>
-                            </h1>
-                            <label>
-                                <span>Name :</span>
-                                    <input id="name" type="text" name="name" placeholder="Your Full Name" />
-                            </label>
-
-                            <label>
-                                <span>Email :</span>
-                                <input id="email" type="email" name="email" placeholder="Valid Email Address" />
-                            </label>
-                             <label>
-                                <span>Contact</span>
-                                <input id="email" type="email" name="email" placeholder="Valid Email Address" />
-                            </label>
-                            <label>
-                                <span>Type</span>
-                                <input id="type" type="text" name="type" placeholder="" />
-                            </label>
-
-                             <label>
-                                <span>Location</span><select name="selection">
-                                <option value="Job Inquiry">Job Inquiry</option>
-                                <option value="General Question">General Question</option>
-                                </select>
-                            </label>    
-                            <label>
-                                <span>Subject :</span><select name="selection">
-                                <option value="Job Inquiry">Job Inquiry</option>
-                                <option value="General Question">General Question</option>
-                                </select>
-                            </label>    
-                            <label>
-                                <span>Subject :</span><select name="selection">
-                                <option value="Job Inquiry">Job Inquiry</option>
-                                <option value="General Question">General Question</option>
-                                </select>
-                            </label>    
-                             <label>
-                                <span>&nbsp;</span> 
-                                <input type="button" class="button" value="Update" /> 
-                            </label>    
-                        </form>
+                        <jsp:include page="casualprofile.jsp"></jsp:include>
                     </div>
 		</div>
 		<!-- profile box -->
