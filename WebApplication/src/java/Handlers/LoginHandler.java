@@ -33,7 +33,6 @@ import javax.sql.DataSource;
 public class LoginHandler implements IHandler {
     LoginBean info = new LoginBean();
     CasualUserInfoBean cuser = new CasualUserInfoBean();
-    BusinessUserInfoBean buser = new BusinessUserInfoBean();
     HttpServletRequest httpRequest;
     
     @Override
@@ -76,8 +75,7 @@ public class LoginHandler implements IHandler {
             
             info = lookupLoginBeanBean(httpRequest);
             cuser = lookupCasualBean(httpRequest);
-            buser = lookupBusiBean(httpRequest);
-                    
+            
             //Check in businesses 
             prpStmt = conn.prepareStatement(query1);
             prpStmt.setString(1, data.get(0)); //user_name
@@ -93,12 +91,13 @@ public class LoginHandler implements IHandler {
                         hs.setAttribute("info", info);
                         
                         //retrieve business information
-                        buser.setBusinessName(rs.getString(4));
-                        buser.setEmail(rs.getString(5));
-                        buser.setBusType(rs.getString(6));
-                        buser.setBusAddr(rs.getString(7));
-                        buser.setSet(true);
-                        hs.setAttribute("buser", buser);
+                        BusinessUserInfoBean busi = new BusinessUserInfoBean();
+                        busi.setBusinessName(rs.getString(4));
+                        busi.setEmail(rs.getString(5));
+                        busi.setBusType(rs.getString(6));
+                        busi.setBusAddr(rs.getString(7));
+                        busi.setSet(true);
+                        hs.setAttribute("user", busi);
                         
                         System.out.println("Professional Authentication Successful!");
                         break;
@@ -194,16 +193,5 @@ public class LoginHandler implements IHandler {
             httpSession.setAttribute("cuser", cuser);
         }
         return cuser;
-    }
-
-    private BusinessUserInfoBean lookupBusiBean(HttpServletRequest request) {
-    HttpSession httpSession = request.getSession(true);
-        BusinessUserInfoBean buser = (BusinessUserInfoBean) httpSession.getAttribute("buser");
-        if(buser == null){
-            System.out.println("buser null at loginHandler");
-            buser = new BusinessUserInfoBean();
-            httpSession.setAttribute("buser", buser);
-        }
-        return buser;
     }
 }

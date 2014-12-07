@@ -5,8 +5,6 @@
  */
 package Servlets;
 
-import Bean.BusinessUserInfoBean;
-import Bean.CasualUserInfoBean;
 import Bean.LoginBean;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,23 +36,11 @@ public class LogoutServlet extends HttpServlet {
         
         HttpSession httpSession = request.getSession(true);
         LoginBean info = (LoginBean) httpSession.getAttribute("info");
-        CasualUserInfoBean cuser = (CasualUserInfoBean) httpSession.getAttribute("cuser");
-        BusinessUserInfoBean buser = (BusinessUserInfoBean) httpSession.getAttribute("buser");
         if(info != null){
             info.setId(-1);
             info.setName("Login");
             info.setValid(false);
             httpSession.setAttribute("info", info);
-            request.getRequestDispatcher("/index").forward(request, response);
-        }
-        if(cuser != null){
-            cuser = new CasualUserInfoBean();
-            httpSession.setAttribute("cuser", cuser);
-            request.getRequestDispatcher("/index").forward(request, response);
-        }
-        if(buser != null){
-            buser = new BusinessUserInfoBean();
-            httpSession.setAttribute("buser", buser);
             request.getRequestDispatcher("/index").forward(request, response);
         }
     }
