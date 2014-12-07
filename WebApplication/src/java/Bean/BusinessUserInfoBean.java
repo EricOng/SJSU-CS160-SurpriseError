@@ -14,15 +14,28 @@ import javax.ejb.Stateless;
 @Stateless
 public class BusinessUserInfoBean {
 
+    private boolean set;
     private String username;
     private String businessName;
     private String email;
     private String busType;
     private String busAddr;
-           
+    private String zipcode;
+
+    public BusinessUserInfoBean(){
+        set = false;
+    }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 
+    public boolean isSet() {
+        return set;
+    }
+
+    public void setSet(boolean set) {
+        this.set = set;
+    }
+    
     public String getUsername() {
         return username;
     }
@@ -62,4 +75,13 @@ public class BusinessUserInfoBean {
     public void setBusAddr(String busAddr) {
         this.busAddr = busAddr;
     }
+    
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+           
 }

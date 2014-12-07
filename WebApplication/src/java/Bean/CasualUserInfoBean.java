@@ -11,106 +11,94 @@ package Bean;
  */
 public class CasualUserInfoBean {
 
+    private boolean set;
     private String UserID;
     private String UserName;
-    private String Name;
-    private String Password;
+    private String FName;
+    private String LName;
     private String Email;
-    private String Address;
-    private String Birthdate;
-    private String PhoneNo;
-    private String Summary;
-    private String Reviews;
-    private String Wishlist;
+    private String Password;
+    private String Birthday;
+    private String Gender;
 
     public CasualUserInfoBean() {
+        set = false;
+    }
+
+    public boolean isSet() {
+        return set;
+    }
+
+    public void setSet(boolean set) {
+        this.set = set;
     }
     
     public String getUserID() {
         return UserID;
     }
-    
-    public void setUserID(String newID) {
-        UserID = newID;
+
+    public void setUserID(String UserID) {
+        this.UserID = UserID;
     }
-    
+
     public String getUserName() {
         return UserName;
     }
-    
-    public void setUserName(String newUsername) {
-        UserName = newUsername;
+
+    public void setUserName(String UserName) {
+        this.UserName = UserName;
     }
-    
-    public String getName() {
-        return Name;
+
+    public String getFName() {
+        return FName;
     }
-    
-    public void setName(String newName) {
-        Name= newName;
+
+    public void setFName(String FName) {
+        this.FName = FName;
+        System.out.println("fn " + FName);
     }
-    
-    public String getPassword() {
-        return Password;
+
+    public String getLName() {
+        return LName;
     }
-    
-    public void setPassword(String newPassword) {
-        Password = newPassword;
+
+    public void setLName(String LName) {
+        this.LName = LName;
+        System.out.println(LName);
     }
-    
+
     public String getEmail() {
         return Email;
     }
-    
-    public void setEmail(String newEmail) {
-        Email = newEmail;
+
+    public void setEmail(String Email) {
+        this.Email = Email;
+        System.out.println(Email);
     }
-    
-    public String getAddress() {
-        return Address;
+
+    public String getPassword() {
+        return Password;
     }
-    
-    public void setAddress(String newAddress) {
-        Address = newAddress;
+
+    public void setPassword(String Password) {
+        this.Password = Password;
     }
-    
-    public String getBirthdate() {
-        return Birthdate;
+
+    public String getBirthday() {
+        return Birthday;
     }
-    
-    public void setBirthdate(String newBirthdate) {
-        Birthdate = newBirthdate;
+
+    public void setBirthday(String Birthday) {
+        this.Birthday = Birthday;
+        System.out.println(Birthday);
     }
-    
-    public String getPhoneNo() {
-        return PhoneNo;
+
+    public String getGender() {
+        return Gender;
     }
-    
-    public void setPhoneNo(String newPhoneNo) {
-        PhoneNo = newPhoneNo;
-    }
-    
-    public String getSummary() {
-        return Summary;
-    }
-    
-    public void setSummary(String newSummary) {
-        Summary = newSummary;
-    }
-    
-    public String getReviews() {
-        return Reviews;
-    }
-    
-    public void setReviews(String newReviews) {
-        Reviews = newReviews;
-    }
-    
-    public String getWishlist() {
-        return Wishlist;
-    }
-    
-    public void setWishlist(String newWishlist) {
-        Wishlist = newWishlist;
+
+    public void setGender(String Gender) {
+        this.Gender = Gender;
+        System.out.println(Gender);
     }
 }

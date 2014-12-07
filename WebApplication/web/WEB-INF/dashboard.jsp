@@ -4,7 +4,9 @@
     Author     : Eileen
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="Bean.CasualUserInfoBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -152,13 +154,22 @@ function getFirstChildWithTagName( element, tagName ) {
                         <div class="request-for-info" id="onclick">Edit Your Profile</div>
                     </div>
                     <div class="right">
+                        
                         <form action="" method="post" class="bootstrap-frm">
+                            <%
+                                CasualUserInfoBean CUbean = (CasualUserInfoBean) session.getAttribute("CUser");
+                                if( CUbean == null ){
+                                    System.out.println("cbean null");
+                                    CUbean = new CasualUserInfoBean();
+                                    session.setAttribute("CUser", CUbean);
+                                }
+                            %>
                             <h1>Profile
                                 <span></span>
                             </h1>
                             <label>
                                 <span>Name :</span>
-                                <input id="name" type="text" name="name" placeholder="Your Full Name" />
+                                    <input id="name" type="text" name="name" placeholder="Your Full Name" />
                             </label>
 
                             <label>

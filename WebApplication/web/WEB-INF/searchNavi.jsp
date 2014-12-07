@@ -38,7 +38,7 @@
                         </form>
                     </div> 
                     
-                    <div id="loginSection" style="">
+                    <div id="loginSection">
                         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
                         
                             <%

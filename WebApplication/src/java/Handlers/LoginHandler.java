@@ -7,6 +7,7 @@
 package Handlers;
 
 import Bean.BusinessUserInfoBean;
+import Bean.CasualUserInfoBean;
 import Bean.LoginBean;
 import Servlets.AddOfferFormServlet;
 import java.sql.Connection;
@@ -59,7 +60,8 @@ public class LoginHandler implements IHandler {
         String query1 = "Select id_user_business, user_name, password, business_name, "
                 + "email_addr, business_type, business_addr from mydb.user_business"
                 + " where user_name = ? and password = ?;";
-         String query2 = "Select id_user_casual, user_name, password from mydb.user_casual"
+         String query2 = "Select id_user_casual, user_name, password, "
+                 + "first_name, last_name, email_addr, birthday, gender from mydb.user_casual"
                 + " where user_name = ? and password = ?;";
         try {
             initCtx = new InitialContext();
@@ -92,9 +94,10 @@ public class LoginHandler implements IHandler {
                         busi.setEmail(rs.getString(5));
                         busi.setBusType(rs.getString(6));
                         busi.setBusAddr(rs.getString(7));
+                        busi.setSet(true);
                         hs.setAttribute("user", busi);
                         
-                        System.out.println("Authentication Successful!");
+                        System.out.println("Professional Authentication Successful!");
                         break;
                     }
                 }
@@ -104,17 +107,27 @@ public class LoginHandler implements IHandler {
             prpStmt = conn.prepareStatement(query2);
             prpStmt.setString(1, data.get(0)); //user_name
             prpStmt.setString(2, data.get(1)); //password
-            rs = prpStmt.executeQuery();
             
+            rs = prpStmt.executeQuery();
             while (rs.next()) {
                 if (rs.getString(2).equalsIgnoreCase(data.get(0))) { //check username
                     if (rs.getString(3).equalsIgnoreCase(data.get(1))) { //check password
                         info.setValid(true); //remember valid
                         info.setId(rs.getInt(1)); //remember id
                         info.setName(rs.getString(2));
+                        
+                        CasualUserInfoBean cu = new CasualUserInfoBean();
+                        cu.setFName(rs.getString(4)); 
+                        cu.setLName(rs.getString(5));
+                        cu.setEmail(rs.getString(6));
+                        cu.setBirthday(rs.getString(7));
+                        cu.setGender(rs.getString(8));
+                        cu.setSet(true);
+                        
                         HttpSession hs = httpRequest.getSession();
                         hs.setAttribute("info", info);
-                        System.out.println("Authentication Successful!");
+                        hs.setAttribute("CUser", cu);
+                        System.out.println("Casual Authentication Successful!");
                         break;
                     }
                 }

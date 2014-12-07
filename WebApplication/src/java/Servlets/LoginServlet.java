@@ -37,8 +37,7 @@ public class LoginServlet extends HttpServlet {
             System.out.println("Attempt Authentication");
             LoginHandler handler = new LoginHandler();
             handler.query(handler.parse(request));
-            //TO-DO:  Send to dashboard when finished.
-            //Current:  Send to url: "/SearchServlet" that is already mapped to the SearchServlet class for handling.
+            // Send to dashboard
             if(handler.getBean().isValid())
                 request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);
             // if authentication failed, return to index page
