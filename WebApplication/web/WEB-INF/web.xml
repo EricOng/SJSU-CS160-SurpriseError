@@ -79,6 +79,10 @@
         <servlet-name>CasualEditServlet</servlet-name>
         <servlet-class>Servlets.CasualEditServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BusinessEditServlet</servlet-name>
+        <servlet-class>Servlets.BusinessEditServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BrowseClass</servlet-name>
         <url-pattern>/Class</url-pattern>
@@ -138,6 +142,10 @@
     <servlet-mapping>
         <servlet-name>CasualEditServlet</servlet-name>
         <url-pattern>/CasualEditServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BusinessEditServlet</servlet-name>
+        <url-pattern>/BusinessEditServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
