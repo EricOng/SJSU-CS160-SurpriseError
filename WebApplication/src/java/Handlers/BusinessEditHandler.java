@@ -33,6 +33,9 @@ public class BusinessEditHandler implements IHandler{
         BusinessUserInfoBean buser = (BusinessUserInfoBean) hs.getAttribute("buser");
         data.add(request.getParameterValues("name")[0]);
         data.add(request.getParameterValues("email")[0]);
+        data.add(request.getParameterValues("type")[0]);
+        data.add(request.getParameterValues("addr")[0]);
+        data.add(request.getParameterValues("sday")[0]);
  
         return data;
     }
@@ -47,8 +50,8 @@ public class BusinessEditHandler implements IHandler{
         buser = lookupBusinessBean(httpRequest);
         
         String query1 = "update mydb.user_business " 
-                + "set business_name = ?, email_addr = ? "
-                + "where user_name = " + buser.getUsername()+ ";";
+                + "set business_name = ?, email_addr = ?, business_type = ?, business_addr = ?, start_date = ? "
+                + "where id_user_business = " + buser.getUserID() + ";";
                 
 
         try {
@@ -61,8 +64,11 @@ public class BusinessEditHandler implements IHandler{
             System.out.println("DataSource Connection success");
 
             prpStmt = conn.prepareStatement(query1);
-            prpStmt.setString(1, data.get(0)); //first_name
+            prpStmt.setString(1, data.get(0)); //business_name
             prpStmt.setString(2, data.get(1)); //email_addr
+            prpStmt.setString(3, data.get(2)); //business_type
+            prpStmt.setString(4, data.get(3)); //business_addr
+            prpStmt.setString(5, data.get(4)); //start_date
             
             int a = prpStmt.executeUpdate();
             buser.setBusinessName(data.get(0));
