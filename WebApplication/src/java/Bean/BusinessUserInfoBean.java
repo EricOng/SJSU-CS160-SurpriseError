@@ -38,6 +38,14 @@ public class BusinessUserInfoBean {
         this.set = set;
     }
     
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+    
     public String getUsername() {
         return username;
     }
