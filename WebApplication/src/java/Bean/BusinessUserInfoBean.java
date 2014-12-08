@@ -110,5 +110,8 @@ public class BusinessUserInfoBean {
     public ArrayList<ClassBean> getClassList(){
         return ClassList;
     }
-           
+    public void reset(){
+        ClassList = new ArrayList<ClassBean>();
+
+    }    
 }

@@ -95,6 +95,10 @@ function getFirstChildWithTagName( element, tagName ) {
 	<!-- fix bar goes here -->
 	<div class="clr" style="height:60px;"></div>
 	<div class="dashboard-wrapper">
+             <%
+        CasualUserInfoBean cuser = (CasualUserInfoBean) session.getAttribute("cuser");
+        
+    %>
 		
 		<ul class="dashboard-list" id="tab">
 			<li><a href="#tabs-1">Profile</a></li>
@@ -107,9 +111,10 @@ function getFirstChildWithTagName( element, tagName ) {
 		<!-- edit profile box -->
 		
                 <div class="tab-box" id="tabs-1" > 
-                    <div class="left">
-                        <div class="profile-pic"><img src=""></div>
-                        <div><h3>UserName</h3></div>
+                    <div class="left" style="height:400px;">
+                        <div class="profile-pic" style="height: 30%;"><img src=""></div>
+                         <div><h3>Hello</h3></div>
+                        <div><h3 style="color:#19B5FE;"><%=cuser.getFName()%></h3></div>
                         
                         <div class="request-for-info" id="onclick">Edit Your Profile</div>
                     </div>

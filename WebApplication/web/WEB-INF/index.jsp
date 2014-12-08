@@ -183,7 +183,7 @@
                                 <select class="search_category" value="" name="category">
                                         <option>Category</option>
                                         <option>English</option>
-                                        <option>Mathematics</option>
+                                        <option>Math</option>
                                         <option>Science</option>
                                         <option>Computer</option>
                                         <option>Language</option>

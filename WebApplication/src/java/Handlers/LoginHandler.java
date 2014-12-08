@@ -80,6 +80,7 @@ public class LoginHandler implements IHandler {
             info = lookupLoginBeanBean(httpRequest);
             cuser = lookupCasualBean(httpRequest);
             buser = lookupBusiBean(httpRequest);
+            buser.reset();
                     
             //Check in businesses 
             prpStmt = conn.prepareStatement(query1);

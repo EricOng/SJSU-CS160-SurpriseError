@@ -148,7 +148,7 @@ function getFirstChildWithTagName( element, tagName ) {
                 
 		<!-- edit profile box -->
 		<div class="tab-box" id="tabs-1" > 
-                    <div class="left">
+                    <div class="left" >
                         <div class="profile-pic"><img src=""></div>
                         <div><h3>Some Name</h3></div>
                         <div><h2>Kenndy School</h2></div>
@@ -170,9 +170,9 @@ function getFirstChildWithTagName( element, tagName ) {
         System.out.println("Dash page loading");
         BusinessUserInfoBean buser = (BusinessUserInfoBean) session.getAttribute("buser");
        ArrayList<ClassBean> cList = buser.getClassList();
-        Iterator itr = cList.iterator();
-         while (itr.hasNext()) {
-              ClassBean myclass = (ClassBean) itr.next();
+       
+             for(int i=0; i<cList.size();i++){
+              ClassBean myclass = cList.get(i);
          
         %>       
                             <li>

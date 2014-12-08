@@ -16,7 +16,7 @@ body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
 .popupContainer{
 	position:absolute;
 	width:auto;
-	height: auto;
+	height: 65%;
 	left:45%;
 	top:80px;
 	background: #FFF;
@@ -150,13 +150,13 @@ a.btn_red {
 
 .CRegister_wrapper{
     width: 280px;
-    height: 500px;
+    height: 250px;
     overflow-y: scroll;
 }
 
 .BRegister_wrapper{
     width: 280px;
-    height: 500px;
+    height: 250px;
     overflow-y: scroll;
 }
 
