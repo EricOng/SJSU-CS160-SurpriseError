@@ -66,8 +66,8 @@ public class LoginHandler implements IHandler {
          String query2 = "Select id_user_casual, user_name, password, "
                  + "first_name, last_name, email_addr, birthday, gender from mydb.user_casual"
                 + " where user_name = ? and password = ?;";
-         String query_class = "Select * from mydb.classes A, mydb.classes_business B"
-                 + "where B.id_user_business = ?;";
+         String query_class = "Select A.* from mydb.classes A, mydb.classes_business B "
+                 + "where B.id_user_business = ? and B.id_class = A.id_class;";
         try {
             initCtx = new InitialContext();
             envCtx = (Context) initCtx.lookup("java:comp/env");
