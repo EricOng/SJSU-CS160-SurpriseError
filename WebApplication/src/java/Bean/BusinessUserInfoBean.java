@@ -6,6 +6,7 @@
 package Bean;
 
 import javax.ejb.Stateless;
+import java.util.*;
 
 /**
  *
@@ -23,6 +24,7 @@ public class BusinessUserInfoBean {
     private String busAddr;
     private String zipcode;
     private String startDate;
+    private ArrayList<ClassBean> ClassList = new ArrayList<ClassBean>();
 
     public BusinessUserInfoBean(){
         set = false;
@@ -100,6 +102,13 @@ public class BusinessUserInfoBean {
     
     public void setStartDate(String startDate) {
         this.startDate = startDate;
+    }
+    
+    public void addToClassList(ClassBean c){
+        ClassList.add(c);
+    }
+    public ArrayList<ClassBean> getClassList(){
+        return ClassList;
     }
            
 }

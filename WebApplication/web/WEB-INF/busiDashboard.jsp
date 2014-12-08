@@ -3,7 +3,9 @@
     Created on : Oct 27, 2014, 8:23:45 PM
     Author     : Eileen
 --%>
-
+<%@page import="java.util.*"%>
+<%@page import="Bean.ClassBean"%>
+<%@page import="Bean.BusinessUserInfoBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" session='true'%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -105,7 +107,7 @@ function getFirstChildWithTagName( element, tagName ) {
 		</ul>
 		
 		<div class="clr" style="height:0px;"></div>
-
+       
 		<!--class listing box -->
 		<div class="tab-box hide" id="tabs-2"> 
                     <div class="single-box">
@@ -159,32 +161,45 @@ function getFirstChildWithTagName( element, tagName ) {
 		<!-- profile box -->
                 
                 
+                
 		<!--inbox box -->
 		<div class="tab-box" id="tabs-3"> 
                     <div>
                         <ul class="result_in_grid">
+                              <%
+        System.out.println("Dash page loading");
+        BusinessUserInfoBean buser = (BusinessUserInfoBean) session.getAttribute("buser");
+       ArrayList<ClassBean> cList = buser.getClassList();
+        Iterator itr = cList.iterator();
+         while (itr.hasNext()) {
+              ClassBean myclass = (ClassBean) itr.next();
+         
+        %>       
                             <li>
-                                <a class="list_block">
-                                <div>
-                                    <div class="course-title">
-                                    <h1>Algebra</h1>
-                                    </div>
-                                    <br>
+                               <a class="list_block" href="BrowseClassServlet?method=doPost&param1=<%=myclass.getClassId()%>">
+                    <div>
+                        <div class="course-title">
+                        <h1><%=myclass.getClassName()%></h1>
+                        </div>
+                        <br>
 
-                                    <ul class="inline-list">
-                                        <li><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;
-                                            <!--<span class="rating star"></span>
-                                             <span class="rating star"></span>
-                                             <span class="rating star"></span><br>-->
-                                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                        </li>
-                                        <li><i class="fa fa-usd"></i> &nbsp;&nbsp;&nbsp;$740</li>
-                                        <li><i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;10 Class Meetings</li>
-                                        <li><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp; All Year Round</li>
-                                    </ul>
-                                </div>
-                                </a>
+                        <ul class="inline-list">
+                            <li><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;
+                                <!--<span class="rating star"></span>
+                                 <span class="rating star"></span>
+                                 <span class="rating star"></span><br>-->
+                                 <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                             </li>
+                            <li><i class="fa fa-usd"></i> &nbsp;&nbsp;&nbsp;<%=myclass.getCost()%></li>
+                            <li><i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;10 Class Meetings</li>
+                            <li><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp; All Year Round</li>
+                        </ul>
+                    </div>
+                </a>
+                            </li>
+                             <%
+                }
+         %>
                         </ul>
                     </div>	
                 </div>

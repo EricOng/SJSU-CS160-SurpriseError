@@ -110,8 +110,27 @@ public class LoginHandler implements IHandler {
             }
             if(buser.isSet()){
                   prpStmt = conn.prepareStatement(query_class);
-                  prpStmt.setString(1, buser.g); //user_name
+                  prpStmt.setString(1, buser.getUserID()); //user_id
                   rs = prpStmt.executeQuery();
+                  while (rs.next()) {
+               
+                    System.out.print(rs.getString(1)+", ");
+                    System.out.print(rs.getString(2)+", ");
+                    System.out.print(rs.getString(3)+", ");
+                    System.out.print(rs.getString(4)+", ");
+                    System.out.print(rs.getString(5)+", ");
+                    System.out.println(rs.getString(6));
+
+
+                    ClassBean newClass = new ClassBean();
+                    newClass.setClassId(Integer.parseInt(rs.getString(1)));
+                    newClass.setClassName(rs.getString(2));
+                    newClass.setClassCategory(rs.getString(3));
+                    newClass.setDescription(rs.getString(4));
+                    newClass.setCost(Double.parseDouble(rs.getString(5)));
+                    newClass.setType(rs.getString(6));
+                    buser.addToClassList(newClass);
+                }
             }
             
             //Check in casual users
