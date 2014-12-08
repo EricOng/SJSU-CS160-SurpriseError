@@ -63,11 +63,11 @@
                 </h1>
                 <label>
                     <span>First Name :</span>
-                        <input id="name" type="text" name="name" value="${cuser.FName}" />
+                        <input id="name" type="text" name="fname" value="${cuser.FName}" />
                 </label>
                 <label>
                     <span>Last Name :</span>
-                        <input id="name" type="text" name="name" value="${cuser.LName}" />
+                        <input id="name" type="text" name="lname" value="${cuser.LName}" />
                 </label>
                 <label>
                     <span>Email :</span>
@@ -76,11 +76,11 @@
                 
                 <label>
                     <span>Birthday</span>
-                    <input id="bday" type="date" name="bday" />
+                    <input id="bday" type="date" name="bday" value="${cuser.getBirthday()}" />
                 </label>
 
                  <label>
-                    <span>Gender</span><select name="selection">
+                    <span>Gender</span><select name="gender">
                     <option value="f">Female</option>
                     <option value="m">Male</option>
                     </select>

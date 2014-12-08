@@ -31,12 +31,16 @@ public class CasualEditHandler implements IHandler{
         List<String> data = new ArrayList<String>();
         HttpSession hs = request.getSession();
         CasualUserInfoBean cuser = (CasualUserInfoBean) hs.getAttribute("cuser");
-        String fullname = request.getParameterValues("name")[0];
-        String fname = fullname.replaceFirst("\\s.*", "");
-        String lname = fullname.replaceFirst(".*\\s", "");
-        data.add(fname);
-        data.add(lname);
+        //String fullname = request.getParameterValues("name")[0];
+        //String fname = fullname.replaceFirst("\\s.*", "");
+        //String lname = fullname.replaceFirst(".*\\s", "");
+        //data.add(fname);
+        //data.add(lname);
+        data.add(request.getParameterValues("fname")[0]);
+        data.add(request.getParameterValues("lname")[0]);
         data.add(request.getParameterValues("email")[0]);
+        data.add(request.getParameterValues("bday")[0]);
+        data.add(request.getParameterValues("gender")[0]);
  
         return data;
     }
@@ -51,7 +55,7 @@ public class CasualEditHandler implements IHandler{
         cuser = lookupCasualBean(httpRequest);
         
         String query1 = "update mydb.user_casual " 
-                + "set first_name = ?, last_name = ?, email_addr = ? "
+                + "set first_name = ?, last_name = ?, email_addr = ?, birthday = ?, gender = ? "
                 + "where id_user_casual = " + cuser.getUserID()+ ";";
                 
 
@@ -69,6 +73,8 @@ public class CasualEditHandler implements IHandler{
             prpStmt.setString(1, data.get(0)); //first_name
             prpStmt.setString(2, data.get(1)); //last_name
             prpStmt.setString(3, data.get(2)); //email_addr
+            prpStmt.setString(4, data.get(3)); //birthday
+            prpStmt.setString(5, data.get(4)); //gender
 //            prpStmt.setString(5, bean.getPassword()); //password
 //            prpStmt.setString(6, bean.getBirthday()); //birthday
             
@@ -76,6 +82,8 @@ public class CasualEditHandler implements IHandler{
             cuser.setFName(data.get(0));
             cuser.setLName(data.get(1));
             cuser.setEmail(data.get(2));
+            cuser.setBirthday(data.get(3));
+            cuser.setGender(data.get(4));
             httpRequest.getSession().setAttribute("cuser", cuser);
             conn.close();
         } catch (SQLException e) {
