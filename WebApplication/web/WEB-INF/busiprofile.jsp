@@ -75,40 +75,28 @@
                     <span></span>
                 </h1>
                 <label>
-                    <span>Name :</span>
-                        <input id="name" type="text" name="name" placeholder="${buser.businessName} " />
+                    <span>Business Name :</span>
+                        <input id="name" type="text" name="name" value="${buser.businessName} " />
                 </label>
                 <label>
-                    <span>Email :</span>
-                    <input id="email" type="email" name="email" placeholder="${buser.getEmail()}" />
+                    <span>Business Email :</span>
+                    <input id="email" type="email" name="email" value="${buser.getEmail()}" />
                 </label>
                  <label>
-                    <span>Contact</span>
-                    <input id="email" type="email" name="email" placeholder="Valid Email Address" />
+                    <span>Business Type</span>
+                    <input id="email" type="email" name="email" value="${buser.getBusType()}" />
                 </label>
                 <label>
-                    <span>Type</span>
-                    <input id="type" type="text" name="type" placeholder="" />
+                    <span>Business Address</span>
+                    <input id="type" type="text" name="type" value="${buser.getBusAddr()}" />
                 </label>
-
-                 <label>
-                    <span>Location</span><select name="selection">
-                    <option value="Job Inquiry">Job Inquiry</option>
-                    <option value="General Question">General Question</option>
-                    </select>
-                </label>    
                 <label>
-                    <span>Subject :</span><select name="selection">
-                    <option value="Job Inquiry">Job Inquiry</option>
-                    <option value="General Question">General Question</option>
-                    </select>
-                </label>    
-                <label>
-                    <span>Subject :</span><select name="selection">
-                    <option value="Job Inquiry">Job Inquiry</option>
-                    <option value="General Question">General Question</option>
-                    </select>
-                </label>    
+                    <span>Business Start Date</span>
+                     <input id="sday" type="text" name="sday" placeholder=" Need to display the start date" />
+                </label>
+                  
+               
+               
                  <label>
                     <span>&nbsp;</span> 
                     <input type="button" class="button" value="Update" /> 
