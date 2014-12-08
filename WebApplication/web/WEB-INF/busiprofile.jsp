@@ -17,7 +17,7 @@
         System.out.println("Dash page loading");
         BusinessUserInfoBean buser = (BusinessUserInfoBean) session.getAttribute("buser");
         if( buser == null ){
-            System.out.println("cbean null");
+            System.out.println("bbean null");
             buser = new BusinessUserInfoBean();
             session.setAttribute("buser", buser);
         }
@@ -84,23 +84,20 @@
                 </label>
                  <label>
                     <span>Business Type</span>
-                    <input id="email" type="email" name="email" value="${buser.getBusType()}" />
+                    <input id="email" type="text" name="type" value="${buser.getBusType()}" />
                 </label>
                 <label>
                     <span>Business Address</span>
-                    <input id="type" type="text" name="type" value="${buser.getBusAddr()}" />
+                    <input id="type" type="text" name="addr" value="${buser.getBusAddr()}" />
                 </label>
                 <label>
                     <span>Business Start Date</span>
                      <input id="sday" type="text" name="sday" placeholder=" Need to display the start date" />
                 </label>
-                  
-               
-               
                  <label>
                     <span>&nbsp;</span> 
-                    <input type="button" class="button" value="Update" /> 
-                </label>  
+                    <button type="submit" class="button">Update Profile</button>
+                 </label>  
         </form>
     </c:if>
 </html>
