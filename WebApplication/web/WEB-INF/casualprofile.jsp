@@ -29,40 +29,27 @@
                     <span></span>
                 </h1>
                 <label>
-                    <span>Name :</span>
-                        <input id="name" type="text" name="name" placeholder="Your Full Name" />
+                    <span>First Name :</span>
+                        <input id="name" type="text" name="name" placeholder="First Name" />
+                </label>
+                 <label>
+                    <span>Last Name :</span>
+                        <input id="name" type="text" name="name" placeholder="Last Name" />
                 </label>
                 <label>
                     <span>Email :</span>
                     <input id="email" type="email" name="email" placeholder="Valid Email Address" />
                 </label>
                  <label>
-                    <span>Contact</span>
+                    <span>Birthday</span>
                     <input id="email" type="email" name="email" placeholder="Valid Email Address" />
                 </label>
                 <label>
-                    <span>Type</span>
+                    <span>Gender</span>
                     <input id="type" type="text" name="type" placeholder="" />
                 </label>
 
-                 <label>
-                    <span>Location</span><select name="selection">
-                    <option value="Job Inquiry">Job Inquiry</option>
-                    <option value="General Question">General Question</option>
-                    </select>
-                </label>    
-                <label>
-                    <span>Subject :</span><select name="selection">
-                    <option value="Job Inquiry">Job Inquiry</option>
-                    <option value="General Question">General Question</option>
-                    </select>
-                </label>    
-                <label>
-                    <span>Subject :</span><select name="selection">
-                    <option value="Job Inquiry">Job Inquiry</option>
-                    <option value="General Question">General Question</option>
-                    </select>
-                </label>    
+                  
                  <label>
                     <span>&nbsp;</span> 
                     <input type="button" class="button" value="Update Profile" /> 
@@ -75,40 +62,30 @@
                     <span></span>
                 </h1>
                 <label>
-                    <span>Name :</span>
-                        <input id="name" type="text" name="name" value="${cuser.FName} ${cuser.LName}" />
+                    <span>First Name :</span>
+                        <input id="name" type="text" name="name" value="${cuser.FName}" />
+                </label>
+                <label>
+                    <span>Last Name :</span>
+                        <input id="name" type="text" name="name" value="${cuser.LName}" />
                 </label>
                 <label>
                     <span>Email :</span>
                     <input id="email" type="email" name="email" value="${cuser.getEmail()}" />
                 </label>
-                 <label>
-                    <span>Contact Number</span>
-                    <input id="telephone" type="email" name="email" placeholder="Valid Phone Number" />
-                </label>
+                
                 <label>
-                    <span>Type</span>
-                    <input id="type" type="text" name="type" placeholder="" />
+                    <span>Birthday</span>
+                    <input id="bday" type="date" name="bday" />
                 </label>
 
                  <label>
-                    <span>Location</span><select name="selection">
-                    <option value="Job Inquiry">Job Inquiry</option>
-                    <option value="General Question">General Question</option>
+                    <span>Gender</span><select name="selection">
+                    <option value="f">Female</option>
+                    <option value="m">Male</option>
                     </select>
                 </label>    
-                <label>
-                    <span>Subject :</span><select name="selection">
-                    <option value="Job Inquiry">Job Inquiry</option>
-                    <option value="General Question">General Question</option>
-                    </select>
-                </label>    
-                <label>
-                    <span>Subject :</span><select name="selection">
-                    <option value="Job Inquiry">Job Inquiry</option>
-                    <option value="General Question">General Question</option>
-                    </select>
-                </label>    
+               
                  <label>
                     <span>&nbsp;</span> 
                     <button type="submit" class="button">Update Profile</button>

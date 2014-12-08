@@ -3,7 +3,7 @@
     Created on : Oct 27, 2014, 8:23:45 PM
     Author     : Eileen
 --%>
-
+<%@page import="Bean.CasualUserInfoBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" session='true'%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -98,18 +98,19 @@ function getFirstChildWithTagName( element, tagName ) {
 		
 		<ul class="dashboard-list" id="tab">
 			<li><a href="#tabs-1">Profile</a></li>
-		<!--	<li><a href="#tabs-2">Your Listings</a></li>-->
+			<li><a href="#tabs-2">Your Wish List</a></li>
 			
 		</ul>
 		
 		<div class="clr" style="height:0px;"></div>
                 
 		<!-- edit profile box -->
-		<div class="tab-box" id="tabs-1" > 
+		
+                <div class="tab-box" id="tabs-1" > 
                     <div class="left">
                         <div class="profile-pic"><img src=""></div>
-                        <div><h3>Some Name</h3></div>
-                        <div><h2>Kenndy School</h2></div>
+                        <div><h3>UserName</h3></div>
+                        
                         <div class="request-for-info" id="onclick">Edit Your Profile</div>
                     </div>
                     <div class="right">
@@ -117,6 +118,37 @@ function getFirstChildWithTagName( element, tagName ) {
                     </div>
 		</div>
 		<!-- profile box -->
+                
+                <!--class listing box -->
+		<div class="tab-box" id="tabs-2"> 
+                    <div>
+                        <ul class="result_in_grid">
+                            <li>
+                                <a class="list_block">
+                                <div>
+                                    <div class="course-title">
+                                    <h1>Algebra</h1>
+                                    </div>
+                                    <br>
+
+                                    <ul class="inline-list">
+                                        <li><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;
+                                            <!--<span class="rating star"></span>
+                                             <span class="rating star"></span>
+                                             <span class="rating star"></span><br>-->
+                                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        </li>
+                                        <li><i class="fa fa-usd"></i> &nbsp;&nbsp;&nbsp;$740</li>
+                                        <li><i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;10 Class Meetings</li>
+                                        <li><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp; All Year Round</li>
+                                    </ul>
+                                </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>	
+                </div>
+		<!-- class listing box -->
                 
                
 	</div>
