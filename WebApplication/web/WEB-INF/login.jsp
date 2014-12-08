@@ -79,7 +79,7 @@
 		                        	<label>Casual User Register</label>
 		                        	<br />
 
-		                        	<div class="BRegister_wrapper">
+		                        	<div class="CRegister_wrapper">
 
 		                            <label>User Name</label>
 		                            <input type="text" name="name"/>
@@ -131,6 +131,7 @@
 	                        <div class="BRegister_layout">
 		                        <form action="BRegister">
 		                        	<label>Business User Register</label>
+		                        	<br />
 
 			                        	<div class="BRegister_wrapper">
 
