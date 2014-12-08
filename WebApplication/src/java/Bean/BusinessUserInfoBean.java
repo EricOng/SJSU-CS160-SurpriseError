@@ -15,12 +15,14 @@ import javax.ejb.Stateless;
 public class BusinessUserInfoBean {
 
     private boolean set;
+    private String userID;
     private String username;
     private String businessName;
     private String email;
     private String busType;
     private String busAddr;
     private String zipcode;
+    private String startDate;
 
     public BusinessUserInfoBean(){
         set = false;
@@ -82,6 +84,14 @@ public class BusinessUserInfoBean {
 
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
+    }
+    
+    public String getStartDate() {
+        return startDate;
+    }
+    
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
            
 }
