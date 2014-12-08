@@ -67,7 +67,7 @@ public class LoginHandler implements IHandler {
                  + "first_name, last_name, email_addr, birthday, gender from mydb.user_casual"
                 + " where user_name = ? and password = ?;";
          String query_class = "Select * from mydb.classes A, mydb.classes_business B"
-                 + "where B.id_user_business = ? ";
+                 + "where B.id_user_business = ?;";
         try {
             initCtx = new InitialContext();
             envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -96,6 +96,7 @@ public class LoginHandler implements IHandler {
                         hs.setAttribute("info", info);
                         
                         //retrieve business information
+                        buser.setUserID(rs.getString(1));
                         buser.setBusinessName(rs.getString(4));
                         buser.setEmail(rs.getString(5));
                         buser.setBusType(rs.getString(6));
@@ -109,11 +110,13 @@ public class LoginHandler implements IHandler {
                 }
             }
             if(buser.isSet()){
+                  System.out.println("-----------------------------------------");
                   prpStmt = conn.prepareStatement(query_class);
+                  System.out.println("business id= "+buser.getUserID());
                   prpStmt.setString(1, buser.getUserID()); //user_id
                   rs = prpStmt.executeQuery();
                   while (rs.next()) {
-               
+                    System.out.println("here?");
                     System.out.print(rs.getString(1)+", ");
                     System.out.print(rs.getString(2)+", ");
                     System.out.print(rs.getString(3)+", ");
@@ -130,7 +133,9 @@ public class LoginHandler implements IHandler {
                     newClass.setCost(Double.parseDouble(rs.getString(5)));
                     newClass.setType(rs.getString(6));
                     buser.addToClassList(newClass);
+                    
                 }
+                   System.out.println("-----------------------------------------");
             }
             
             //Check in casual users
