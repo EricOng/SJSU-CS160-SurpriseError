@@ -70,7 +70,7 @@
         </form>
     </c:if>
      <c:if test = "${buser.set == true}"> 
-        <form action="" method="post" class="bootstrap-frm">
+        <form action="BusinessEditServlet" method="post" class="bootstrap-frm">
                 <h1>Profile
                     <span></span>
                 </h1>
