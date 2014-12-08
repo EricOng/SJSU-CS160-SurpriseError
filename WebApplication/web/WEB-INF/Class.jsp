@@ -4,9 +4,10 @@
     Author     : Eileen
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page import="Bean.DetailedClassBean" %> 
+<%@ page import="java.util.* " %>
+<%@page contentType="text/html" pageEncoding="UTF-8" session='true'%>
+<!DOCTYPE HTML>
 <head>
 <title>GoodLuck Learning</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,54 +21,71 @@
 <body>
 	 <jsp:include page="searchNavi.jsp"></jsp:include>
 	<!-- fix bar goes here -->
+        
+      
+        
 	<div class="clr"></div>
 	<div class="single-class-content-wrapper">
-		<p class="search_result"> Category <a href=""><span class="keyword">Programming</span></a> near <a href=""><span class="keyword">Sunnyvale</span>  </a> > <a href="" style="color:#666;text-decoration:underline;">WEB DEVELOPMENT: HTML AND CSS</a></p>
+	<%
+            int count = 0;
+            String color = "#F9EBB3";
+            DetailedClassBean myClass;
+            if (request.getAttribute("class") != null) {
+                myClass = (DetailedClassBean) request.getAttribute("class");
+        %>
+            
+            
+            <p class="search_result"> Category 
+                <a href="">
+                    <span class="keyword">Programming</span>
+                </a> 
+                > 
+                <a href="" style="color:#666;text-decoration:underline;">
+                    <%=myClass.getClassName()%>
+                </a>
+            </p>
 		<div class="clr" style="height:50px;"></div>
                 
+         
 		<div class="class-detail">
                     <div class="wish-list"><i class="fa fa-heart"></i> &nbsp;Save to Wish List</div>
 			<div class="class-box">
-				<h1>WEB DEVELOPMENT <br>HTML AND CSS</h1>
+				<h1> <%=myClass.getClassName()%></h1>
 
 
 				<h2>About this course</h2>
 				<div class="class-description">
-					<p>Dive head first into HTML & CSS. This workshop takes a project-based approach to HTML & CSS. By distinguishing good code from bad, participants will focus on learning a subset of the good parts in order to make something (quick and) awesome.
-Tackle the barebones of how to quickly develop a web site, and get it live on the Web by the end of the workshop.</p></div>
+                                    <p>
+                                         <%=myClass.getDescription()%>
+                                    </p></div>
 				<hr>
 
 				<h2>Course Details</h2>
 				<table>
 					<tr>
+						<td><h2>Category</h2></td>
+						<td><p><%=myClass.getClassCategory()%></p></td>
 						<td><h2>Class Type</h2></td>
-						<td><h2></h2></td>
-						<td><h2>Class Type</h2></td>
-						<td><h2></h2></td>
+						<td><p><%=myClass.getClassType()%></p></td>
 					</tr>
 					<tr>
 						<td><h2>Cost</h2></td>
-						<td><h2></h2></td>
+						<td><p><%=myClass.getCost()%></p></td>
 						<td><h2>Class Duration</h2></td>
-						<td><h2></h2></td>
+						<td><p><%=myClass.getDuration()%></p></td>
 					</tr>
 					<tr>
 						<td><h2>Availability</h2></td>
-						<td><h2></h2></td>
+						<td><p><%=myClass.getAvailability()%></p></td>
 						
 					</tr>
 				</table>
-				
-				<div></div>
 				<hr>
 
-				<h2>Takeaways</h2>
-				<div></div>
-				<hr>
 				
 				<h2>PREREQS & PREPARATION</h2>
 				<div class="class-description">
-				<p>	Basic HTML experience may be helpful, but is not necessary. Bring a laptop to class (Mac preferred but not required). Please download and install Sublime Text (Hint: the download button is on the home page). Please email us prior to class if you have any additional concerns or questions.</p>
+				<p><%=myClass.getClassPrereqs()%></p>
 
 				</div>
 				<hr>
@@ -121,7 +139,7 @@ Tackle the barebones of how to quickly develop a web site, and get it live on th
 				<div style="height:40px"></div>
                                
 				<div>
-					<img src="images/edu1.jpg" width="200" height="auto">
+					<img src="images/edu1.jpg" style="width:200px; height:auto">
 				</div>
 				<div style="height:5px"></div>
                                 <div>
@@ -139,7 +157,7 @@ Tackle the barebones of how to quickly develop a web site, and get it live on th
                         <!-- Contact Form -->
                     <div id="contactdiv">
                     <form class="form" action="#" id="contact">
-                    <img src="images/button_cancel.png" class="img" id="cancel" width="32px"/>
+                    <img src="images/button_cancel.png" class="img" id="cancel" style="width:32px"/>
                     <h3>Request Info Form</h3>
                     <label>Name: <span>*</span></label>
                     <input type="text" id="name" placeholder="Name"/>
@@ -156,7 +174,11 @@ Tackle the barebones of how to quickly develop a web site, and get it live on th
                     </div>
                         
                     <!-- Contact Form -->
-		</div>	
+		</div>
+                 <%
+                
+            }
+        %>	
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<div class="clr"></div>
 </body>
