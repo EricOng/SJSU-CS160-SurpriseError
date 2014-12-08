@@ -25,6 +25,7 @@ import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
+import Bean.ClassBean;
 
 /**
  *
@@ -65,6 +66,8 @@ public class LoginHandler implements IHandler {
          String query2 = "Select id_user_casual, user_name, password, "
                  + "first_name, last_name, email_addr, birthday, gender from mydb.user_casual"
                 + " where user_name = ? and password = ?;";
+         String query_class = "Select * from mydb.classes A, mydb.classes_business B"
+                 + "where B.id_user_business = ? ";
         try {
             initCtx = new InitialContext();
             envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -104,6 +107,11 @@ public class LoginHandler implements IHandler {
                         break;
                     }
                 }
+            }
+            if(buser.isSet()){
+                  prpStmt = conn.prepareStatement(query_class);
+                  prpStmt.setString(1, buser.g); //user_name
+                  rs = prpStmt.executeQuery();
             }
             
             //Check in casual users
@@ -196,7 +204,10 @@ public class LoginHandler implements IHandler {
         }
         return cuser;
     }
-
+    private ClassBean getClassBean(){
+        ClassBean myClass = new ClassBean();
+        return myClass;
+    }
     private BusinessUserInfoBean lookupBusiBean(HttpServletRequest request) {
     HttpSession httpSession = request.getSession(true);
         BusinessUserInfoBean buser = (BusinessUserInfoBean) httpSession.getAttribute("buser");
