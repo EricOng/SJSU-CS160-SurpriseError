@@ -6,6 +6,7 @@
 
 package Handlers;
 
+import Bean.BusinessUserInfoBean;
 import Servlets.AddOfferFormServlet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,8 +28,11 @@ import javax.sql.DataSource;
  */
 public class AddOfferFormHandler implements IHandler {
 
+    private HttpServletRequest request;
+    
     @Override
     public List<String> parse(HttpServletRequest request) {
+        this.request = request;
         List<String> parseData = new ArrayList<String>();
         //Parse only the first value from each Field of the AddOfferForm
         try {
@@ -63,11 +67,11 @@ public class AddOfferFormHandler implements IHandler {
                 + "class_category, description, cost, class_style, "
                 + "class_url, class_duration, class_availability) "
                 + "select count(id_class)+1, ?, ?, ?, ?, ?, ?, ?, ? from mydb.classes;";
+        
+        String qCount = "select count(id_class) from mydb.classes;";
+        String UpdLinkTab = "insert into mydb.classes_business "
+                + "values(?, ?);";
 
-        /**
-         * STILL NEED ACCESS TO LOGIN INFO TO UPDATE THE LINKING TABLE:
-         * classes_business
-         */
         try {
             initCtx = new InitialContext();
             envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -75,7 +79,8 @@ public class AddOfferFormHandler implements IHandler {
             ds = (DataSource) envCtx.lookup("jdbc/mydb");
             System.out.println("DataSource Connection success");
             conn = ds.getConnection();
-            //stmt = conn.createStatement();
+            
+            BusinessUserInfoBean buser = lookupBusiBean(request);
 
             prpStmt = conn.prepareStatement(query);
 
@@ -91,6 +96,23 @@ public class AddOfferFormHandler implements IHandler {
 
             int rowsAffected = prpStmt.executeUpdate();
             System.out.println("Rows Affected: " + rowsAffected);
+            
+            prpStmt = conn.prepareStatement(qCount);
+            rs = prpStmt.executeQuery();
+            String id = "";
+            while(rs.next()){
+                System.out.println("In loop");
+                id = rs.getString(1);
+            }
+            System.out.println("got count: " + id);
+            
+            prpStmt = conn.prepareStatement(UpdLinkTab);
+            prpStmt.setInt(2, Integer.valueOf(buser.getUserID()));
+            prpStmt.setInt(1, Integer.valueOf(id));
+            System.out.println(prpStmt.toString());
+            rowsAffected = prpStmt.executeUpdate();
+            System.out.println("Link Table Affected: " + rowsAffected);
+            
             conn.close();
         } catch (SQLException e) {
             System.out.println("SQL Exception Found Querying For AddOfferForm");
@@ -123,5 +145,14 @@ public class AddOfferFormHandler implements IHandler {
                 conn = null;
             }
         }
+    }
+
+    private BusinessUserInfoBean lookupBusiBean(HttpServletRequest request) {
+        BusinessUserInfoBean buser = (BusinessUserInfoBean) request.getSession().getAttribute("buser");
+        if(buser == null){
+            System.out.println("buser null at add offer");
+            buser = new BusinessUserInfoBean();
+        }
+        return buser;
     }
 }
