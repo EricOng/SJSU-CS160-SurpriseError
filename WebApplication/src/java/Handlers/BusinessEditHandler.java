@@ -50,7 +50,7 @@ public class BusinessEditHandler implements IHandler{
         buser = lookupBusinessBean(httpRequest);
         
         String query1 = "update mydb.user_business " 
-                + "set business_name = ?, email_addr = ?, business_type = ?, business_addr = ?, start_date = ? "
+                + "set business_name = ?, email_addr = ?, business_type = ?, business_addr = ?  "
                 + "where id_user_business = " + buser.getUserID() + ";";
                 
 
@@ -68,7 +68,6 @@ public class BusinessEditHandler implements IHandler{
             prpStmt.setString(2, data.get(1)); //email_addr
             prpStmt.setString(3, data.get(2)); //business_type
             prpStmt.setString(4, data.get(3)); //business_addr
-            prpStmt.setString(5, data.get(4)); //start_date
             
             int a = prpStmt.executeUpdate();
             buser.setBusinessName(data.get(0));

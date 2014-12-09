@@ -33,6 +33,7 @@ public class BusinessUserInfoBean {
     // "Insert Code > Add Business Method")
 
     public boolean isSet() {
+        System.out.println("buser " + set);
         return set;
     }
 

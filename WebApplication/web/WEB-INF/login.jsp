@@ -46,7 +46,7 @@
 
                     <!-- Username & Password Login form -->
                     <div class="user_login">
-                        <form action="login">
+                        <form action="login" method="post">
                             <label>Email / Username</label>
                             <input type="text" name="User" value="dummy_bus01"/>
                             <br />

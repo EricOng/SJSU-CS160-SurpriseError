@@ -32,7 +32,7 @@ public class BusinessEditServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        System.out.println("At edit");
+        System.out.println("At buser edit");
         BusinessEditHandler handler = new BusinessEditHandler();
         handler.query(handler.parse(request));
         request.getRequestDispatcher("/DashboardServlet").forward(request, response);
@@ -65,8 +65,7 @@ public class BusinessEditServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Disable so no duplicate querying
-        // processRequest(request, response);
+        processRequest(request, response);
     }
 
     /**

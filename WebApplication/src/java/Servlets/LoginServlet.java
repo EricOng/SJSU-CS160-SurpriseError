@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         System.out.println("At Login Servlet");
-        if (request.getQueryString() != null) {
+        if (request.getParameter("User") != null) {
             System.out.println("Attempt Authentication");
             LoginHandler handler = new LoginHandler();
             handler.query(handler.parse(request));
