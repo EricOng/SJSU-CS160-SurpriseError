@@ -93,6 +93,12 @@ public class BusinessUserRegisterHandler implements IHandler {
             BusinessUserInfoBean buser = (BusinessUserInfoBean) lookupBusinessBean(httpRequest);
             LoginBean lb = (LoginBean) lookupLoginBeanBean(httpRequest);
             buser.setSet(true);
+            buser.setBusType(data.get(4));
+            buser.setBusinessName(data.get(2));
+            buser.setZipcode(data.get(6));
+            buser.setEmail(data.get(3));
+            buser.setStartDate(data.get(8));
+            buser.setBusAddr(data.get(5));
             lb.setValid(true);
             /*
             while (rs.next()) {

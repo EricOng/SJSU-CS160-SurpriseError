@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "CasualUserRegisterServlet", urlPatterns = {"/CasualUserRegisterServlet"})
 public class CasualUserRegisterServlet extends HttpServlet {
 
-     /**
+    /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -41,12 +41,12 @@ public class CasualUserRegisterServlet extends HttpServlet {
             //Current:  Send to url: "/SearchServlet" that is already mapped to the SearchServlet class for handling.
             request.getRequestDispatcher("/DashboardServlet").forward(request, response);
             /*
-            if(handler.getBean().isValid())
-                request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);
-            // if authentication failed, return to index page
-            else
-                request.getRequestDispatcher("/index").forward(request, response);
-            */
+             if(handler.getBean().isValid())
+             request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);
+             // if authentication failed, return to index page
+             else
+             request.getRequestDispatcher("/index").forward(request, response);
+             */
         }
 
     }

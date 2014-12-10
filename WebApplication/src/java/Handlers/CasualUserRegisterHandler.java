@@ -27,14 +27,14 @@ import javax.sql.DataSource;
  * @author David
  */
 public class CasualUserRegisterHandler implements IHandler {
-
+    
     HttpServletRequest httpRequest;
-
+    
     @Override
     public List<String> parse(HttpServletRequest request) {
         httpRequest = request;
         List<String> parseData = new ArrayList<String>();
-
+        
         try {
             parseData.add(request.getParameterValues("name")[0]);
             parseData.add(request.getParameterValues("first_name")[0]);
@@ -48,7 +48,7 @@ public class CasualUserRegisterHandler implements IHandler {
         };
         return parseData;
     }
-
+    
     @Override
     public void query(List<String> data) {
         Context initCtx = null;
@@ -62,7 +62,7 @@ public class CasualUserRegisterHandler implements IHandler {
                 + "email_addr, password, birthday, gender) \n"
                 + "select count(id_user_casual) + 1, ?, ?, ?, "
                 + "?, ?, ?, ? from mydb.user_casual;";
-
+        
         try {
             initCtx = new InitialContext();
             envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -88,13 +88,18 @@ public class CasualUserRegisterHandler implements IHandler {
             }
             int wtv = prpStmt.executeUpdate();
             System.out.println("Affected rows: " + wtv);
-
+            
             HttpSession hs = httpRequest.getSession();
             CasualUserInfoBean cuser = (CasualUserInfoBean) lookupCasualBean(httpRequest);
             LoginBean lb = (LoginBean) lookupLoginBeanBean(httpRequest);
             cuser.setSet(true);
+            cuser.setFName(data.get(1));
+            cuser.setLName(data.get(2));
+            cuser.setEmail(data.get(3));
+            cuser.setBirthday(data.get(5));
+            cuser.setGender(data.get(6));
             lb.setValid(true);
-
+            
             conn.close();
         } catch (SQLException e) {
             System.out.println("SQL Exception Found Querying For Registering");
@@ -133,7 +138,7 @@ public class CasualUserRegisterHandler implements IHandler {
              */
         }
     }
-
+    
     private LoginBean lookupLoginBeanBean(HttpServletRequest request) {
         HttpSession httpSession = request.getSession(true);
         LoginBean loginbean = (LoginBean) httpSession.getAttribute("info");
@@ -143,7 +148,7 @@ public class CasualUserRegisterHandler implements IHandler {
         }
         return loginbean;
     }
-
+    
     private CasualUserInfoBean lookupCasualBean(HttpServletRequest request) {
         HttpSession httpSession = request.getSession(true);
         CasualUserInfoBean cuser = (CasualUserInfoBean) httpSession.getAttribute("cuser");
