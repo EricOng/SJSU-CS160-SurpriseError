@@ -13,13 +13,22 @@ body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
     display: none;
 }
 
-.popupContainer{
-	position:absolute;
-	width:auto;
-	height: 65%;
-	left:45%;
-	top:80px;
-	background: #FFF;
+.popupContainer1{
+    position:absolute;
+    width:auto;
+    height:auto;
+    left:45%;
+    top:80px;
+    background: #FFF;
+}
+
+.popupContainer2{
+    position:absolute;
+    width:auto;
+    height:auto;
+    left:45%;
+    top:80px;
+    background: #FFF;
 }
 #modal_trigger {width:150px; display:inline;}
 
@@ -77,39 +86,39 @@ a.btn_red {
 
 /* User Login Form */
 .user_login 
-    {display: none;}
+{display: none;}
 .user_login label 
-    {display: block; margin-bottom:5px;}
+{display: block; margin-bottom:5px;}
 .user_login input[type="text"], .user_login input[type="email"], .user_login input[type="password"] 
-    {display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
+{display: block; width:90%; padding: 10px; border:1px solid #DDD; color:#666;}
 .user_login input[type="checkbox"] 
-    {float:left; margin-right:5px;}
+{float:left; margin-right:5px;}
 .user_login input[type="checkbox"]+label {float:left;}
 
 .user_login .checkbox 
-    {margin-bottom: 10px; clear: both; overflow: hidden;}
+{margin-bottom: 10px; clear: both; overflow: hidden;}
 .forgot_password 
-    {display:block; margin: 20px 0 10px; 
-     clear: both; overflow: hidden; 
-     text-decoration: none; color:#ED6347;}
+{display:block; margin: 20px 0 10px; 
+ clear: both; overflow: hidden; 
+ text-decoration: none; color:#ED6347;}
 
 /* User Register Form */
 .user_register 
-    {display: none;
-        float: left;
-        height: auto;}
+{display: none;
+ float: left;
+ height: auto;}
 .user_register label 
-    {display: block; margin-bottom:5px;}
+{display: block; margin-bottom:5px;}
 .user_register input[type="text"], .user_register input[type="email"], .user_register input[type="password"] 
-    {display: block; width:90%; padding: 10px;
-     border:1px solid #DDD; color:#666;}
+{display: block; width:90%; padding: 10px;
+ border:1px solid #DDD; color:#666;}
 .user_register input[type="checkbox"] 
-    {float:left; margin-right:5px;}
+{float:left; margin-right:5px;}
 .user_register input[type="checkbox"]+label 
-    {float:left;}
+{float:left;}
 
 .user_register .checkbox 
-    {margin-bottom: 10px; clear: both; overflow: hidden;}
+{margin-bottom: 10px; clear: both; overflow: hidden;}
 
 .login {
     float:right;
@@ -132,31 +141,31 @@ a.btn_red {
 
 .register_wrapper{
     width: 650px;
-    height: 650px;
-    
+    height: 300px;
+
 }
 
 .CRegister_layout{
     width: auto;
-    height: auto;
+    height: 200px;
     float: left;
 }
 
 .BRegister_layout{
     width: auto;
-    height: auto;
+    height: 200px;
     float: left;
 }
 
 .CRegister_wrapper{
     width: 280px;
-    height: 250px;
+    height: 200px;
     overflow-y: scroll;
 }
 
 .BRegister_wrapper{
     width: 280px;
-    height: 250px;
+    height: 200px;
     overflow-y: scroll;
 }
 

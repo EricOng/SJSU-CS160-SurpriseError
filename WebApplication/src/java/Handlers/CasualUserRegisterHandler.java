@@ -5,6 +5,8 @@
  */
 package Handlers;
 
+import Bean.CasualUserInfoBean;
+import Bean.LoginBean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +19,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 /**
@@ -70,7 +73,6 @@ public class CasualUserRegisterHandler implements IHandler {
             System.out.println("DataSource Connection success");
 
             //info = lookupLoginBeanBean(httpRequest);
-
             //Check in businesses
             prpStmt = conn.prepareStatement(query1);
             prpStmt.setString(1, data.get(0)); //user_name
@@ -86,53 +88,13 @@ public class CasualUserRegisterHandler implements IHandler {
             }
             int wtv = prpStmt.executeUpdate();
             System.out.println("Affected rows: " + wtv);
-            /*
-            while (rs.next()) {
-                if (rs.getString(2).equalsIgnoreCase(data.get(0))) { //check username
-                    if (rs.getString(3).equalsIgnoreCase(data.get(1))) { //check password
-                        info.setValid(true); //remember valid
-                        info.setId(rs.getInt(1)); //remember id
-                        info.setName(rs.getString(2));
-                        HttpSession hs = httpRequest.getSession();
-                        hs.setAttribute("info", info);
 
-                        //retrieve business information
-                        BusinessUserInfoBean busi = new BusinessUserInfoBean();
-                        busi.setBusinessName(rs.getString(4));
-                        busi.setEmail(rs.getString(5));
-                        busi.setBusType(rs.getString(6));
-                        busi.setBusAddr(rs.getString(7));
-                        hs.setAttribute("user", busi);
+            HttpSession hs = httpRequest.getSession();
+            CasualUserInfoBean cuser = (CasualUserInfoBean) lookupCasualBean(httpRequest);
+            LoginBean lb = (LoginBean) lookupLoginBeanBean(httpRequest);
+            cuser.setSet(true);
+            lb.setValid(true);
 
-                        System.out.println("Authentication Successful!");
-                        break;
-                    }
-                }
-            }
-            */
-
-            /*
-            //Check in casual users
-            prpStmt = conn.prepareStatement(query2);
-            prpStmt.setString(1, data.get(0)); //user_name
-            prpStmt.setString(2, data.get(1)); //password
-            rs = prpStmt.executeQuery();
-
-
-            while (rs.next()) {
-                if (rs.getString(2).equalsIgnoreCase(data.get(0))) { //check username
-                    if (rs.getString(3).equalsIgnoreCase(data.get(1))) { //check password
-                        info.setValid(true); //remember valid
-                        info.setId(rs.getInt(1)); //remember id
-                        info.setName(rs.getString(2));
-                        HttpSession hs = httpRequest.getSession();
-                        hs.setAttribute("info", info);
-                        System.out.println("Authentication Successful!");
-                        break;
-                    }
-                }
-            }
-            */
             conn.close();
         } catch (SQLException e) {
             System.out.println("SQL Exception Found Querying For Registering");
@@ -165,26 +127,31 @@ public class CasualUserRegisterHandler implements IHandler {
                 conn = null;
             }
             /*
-            if (!info.isValid()) {
-                System.out.println("Authentication Failed. . .");
-            }
-            */
+             if (!info.isValid()) {
+             System.out.println("Authentication Failed. . .");
+             }
+             */
         }
     }
 
-    /*
     private LoginBean lookupLoginBeanBean(HttpServletRequest request) {
         HttpSession httpSession = request.getSession(true);
         LoginBean loginbean = (LoginBean) httpSession.getAttribute("info");
-        if(loginbean == null){
+        if (loginbean == null) {
             loginbean = new LoginBean();
             httpSession.setAttribute("info", loginbean);
         }
         return loginbean;
     }
 
-    public LoginBean getBean(){
-        return info;
+    private CasualUserInfoBean lookupCasualBean(HttpServletRequest request) {
+        HttpSession httpSession = request.getSession(true);
+        CasualUserInfoBean cuser = (CasualUserInfoBean) httpSession.getAttribute("cuser");
+        if (cuser == null) {
+            System.out.println("cuser null at loginHandler");
+            cuser = new CasualUserInfoBean();
+            httpSession.setAttribute("cuser", cuser);
+        }
+        return cuser;
     }
-    */
 }

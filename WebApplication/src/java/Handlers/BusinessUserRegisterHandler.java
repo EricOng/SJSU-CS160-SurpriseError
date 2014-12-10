@@ -5,6 +5,8 @@
  */
 package Handlers;
 
+import Bean.BusinessUserInfoBean;
+import Bean.LoginBean;
 import Servlets.AddOfferFormServlet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +20,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 /**
@@ -85,6 +88,12 @@ public class BusinessUserRegisterHandler implements IHandler {
             prpStmt.setString(9, data.get(8)); //start_date
             int wtv = prpStmt.executeUpdate();
             System.out.println("Affected rows: " + wtv);
+            
+            HttpSession hs = httpRequest.getSession();
+            BusinessUserInfoBean buser = (BusinessUserInfoBean) lookupBusinessBean(httpRequest);
+            LoginBean lb = (LoginBean) lookupLoginBeanBean(httpRequest);
+            buser.setSet(true);
+            lb.setValid(true);
             /*
             while (rs.next()) {
                 if (rs.getString(2).equalsIgnoreCase(data.get(0))) { //check username
@@ -171,19 +180,24 @@ public class BusinessUserRegisterHandler implements IHandler {
         }
     }
     
-    /*
     private LoginBean lookupLoginBeanBean(HttpServletRequest request) {
         HttpSession httpSession = request.getSession(true);
         LoginBean loginbean = (LoginBean) httpSession.getAttribute("info");
-        if(loginbean == null){
+        if (loginbean == null) {
             loginbean = new LoginBean();
             httpSession.setAttribute("info", loginbean);
         }
         return loginbean;
     }
 
-    public LoginBean getBean(){
-        return info;
+    private BusinessUserInfoBean lookupBusinessBean(HttpServletRequest request) {
+        HttpSession httpSession = request.getSession(true);
+        BusinessUserInfoBean buser = (BusinessUserInfoBean) httpSession.getAttribute("buser");
+        if (buser == null) {
+            System.out.println("cuser null at loginHandler");
+            buser = new BusinessUserInfoBean();
+            httpSession.setAttribute("cuser", buser);
+        }
+        return buser;
     }
-    */
 }

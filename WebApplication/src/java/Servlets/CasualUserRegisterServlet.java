@@ -39,7 +39,7 @@ public class CasualUserRegisterServlet extends HttpServlet {
             handler.query(handler.parse(request));
             //TO-DO:  Send to dashboard when finished.
             //Current:  Send to url: "/SearchServlet" that is already mapped to the SearchServlet class for handling.
-
+            request.getRequestDispatcher("/DashboardServlet").forward(request, response);
             /*
             if(handler.getBean().isValid())
                 request.getRequestDispatcher("/WEB-INF/dashboard.jsp").forward(request, response);

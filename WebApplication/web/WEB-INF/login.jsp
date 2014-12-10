@@ -17,232 +17,218 @@
     </head>
     <body style="">
         <div class="login"> 
-            <a id="modal_trigger1" href="#modal">Login   </a>
+            <a id="modal_trigger1" href="#modal1">Login   </a>
             <a>|</a>
-            <a id="modal_trigger2" href="#modal">  Sign Up</a> 
+            <a id="modal_trigger2" href="#modal2">  Sign Up</a> 
         </div>
-            <div id="modal" class="popupContainer" style="display:none;">
-                <header class="popupHeader">
-                    <span class="header_title">Login</span>
-                    <span class="modal_close"><i class="fa fa-times"></i></span>
-                </header> 
 
-                <section class="popupBody"> 
-                    <!-- Social Login -->
-                    <div class="social_login">
-                        <div class="">
-                        </div>
-                        <!-- Temporary Removal
-                        <div class="centeredText">
-                            <span>Or use your Email address</span>
+        <div id="modal1" class="popupContainer1" style="display:none;">
+            <header class="popupHeader">
+                <span class="header_title">Login</span>
+                <span class="modal_close"><i class="fa fa-times"></i></span>
+            </header> 
+
+            <section class="popupBody"> 
+                <!-- Username & Password Login form -->
+                <div class="user_login">
+                    <form action="login" method="post">
+                        <label>Email / Username</label>
+                        <input type="text" name="User" value="dummy_bus01"/>
+                        <br />
+
+                        <label>Password</label>
+                        <input type="password" name="Pass" value="dummy_b_pass"/>
+                        <br />
+
+                        <div class="checkbox">
+                            <input id="remember" type="checkbox" />
+                            <label for="remember">Remember me on this computer</label>
                         </div>
 
                         <div class="action_btns">
-                            <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
-                            <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
+                            <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                            <div class="one_half last">
+                                <button id="button_red" type="submit" class="button_red">Login</button>
+                            </div> 
                         </div>
-                        -->
+                    </form>
+                    <a href="#" class="forgot_password">Forgot password?</a>
+                </div>
+            </section>
+        </div>
+
+
+        <div id="modal2" class="popupContainer2" style="display:none;">
+            <header class="popupHeader">
+                <span class="header_title">Login</span>
+                <span class="modal_close"><i class="fa fa-times"></i></span>
+            </header> 
+
+            <section class="popupBody"> 
+                <!-- Register Form -->
+                <div class="register_wrapper">
+                    <div class="user_register">
+                        <div class="CRegister_layout">
+                            <form action="CRegister">
+                                <label>Casual User Register</label>
+                                <br />
+
+                                <div class="CRegister_wrapper">
+
+                                    <label>User Name</label>
+                                    <input type="text" name="name"/>
+                                    <br />
+
+                                    <label>First Name</label>
+                                    <input type="text" name="first_name"/>
+                                    <br />
+
+                                    <label>Last Name</label>
+                                    <input type="text" name="last_name"/>
+                                    <br />
+
+                                    <label>Email Address</label>
+                                    <input type="email" name="email"/>
+                                    <br />
+
+                                    <label>Password</label>
+                                    <input type="password" name="pass"/>
+                                    <br />
+
+                                    <label>Birthday (yyyy-mm-dd)</label>
+                                    <input type="text" name="birthday"/>
+                                    <br />
+
+                                    <label>Gender (M/F)</label>
+                                    <input type="text" name="gender"/>
+                                    <br />
+
+                                </div>
+
+                                <div class="checkbox">
+                                    <input id="send_updates" type="checkbox" />
+                                    <label for="send_updates">Send me occasional email updates</label>
+                                </div>
+
+                                <div class="action_btns">
+                                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                                    <!-- <div class="one_half last"><a href="CRegister" class="btn btn_red">Register</a></div> -->
+                                    <div class="one_half last">
+                                        <button id="button_red" type="submit" class="button_red">Register</button>
+                                    </div> 
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="divider" />
+
+                        <div class="BRegister_layout">
+                            <form action="BRegister">
+                                <label>Business User Register</label>
+                                <br />
+
+                                <div class="BRegister_wrapper">
+
+                                    <label>User Name</label>
+                                    <input type="text" name="b_name"/>
+                                    <br />
+
+                                    <label>Password</label>
+                                    <input type="password" name="b_pass"/>
+                                    <br />
+
+                                    <label>Business Name</label>
+                                    <input type="text" name="b_business_name"/>
+                                    <br />
+
+                                    <label>Email Address</label>
+                                    <input type="email" name="b_email_addr"/>
+                                    <br />
+
+                                    <label>Business Type</label>
+                                    <input type="text" name="b_bussiness_type"/>
+                                    <br />
+
+                                    <label>Business Address</label>
+                                    <input type="text" name="b_bussiness_address"/>
+                                    <br />
+
+                                    <label>Zipcode</label>
+                                    <input type="text" name="b_zipcode"/>
+                                    <br />
+
+                                    <label>Business Rating</label>
+                                    <input type="text" name="b_bussiness_rating"/>
+                                    <br />
+
+                                    <label>Business Start Date (yyyy-mm-dd)</label>
+                                    <input type="text" name="b_start_date"/>
+                                    <br />
+
+                                </div>
+
+                                <div class="checkbox">
+                                    <input id="send_updates" type="checkbox" />
+                                    <label for="send_updates">Send me occasional email updates</label>
+                                </div>
+
+                                <div class="action_btns">
+                                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                                    <!-- <div class="one_half last"><a href="CRegister" class="btn btn_red">Register</a></div> -->
+                                    <div class="one_half last">
+                                        <button id="button_red" type="submit" class="button_red">Register</button>
+                                    </div> 
+                                </div>
+                            </form>
+                        </div>
                     </div>
-
-                    <!-- Username & Password Login form -->
-                    <div class="user_login">
-                        <form action="login" method="post">
-                            <label>Email / Username</label>
-                            <input type="text" name="User" value="dummy_bus01"/>
-                            <br />
-
-                            <label>Password</label>
-                            <input type="password" name="Pass" value="dummy_b_pass"/>
-                            <br />
-
-                            <div class="checkbox">
-                                <input id="remember" type="checkbox" />
-                                <label for="remember">Remember me on this computer</label>
-                            </div>
- 
-                            <div class="action_btns">
-                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                                <div class="one_half last">
-                                    <button id="button_red" type="submit" class="button_red">Login</button>
-                                </div> 
-                            </div>
-                        </form>
-
-                        <a href="#" class="forgot_password">Forgot password?</a>
-                    </div>
-
-                    <!-- Register Form -->
-                    <div class="register_wrapper">
-	                    <div class="user_register">
-	                    	<div class="CRegister_layout">
-		                        <form action="CRegister">
-		                        	<label>Casual User Register</label>
-		                        	<br />
-
-		                        	<div class="CRegister_wrapper">
-
-		                            <label>User Name</label>
-		                            <input type="text" name="name"/>
-		                            <br />
-		                            
-		                            <label>First Name</label>
-		                            <input type="text" name="first_name"/>
-		                            <br />
-		                            
-		                            <label>Last Name</label>
-		                            <input type="text" name="last_name"/>
-		                            <br />
-
-		                            <label>Email Address</label>
-		                            <input type="email" name="email"/>
-		                            <br />
-
-		                            <label>Password</label>
-		                            <input type="password" name="pass"/>
-		                            <br />
-		                            
-		                            <label>Birthday (yyyy-mm-dd)</label>
-		                            <input type="text" name="birthday"/>
-		                            <br />
-		                            
-		                            <label>Gender (M/F)</label>
-		                            <input type="text" name="gender"/>
-		                            <br />
-
-		                            </div>
-
-		                            <div class="checkbox">
-		                                <input id="send_updates" type="checkbox" />
-		                                <label for="send_updates">Send me occasional email updates</label>
-		                            </div>
-
-		                            <div class="action_btns">
-		                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-		                                <!-- <div class="one_half last"><a href="CRegister" class="btn btn_red">Register</a></div> -->
-		                                <div class="one_half last">
-		                                    <button id="button_red" type="submit" class="button_red">Register</button>
-		                                </div> 
-		                            </div>
-		                        </form>
-	                        </div>
-
-							<div class="divider">
-
-	                        <div class="BRegister_layout">
-		                        <form action="BRegister">
-		                        	<label>Business User Register</label>
-		                        	<br />
-
-			                        	<div class="BRegister_wrapper">
-
-			                        	<label>User Name</label>
-			                            <input type="text" name="b_name"/>
-			                            <br />
-
-			                            <label>Password</label>
-			                            <input type="password" name="b_pass"/>
-			                            <br />
-
-			                            <label>Business Name</label>
-			                            <input type="text" name="b_business_name"/>
-			                            <br />
-
-			                            <label>Email Address</label>
-			                            <input type="email" name="b_email_addr"/>
-			                            <br />
-
-			                            <label>Business Type</label>
-			                            <input type="text" name="b_bussiness_type"/>
-			                            <br />
-
-			                            <label>Business Address</label>
-			                            <input type="text" name="b_bussiness_address"/>
-			                            <br />
-
-			                            <label>Zipcode</label>
-			                            <input type="text" name="b_zipcode"/>
-			                            <br />
-
-			                            <label>Business Rating</label>
-			                            <input type="text" name="b_bussiness_rating"/>
-			                            <br />
-			                            
-			                            <label>Business Start Date (yyyy-mm-dd)</label>
-			                            <input type="text" name="b_start_date"/>
-			                            <br />
-
-		                            </div>
-
-		                            <div class="checkbox">
-		                                <input id="send_updates" type="checkbox" />
-		                                <label for="send_updates">Send me occasional email updates</label>
-		                            </div>
-
-		                            <div class="action_btns">
-		                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-		                                <!-- <div class="one_half last"><a href="CRegister" class="btn btn_red">Register</a></div> -->
-		                                <div class="one_half last">
-		                                    <button id="button_red" type="submit" class="button_red">Register</button>
-		                                </div> 
-		                            </div>
-		                        </form>
-	                        </div>
-	                    </div>
-                    </div>
-                </section>
+                </div>
+            </section>
         </div>
 
         <script type="text/javascript">
             $("#modal_trigger1").leanModal({top: 200, overlay: 0.6, closeButton: ".modal_close"});
             $("#modal_trigger2").leanModal({top: 200, overlay: 0.6, closeButton: ".modal_close"});
-           
-            
-            $(function() {
-                
+
+            $(function () {
+
                 //Calling Login Form skipping pop menu
-                $("#modal_trigger1").click(function() {
-                    $(".social_login").hide();
+                $("#modal_trigger1").click(function () {
                     $(".user_register").hide();
                     $(".user_login").show();
                     $(".header_title").text('Login');
                     return false;
                 })
-                
+
                 //Calling Register Form skipping pop menu
-                $("#modal_trigger2").click(function() {
-                    $(".social_login").hide();
+                $("#modal_trigger2").click(function () {
                     $(".user_login").hide();
                     $(".user_register").show();
                     $(".header_title").text('Register');
                     return false;
                 })
-                
+
                 // Calling Login Form
-                $("#login_form").click(function() {
-                    $(".social_login").hide();
+                $("#login_form").click(function () {
                     $(".user_login").show();
                     return false;
                 });
 
                 // Calling Register Form
-                $("#register_form").click(function() {
-                    $(".social_login").hide();
+                $("#register_form").click(function () {
                     $(".user_register").show();
                     $(".header_title").text('Register');
                     return false;
                 });
 
                 // Going back to Social Forms
-                $(".back_btn").click(function() {
+                $(".back_btn").click(function () {
                     $(".user_login").hide();
                     $(".user_register").hide();
-                    $(".social_login").show();
                     $(".header_title").text('Login');
                     return false;
                 });
-
             })
         </script>
-
     </body>
 </html>
