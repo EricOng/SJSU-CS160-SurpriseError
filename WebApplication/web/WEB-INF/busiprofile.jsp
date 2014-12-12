@@ -92,7 +92,7 @@
                 </label>
                 <label>
                     <span>Business Start Date</span>
-                     <input id="sday" type="text" name="sday" placeholder=" Need to display the start date" />
+                     <input id="sday" type="date" name="sday"/>
                 </label>
                  <label>
                     <span>&nbsp;</span> 
