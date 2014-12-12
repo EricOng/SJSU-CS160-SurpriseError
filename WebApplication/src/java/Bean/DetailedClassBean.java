@@ -6,6 +6,8 @@
 
 package Bean;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Eileen
@@ -25,6 +27,7 @@ public class DetailedClassBean {
     private int Provider_id;
     private String duration;
     private String avail;
+     private ArrayList<ReviewBean> ReviewList = new ArrayList<ReviewBean>();
     
     public DetailedClassBean(){
        
@@ -119,4 +122,15 @@ public class DetailedClassBean {
     public double getRating(){
         return rating;
     }
+    
+    public void addToReviewList(ReviewBean c){
+        ReviewList.add(c);
+    }
+    public ArrayList<ReviewBean> getReviewList(){
+        return ReviewList;
+    }
+    public void reset(){
+        ReviewList = new ArrayList<ReviewBean>();
+
+    }    
 }

@@ -6,6 +6,7 @@
 
 package Servlets;
 
+import Bean.ReviewBean;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -84,6 +85,9 @@ public class BrowseClassServlet extends HttpServlet {
         String query = "Select *"
                 + " from mydb.classes"
                 + " where id_class = ? ;";
+        String query_review = "select A.id_reviews, A.class_id, B.id_user_casual, B.user_name, A.review_text"
+                + " from mydb.reviews A, mydb.user_casual B"
+                + " where A.class_id = ? and A.user_id = B.id_user_casual;";
  
         Statement st;
       try {
@@ -103,6 +107,7 @@ public class BrowseClassServlet extends HttpServlet {
             prpStmt.setString(1, request.getParameter("param1")); //class id
             rs = prpStmt.executeQuery();
             DetailedClassBean newClass = new DetailedClassBean();
+            newClass.reset();
             while (rs.next()) {
               //System.out.println("here?= "+ count);
                 System.out.println("1: "+rs.getString(1)+", ");
@@ -129,6 +134,33 @@ public class BrowseClassServlet extends HttpServlet {
                 newClass.setClassPrereqs(rs.getString(10));
                
             }
+            
+            
+                  System.out.println("-----------------------------------------");
+                  prpStmt = conn.prepareStatement(query_review);
+                  System.out.println("class id= "+request.getParameter("param1"));
+                  prpStmt.setString(1, request.getParameter("param1")); //class_id
+                  rs = prpStmt.executeQuery();
+                  while (rs.next()) {
+                    System.out.println("*********here?");
+                    System.out.print(rs.getString(1)+", ");
+                    System.out.print(rs.getString(2)+", ");
+                    System.out.print(rs.getString(3)+", ");
+                    System.out.print(rs.getString(4)+", ");
+                    System.out.println(rs.getString(5));
+
+
+                    ReviewBean newReview = new ReviewBean();
+                    newReview.setReviewId(Integer.parseInt(rs.getString(1)));
+                    newReview.setClassId(Integer.parseInt(rs.getString(2)));
+                    newReview.setUserId(Integer.parseInt(rs.getString(3)));
+                    newReview.setUserName(rs.getString(4));
+                    newReview.setText(rs.getString(5));
+                    newClass.addToReviewList(newReview);
+                    
+                }
+                   System.out.println("-----------------------------------------");
+            
             System.out.println("=====================================");
             System.out.println("# of rows: ");
             System.out.println("=====================================");

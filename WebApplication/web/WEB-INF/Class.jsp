@@ -5,6 +5,7 @@
 --%>
 
 <%@ page import="Bean.DetailedClassBean" %> 
+<%@ page import="Bean.ReviewBean" %> 
 <%@ page import="java.util.* " %>
 <%@page contentType="text/html" pageEncoding="UTF-8" session='true'%>
 <!DOCTYPE HTML>
@@ -90,32 +91,34 @@
 				</div>
 				<hr>
 
+                                <%                     
+                                   ArrayList<ReviewBean> rList = myClass.getReviewList();
+                                   int numOfReview = rList.size();
+                                %>       
 				<div class="review-box">
-					<h2> 15 Reviews</h2>
+					<h2> <%=numOfReview%> Reviews</h2>
 
 					<table class="review-individual">
-						<tr >
+					<%                                   
+                                         for(int i=0; i<rList.size();i++){
+                                          ReviewBean myreview = rList.get(i);
+                                     %>   	
+                                            <tr >
 							<td style="width:20%;">
 								<div style="width:100%;height:95%;">
 								<img src="images/profile-pic.png" style="width:60%;display:block;margin-left:auto;margin-right:auto;"></div>
-								<div class="review-author">Eileen</div>
+								<div class="review-author"><%=myreview.getUserName()%></div>
 								</td>
 							<td style="width:80%;">
 								<div class="review-date"> 12 October 2014</div>
-								<div class="review-content">James was really nice and welcoming . The was bed was really comfortable and the location was within walking distance of plenty of things . I would stay there again</div>
+								<div class="review-content"><%=myreview.getText()%></div>
 							</td>
 						</tr>
 
-						<tr>
-							<td style="width:20%;">
-								<div style="width:100%;height:95%;">
-								<img src="images/profile-pic.png" style="width:60%;display:block;margin-left:auto;margin-right:auto;"></div>
-								<div class="review-author">Eileen</div>
-							<td style="width:80%;">
-								<div class="review-date">09 October 2014</div>
-								<div class="review-content">James was really nice and welcoming . The was bed was really comfortable and the location was within walking distance of plenty of things . I would stay there again</div>
-							</td>
-						</tr>								
+						
+                                                <%                                   
+                                         }
+                                     %>   
 					</table>	
 				</div>	
 			</div>
