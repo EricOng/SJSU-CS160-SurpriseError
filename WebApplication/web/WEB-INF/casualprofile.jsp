@@ -81,9 +81,8 @@
 
                  <label>
                     <span>Gender</span><select name="gender">
-                    <option value="" style="display:none">Choose your gender</option>
-                    <option value="F">Female</option>
-                    <option value="M">Male</option>
+                    <option value="f">Female</option>
+                    <option value="m">Male</option>
                     </select>
                 </label>    
                
