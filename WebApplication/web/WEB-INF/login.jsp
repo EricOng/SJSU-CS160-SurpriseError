@@ -28,7 +28,7 @@
                 <span class="modal_close"><i class="fa fa-times"></i></span>
             </header> 
 
-            <section class="popupBody"> 
+            <section class="popupBody" style="color:#666"> 
                 <!-- Username & Password Login form -->
                 <div class="user_login">
                     <form action="login" method="post">
