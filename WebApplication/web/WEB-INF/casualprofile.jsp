@@ -81,8 +81,9 @@
 
                  <label>
                     <span>Gender</span><select name="gender">
-                    <option value="f">Female</option>
-                    <option value="m">Male</option>
+                    <option selected="selected" value="${cuser.getGender()}">${cuser.getGender()}</option>
+                    <option value="F">Female</option>
+                    <option value="M">Male</option>
                     </select>
                 </label>    
                
